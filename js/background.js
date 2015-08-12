@@ -22,7 +22,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         frame: 'none'
       },
       function(win) {
-        win.fullscreen();
+        //win.fullscreen();
         
         win.onClosed.addListener(function() {
           console.log('closed presenter window');

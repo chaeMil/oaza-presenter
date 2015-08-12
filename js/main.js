@@ -25,6 +25,22 @@ window.onload = function() {
     $('#toolbarMenu').addClass('linux');
   }
   
+  //app close dialog
+  var closeAppDialog = document.querySelector('#closeAppDialog');
+
+  document.querySelector('#closeAppDialogYes').addEventListener("click", function(evt) {
+    window.close();
+  });
+  
+  document.querySelector('#closeAppDialogNo').addEventListener("click", function(evt) {
+    closeAppDialog.close();
+  });
+    
+  // called when the user Cancels the dialog, for example by hitting the ESC key
+  closeAppDialog.addEventListener("cancel", function(evt) {
+    closeAppDialog.close("canceled");
+  });
+  
 };
 
 
@@ -46,7 +62,8 @@ $(document).on("click", '.fullscreenPresenterButton', function(event) {
 });
 
 $(document).on("click", '#closeApp', function(event) { 
-  window.close();
+  event.preventDefault();
+  closeAppDialog.showModal();
 });
 
 // app wide keypresses 

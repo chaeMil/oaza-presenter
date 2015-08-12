@@ -96,7 +96,7 @@ toolbar .pure-menu .pure-menu-children {
 }
 
 sidebar {
-  width: 133px;
+  width: 256px;
   height: calc(100vh - 80px);
   position: fixed;
   top: 50px;
@@ -117,7 +117,7 @@ statusbar {
 }
 
 content {
-  width: calc(100vw - 165px);
+  width: calc(100vw - 288px);
   height: calc(100vh - 96px);
   position: fixed;
   left: 0;
@@ -174,4 +174,14 @@ btn:active {
   /* 16:9 ratio */
   display: block;
   content: '';
+}
+
+dialog {
+  border-radius: 3px;
+  border: 1px solid #AAAAAA;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+dialog h2 {
+  text-align: center;
 }
