@@ -48,13 +48,12 @@ window.onload = function() {
 
 $(document).on("click", '.setPresenterBg', function(event) { 
   var file = 'chrome-extension://' + globalData.appId + '/' + $(this).data('file');
-  console.log('changing presenter background to: ' + file);
+  console.log('changing presenter background to: ' + $(this).data('file'));
   setPresenterBackground(file);
 });
 
 $(document).on("click", '.setPresenterBibleVerse', function(event) { 
-  chrome.app.window.get('presenter').contentWindow.changeBibleVerse($(this).text(),
-    $(this).data('verse'), $(this).data('translation'));
+  setPresenterVerse($(this).text(), $(this).data('verse'), $(this).data('translation'));
 });
 
 $(document).on("click", '.fullscreenPresenterButton', function(event) { 
@@ -78,11 +77,23 @@ $(document).on('keydown', function (e) {
 
 //presenter functions 
 
+function setPresenterVerse(text, verse, translation) {
+  chrome.app.window.get('presenter').contentWindow.changeBibleVerse(text, verse, translation);
+  $('#bibleText').html(text);
+  $('#bibleVerse').html(verse);
+  $('#bibleTranslation').html(translation);
+}
+
 function setPresenterBackground(file) {
   chrome.app.window.get('presenter').contentWindow.changeBg(file);
-  $('#preview').css('background-image', 'url(' + file + ')');
+  //$('#preview').css('background-image', 'url(' + file + ')');
 }
 
 function setPresenterFullscreen() {
   chrome.app.window.get('presenter').contentWindow.setFullscreen();
+}
+
+function updatePreview(preview) {
+  console.log('updating preview');
+  $('#preview').attr("src", preview);
 }

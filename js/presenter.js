@@ -22,6 +22,7 @@ function changeBg(file) {
   var canvas = $('#canvas');
   var canvas1 = $('#canvas1');
   var canvas2 = $('#canvas2');
+  $('#previewBackdrop').attr("src", file);
   
   if (activeBgLayer == 1) {
     activeBgLayer = 2;
@@ -41,6 +42,7 @@ function changeBg(file) {
     canvas2.fadeOut(500);
   }
   
+  renderPreview();
   //$('#canvas').css('background-image', 'url(' + file + ')');
 }
 
@@ -49,4 +51,15 @@ function changeBibleVerse(text, verse, translation) {
   $('#bibleText').html(text);
   $('#bibleVerse').html(verse);
   $('#bibleTranslation').html(translation);
+}
+
+function renderPreview() {
+  html2canvas(document.body, {
+    onrendered: function(canvas){
+      console.log('rendering preview');
+      chrome.app.window.get('mainWindow').contentWindow.updatePreview(canvas.toDataURL());
+    },
+    logging: true,
+    background: undefined
+  }); 
 }
