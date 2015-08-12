@@ -1,4 +1,5 @@
 var presenterFreezed = false;
+var hideText = false;
 var content = $('#content');
 var globalData;
 
@@ -60,6 +61,16 @@ $(document).on("click", '.fullscreenPresenterButton', function(event) {
   setPresenterFullscreen();
 });
 
+$(document).on("click", '#hideTextButton', function(event) { 
+  if (hideText) {
+    presenterToggleText(false);
+    hideText = false;
+  } else {
+    presenterToggleText(true);
+    hideText = true;
+  }
+});
+
 $(document).on("click", '#closeApp', function(event) { 
   event.preventDefault();
   closeAppDialog.showModal();
@@ -76,6 +87,16 @@ $(document).on('keydown', function (e) {
 
 
 //presenter functions 
+
+function presenterToggleText(value) {
+  if (value) {
+    chrome.app.window.get('presenter').contentWindow.setTextVisible(hideText);
+    $('#hideTextButton').addClass('active');
+  } else {
+    chrome.app.window.get('presenter').contentWindow.setTextVisible(hideText);
+    $('#hideTextButton').removeClass('active');
+  }
+}
 
 function setPresenterVerse(text, verse, translation) {
   chrome.app.window.get('presenter').contentWindow.changeBibleVerse(text, verse, translation);
