@@ -12,6 +12,8 @@ body.presenter {
   padding: 3%;
   width: 100vw;
   height: 100vh;
+  background-color: black;
+  color: white;
 }
 
 body.presenter #canvas {
@@ -100,12 +102,14 @@ statusbar {
 
 content {
   width: calc(100vw - 165px);
-  height: calc(100vh - 80px);
+  height: calc(100vh - 96px);
   position: fixed;
   left: 0;
   top: 50px;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 16px;
+  overflow-y: scroll;
 }
 
 row {
