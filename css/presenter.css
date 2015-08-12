@@ -1,11 +1,54 @@
+#canvas, #canvas1, #canvas2 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; 
+}
+
+#canvas {
+  z-index: 30;
+}
+
+#canvas1 {
+  z-index: 41;
+}
+
+#canvas2 {
+  z-index: 40;
+}
+
 #bible {
+  position: relative;
   width: calc(100% - 16%);
   height: calc(100% - 16%);
   padding: 8%;
+  z-index: 50;
 }
 
 #bibleText {
   text-align: center;
   font-size: 5vw;
   text-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+#bibleVerse {
+  z-index: 50;
+  font-size: 2vw;
+  text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
+}
+
+#bibleTranslation {
+  z-index: 50;
+  font-size: 2vw;
+  text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
 }

@@ -1,3 +1,5 @@
+var activeBgLayer = 1;
+
 window.oncontextmenu = function(event) {
   /*event.preventDefault();
   event.stopPropagation();
@@ -17,7 +19,29 @@ function setFullscreen() {
 
 function changeBg(file) {
   console.log('changeBg ' + file);
-  $('#canvas').css('background-image', 'url(' + file + ')');
+  var canvas = $('#canvas');
+  var canvas1 = $('#canvas1');
+  var canvas2 = $('#canvas2');
+  
+  if (activeBgLayer == 1) {
+    activeBgLayer = 2;
+    
+    canvas2.show();
+    canvas2.css("z-index", 40);
+    canvas1.css("z-index", 41);
+    canvas2.css("background-image", "url('" + file + "')");
+    canvas1.fadeOut(500);
+  } else {
+    activeBgLayer = 1;
+    
+    canvas1.show();
+    canvas1.css("z-index", 40);
+    canvas2.css("z-index", 41);
+    canvas1.css("background-image", "url('" + file + "')");
+    canvas2.fadeOut(500);
+  }
+  
+  //$('#canvas').css('background-image', 'url(' + file + ')');
 }
 
 function changeBibleVerse(text, verse, translation) {

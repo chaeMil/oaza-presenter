@@ -49,7 +49,7 @@ window.onload = function() {
 $(document).on("click", '.setPresenterBg', function(event) { 
   var file = 'chrome-extension://' + globalData.appId + '/' + $(this).data('file');
   console.log('changing presenter background to: ' + file);
-  chrome.app.window.get('presenter').contentWindow.changeBg(file);
+  setPresenterBackground(file);
 });
 
 $(document).on("click", '.setPresenterBibleVerse', function(event) { 
@@ -77,6 +77,11 @@ $(document).on('keydown', function (e) {
 
 
 //presenter functions 
+
+function setPresenterBackground(file) {
+  chrome.app.window.get('presenter').contentWindow.changeBg(file);
+  $('#preview').css('background-image', 'url(' + file + ')');
+}
 
 function setPresenterFullscreen() {
   chrome.app.window.get('presenter').contentWindow.setFullscreen();
