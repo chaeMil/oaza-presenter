@@ -11,10 +11,16 @@
 </head>
 
 <body>
-  <toolbar>
-    <menu-item>
-      Oáza Presenter
-    </menu-item>
+  <toolbar class="draggable">
+    <menu id="toolbarMenu">
+      <menu-item class="title">
+        Oáza Presenter
+      </menu-item>
+    </menu>
+    
+    <close-button id="closeApp" class="not-draggable">
+      <i class="fa fa-times"></i>
+    </close-button>
   </toolbar>
   
   <content id="content">

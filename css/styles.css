@@ -36,12 +36,45 @@ toolbar {
   z-index: 503;
 }
 
+close-button {
+  width: 50px;
+  height: 50px;
+  color: white;
+  line-height: 50px;
+  font-size: 18px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+close-button:hover {
+  background-color: #00AAFF;
+}
+
+close-button.left {
+  left: 0;
+}
+
 toolbar menu-item {
   display: inline-bock;
   font-size: 18px;
   line-height: 50px;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+menu {
+  display: inline;
+  padding-left: 0;
+}
+
+menu.linux {
+  padding-left: 50px;
+}
+
+menu menu-item.title {
+  font-weight: bold;
 }
 
 sidebar {
