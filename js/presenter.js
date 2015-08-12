@@ -6,6 +6,10 @@ window.oncontextmenu = function(event) {
   return false;*/
 };
 
+$(document).ready(function(event) {
+  renderPreview();
+});
+
 $(document).on('keydown', function (e) {
   var key = String.fromCharCode(e.which);
   if (key == 'F') {
