@@ -1,5 +1,7 @@
 var presenterFreezed = false;
 var hideText = false;
+var hideBg = false;
+
 var content = $('#content');
 var globalData;
 
@@ -8,6 +10,8 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 });
 
 window.onload = function() {
+  
+  setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
   
   $('#imagesButton').click(function (e) {
     console.log('adding images layout');
@@ -48,13 +52,11 @@ window.onload = function() {
 // app wide buttons clicks
 
 $(document).on("click", '.setPresenterBg', function(event) { 
-  var file = 'chrome-extension://' + globalData.appId + '/' + $(this).data('file');
-  console.log('changing presenter background to: ' + $(this).data('file'));
-  setPresenterBackground(file);
+  setPresenterBackground($(this).data('file'));
 });
 
 $(document).on("click", '.setPresenterBibleVerse', function(event) { 
-  setPresenterVerse($(this).text(), $(this).data('verse'), $(this).data('translation'));
+  setPresenterText($(this).text(), $(this).data('verse'), $(this).data('translation'));
 });
 
 $(document).on("click", '.fullscreenPresenterButton', function(event) { 
@@ -70,6 +72,17 @@ $(document).on("click", '#hideTextButton', function(event) {
     hideText = true;
   }
 });
+
+$(document).on("click", '#hideBgButton', function(event) { 
+  if (hideBg) {
+    presenterToggleBg(false);
+    hideBg = false;
+  } else {
+    presenterToggleBg(true);
+    hideBg = true;
+  }
+});
+
 
 $(document).on("click", '#closeApp', function(event) { 
   event.preventDefault();
@@ -98,14 +111,22 @@ function presenterToggleText(value) {
   }
 }
 
-function setPresenterVerse(text, verse, translation) {
-  chrome.app.window.get('presenter').contentWindow.changeBibleVerse(text, verse, translation);
-  $('#bibleText').html(text);
-  $('#bibleVerse').html(verse);
-  $('#bibleTranslation').html(translation);
+function presenterToggleBg(value) {
+  if (value) {
+    chrome.app.window.get('presenter').contentWindow.setBgVisible(hideBg);
+    $('#hideBgButton').addClass('active');
+  } else {
+    chrome.app.window.get('presenter').contentWindow.setBgVisible(hideBg);
+    $('#hideBgButton').removeClass('active');
+  }
+}
+
+function setPresenterText(text, verse, translation) {
+  chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
 }
 
 function setPresenterBackground(file) {
+  file = 'chrome-extension://' + globalData.appId + '/' + file;
   chrome.app.window.get('presenter').contentWindow.changeBg(file);
   //$('#preview').css('background-image', 'url(' + file + ')');
 }

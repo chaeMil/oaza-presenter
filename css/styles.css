@@ -6,6 +6,27 @@
   -webkit-app-region: no-drag;
 }
 
+.custom_scrollbar::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+.custom_scrollbar::-webkit-scrollbar-track {
+	background-color: rgba(0,0,0,0);
+	-webkit-border-radius: 5px;
+}
+.custom_scrollbar::-webkit-scrollbar-thumb:vertical {
+	background-color: rgba(0,0,0,.2);
+	-webkit-border-radius: 6px;
+}
+.custom_scrollbar::-webkit-scrollbar-thumb:vertical:hover,
+.custom_scrollbar::-webkit-scrollbar-thumb:horizontal:hover {
+	background: #0088FF;
+}
+.custom_scrollbar::-webkit-scrollbar-thumb:horizontal {
+	background-color: rgba(0,0,0,.2);
+	-webkit-border-radius: 6px;
+}
+
 body.presenter {
   cursor: none;
   margin: 0;
@@ -208,4 +229,12 @@ dialog h2 {
 .setPresenterBg {
   margin: 0px;
   margin-bottom: -3px;
+  -webkit-transition-duration: 200ms;
+}
+
+.setPresenterBg:hover {
+  -webkit-filter: brightness(1.1);
+  -webkit-transition-duration: 50ms;
+  z-index: 5;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }

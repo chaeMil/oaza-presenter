@@ -49,7 +49,7 @@ function changeBg(file) {
   renderPreview();
 }
 
-function changeBibleVerse(text, verse, translation) {
+function changeText(text, verse, translation) {
   console.log('changeBibleVerse: ' + text + ' ' + verse + ' ' + translation);
   $('#bibleText').html(text);
   $('#bibleVerse').html(verse);
@@ -60,9 +60,19 @@ function changeBibleVerse(text, verse, translation) {
 
 function setTextVisible(value) {
   if (value) {
-    $('#bible').show();
+    $('#bible').fadeIn(500);
   } else {
-    $('#bible').hide();
+    $('#bible').fadeOut(500);
+  }
+  
+  renderPreview();
+}
+
+function setBgVisible(value) {
+  if (value) {
+    $('#bg').fadeIn(500);
+  } else {
+    $('#bg').fadeOut(500);
   }
   
   renderPreview();

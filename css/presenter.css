@@ -41,7 +41,7 @@
 #bibleText {
   text-align: center;
   font-size: 5vw;
-  text-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 1vw rgba(0, 0, 0, 0.6);
   z-index: 50;
   position: absolute;
   top: 50%;
@@ -50,14 +50,22 @@
   transform: translate(-50%, -50%)
 }
 
+#bibleSource {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  text-align: right;
+}
+
 #bibleVerse {
   z-index: 50;
   font-size: 2vw;
-  text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
+  padding-bottom: 0.5%;
+  text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
 }
 
 #bibleTranslation {
   z-index: 50;
   font-size: 2vw;
-  text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
 }
