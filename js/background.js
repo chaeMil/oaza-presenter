@@ -23,6 +23,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       },
       function(win) {
         win.fullscreen();
+        
         win.onClosed.addListener(function() {
           console.log('closed presenter window');
         });
@@ -33,9 +34,10 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       'index.html',
       {
         id: 'mainWindow',
-        frame: 'none',
+        frame: 'none'
       }, 
       function(win) {
+        
         win.onClosed.addListener(function() {
           console.log('closed main window');
           chrome.app.window.get('presenter').close();

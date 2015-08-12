@@ -9,7 +9,7 @@
 body.presenter {
   cursor: none;
   margin: 0;
-  padding: 3%;
+  padding: 0;
   width: 100vw;
   height: 100vh;
   background-color: black;
@@ -77,6 +77,22 @@ menu.linux {
 
 menu menu-item.title {
   font-weight: bold;
+}
+
+toolbar .pure-menu {
+  display: inline;
+}
+
+toolbar .pure-menu .top-menu {
+  color: white;
+}
+
+toolbar .pure-menu .top-menu:hover {
+  color: black;
+}
+
+toolbar .pure-menu .pure-menu-children {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 sidebar {

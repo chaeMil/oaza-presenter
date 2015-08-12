@@ -18,7 +18,6 @@
   },
   
   "permisions": [
-    "fullscreen",
-    "fileSystem" 
+    "app.window.fullscreen"
   ]
 }

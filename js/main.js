@@ -27,18 +27,40 @@ window.onload = function() {
   
 };
 
+
+// app wide buttons clicks
+
 $(document).on("click", '.setPresenterBg', function(event) { 
   var file = 'chrome-extension://' + globalData.appId + '/' + $(this).data('file');
   console.log('changing presenter background to: ' + file);
   chrome.app.window.get('presenter').contentWindow.changeBg(file);
 });
 
-
 $(document).on("click", '.setPresenterBibleVerse', function(event) { 
   chrome.app.window.get('presenter').contentWindow.changeBibleVerse($(this).text(),
     $(this).data('verse'), $(this).data('translation'));
 });
 
+$(document).on("click", '.fullscreenPresenterButton', function(event) { 
+  setPresenterFullscreen();
+});
+
 $(document).on("click", '#closeApp', function(event) { 
   window.close();
 });
+
+// app wide keypresses 
+
+$(document).on('keydown', function (e) {
+  var key = String.fromCharCode(e.which);
+  if (key == 'F') {
+    setPresenterFullscreen();
+  }
+});
+
+
+//presenter functions 
+
+function setPresenterFullscreen() {
+  chrome.app.window.get('presenter').contentWindow.setFullscreen();
+}

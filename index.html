@@ -13,9 +13,23 @@
 <body>
   <toolbar class="draggable">
     <menu id="toolbarMenu">
+      
       <menu-item class="title">
         Oáza Presenter
       </menu-item>
+      
+      <div class="pure-menu pure-menu-horizontal not-draggable">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+            <a class="pure-menu-link top-menu">Plátno</a>
+            <ul class="pure-menu-children">
+              <li class="pure-menu-item">
+                <a class="pure-menu-link fullscreenPresenterButton">Přes celou obrazovku [F]</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </menu>
     
     <close-button id="closeApp" class="not-draggable">

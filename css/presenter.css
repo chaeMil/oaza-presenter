@@ -1,0 +1,11 @@
+#bible {
+  width: calc(100% - 16%);
+  height: calc(100% - 16%);
+  padding: 8%;
+}
+
+#bibleText {
+  text-align: center;
+  font-size: 5vw;
+  text-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+}
