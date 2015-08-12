@@ -1,0 +1,18 @@
+{
+  "name": "OazaPresenter",
+  "description": "",
+  "authors": [
+    "Michal Mlejnek <chaemil72@gmail.com>"
+  ],
+  "dependencies": {
+    "font-awesome": "4.4.0",
+    "jquery": "2.1.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
