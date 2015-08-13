@@ -105,12 +105,22 @@ toolbar .pure-menu .pure-menu-children {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-sidebar {
+sidebar.right {
   width: 256px;
   height: calc(100vh - 80px);
   position: fixed;
   top: 50px;
   right: 0;
+  background-color: #EEEEEE;
+  z-index: 501;
+}
+
+sidebar.left {
+  width: 256px;
+  height: calc(100vh - 80px);
+  position: fixed;
+  top: 50px;
+  left: 0;
   background-color: #EEEEEE;
   z-index: 501;
 }
@@ -135,13 +145,13 @@ statusbar {
 }
 
 content {
-  width: calc(100vw - 288px);
+  width: calc(100vw - 533px);
   height: calc(100vh - 96px);
   position: fixed;
-  left: 0;
+  left: 256px;
   top: 50px;
   padding-left: 16px;
-  padding-right: 16px;
+  margin-right: 0;
   padding-bottom: 16px;
   overflow-y: scroll;
 }
@@ -189,8 +199,31 @@ btn.active {
   background-color: #D5D5D5;
 }
 
-#preview {
+#preview, #currentBg {
   width: 100%;
+}
+
+#preview.big {
+  height: 70vh;
+  width: auto;
+  position: fixed;
+  right: 0;
+  bottom: 32px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.preview:hover .zoom {
+  display: block;
+}
+
+.preview .zoom {
+  display: none;
+  position: fixed;
+  bottom: 45px;
+  right: 12px;
+  color: white;
+  font-size: 36px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 .img-responsive {

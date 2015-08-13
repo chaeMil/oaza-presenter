@@ -35,6 +35,12 @@ window.onload = function() {
     $('#toolbarMenu').addClass('linux');
   }
   
+  //zoom preview
+  $('#preview').click(function (e) {
+    console.log('toggle preview zoom');
+    $(this).toggleClass('big', 1000, "easeOutSine");
+  });
+  
   //app close dialog
   var closeAppDialog = document.querySelector('#closeAppDialog');
 
@@ -182,6 +188,7 @@ function setPresenterText(text, verse, translation) {
 function setPresenterBackground(file) {
   currentBg = file;
   file = 'chrome-extension://' + globalData.appId + '/' + file;
+  $('#currentBg').attr('src', file);
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeBg(file);
   }

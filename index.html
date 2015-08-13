@@ -41,7 +41,14 @@
     
   </content>
   
-  <sidebar>
+  <sidebar class="left">
+    <align-bottom>
+      <row>aktuální pozadí:</row>
+      <img id="currentBg" src="" />
+    </align-bottom>
+  </sidebar>
+  
+  <sidebar class="right">
     <row>
       <btn id="bibleButton"><i class="fa fa-book"></i> Bible</btn>
       <btn><i class="fa fa-music"></i> Písně</btn>
@@ -61,9 +68,10 @@
       <btn id="freezePresenterButton"><i class="fa fa-lock"></i> Zamknout</btn>
     </row>
     
-    <align-bottom>
+    <align-bottom class="preview">
       <row>náhled:</row>
       <img id="preview" src="" />
+      <i class="fa fa-search zoom"></i>
     </align-bottom>
   </sidebar>
   
