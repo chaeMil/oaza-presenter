@@ -1,3 +1,9 @@
+var globalData;
+
+chrome.runtime.getBackgroundPage(function(bgpage) {
+  globalData = bgpage.globalData;
+});
+
 var activeBgLayer = 1;
 
 window.oncontextmenu = function(event) {
@@ -5,6 +11,28 @@ window.oncontextmenu = function(event) {
   event.stopPropagation();
   return false;*/
 };
+
+chrome.app.window.current().onBoundsChanged.addListener(function() {
+  if (globalData.presenterAspectRatio !== 0) {
+    setTimeout(function (e) {
+      var height = chrome.app.window.current().innerBounds.height;
+      switch(globalData.presenterAspectRatio) {
+        case 1:
+          width = parseInt(height * (16/9));
+          break;
+        case 2:
+          width = parseInt(height * (4/3));
+          break;
+        case 3:
+          width = height;
+          break;
+      }
+      chrome.app.window.current().innerBounds.width = width;
+    }, 1000);
+  }
+  
+  renderPreview();
+});
 
 $(document).ready(function(event) {
   renderPreview();

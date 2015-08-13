@@ -6,6 +6,7 @@
  */
 
 var globalData = {};
+globalData.presenterAspectRatio = 0;
  
 console.log(chrome.runtime.getPlatformInfo.os);
  
@@ -22,7 +23,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         frame: 'none',
         innerBounds: {
           minHeight: 480,
-          minWidth: 640
+          minWidth: 480
         },
       },
       function(win) {

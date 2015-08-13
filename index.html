@@ -24,7 +24,20 @@
             <a class="pure-menu-link top-menu">Plátno</a>
             <ul class="pure-menu-children">
               <li class="pure-menu-item">
-                <a class="pure-menu-link fullscreenPresenterButton">Přes celou obrazovku [F]</a>
+                <a class="pure-menu-link fullscreenPresenterButton">
+                  Přes celou obrazovku [F]</a>
+              </li>
+              <li class="pure-menu-item">
+                <a class="pure-menu-link presenterAspectRatioButton"
+                  data-ratio="1">Poměr stran 16:9</a>
+              </li>
+              <li class="pure-menu-item">
+                <a class="pure-menu-link presenterAspectRatioButton"
+                  data-ratio="2">Poměr stran 4:3</a>
+              </li>
+              <li class="pure-menu-item">
+                <a class="pure-menu-link presenterAspectRatioButton"
+                  data-ratio="3">Poměr stran 1:1</a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterSetResolution" 
@@ -96,7 +109,7 @@
   </sidebar>
   
   <statusbar>
-    
+    <span id="statusAspectRatio">poměr stran: neurčen</span>
   </statusbar>
   
   <dialog id="closeAppDialog">

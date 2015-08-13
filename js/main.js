@@ -11,7 +11,7 @@ var content = $('#content');
 var globalData;
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
-   globalData = bgpage.globalData;
+  globalData = bgpage.globalData;
 });
 
 window.onload = function() {
@@ -74,6 +74,10 @@ $(document).on("click", '.fullscreenPresenterButton', function(event) {
   setPresenterFullscreen();
 });
 
+$(document).on("click", '.presenterAspectRatioButton', function(event) { 
+  setPresenterAspectRatio($(this).data('ratio'));
+});
+
 $(document).on("click", '.presenterSetResolution', function(event) { 
   setPresenterResolution($(this).data('res'));
 });
@@ -119,9 +123,29 @@ $(document).on('keydown', function (e) {
 
 //presenter functions 
 
+function setPresenterAspectRatio(value) {
+  globalData.presenterAspectRatio = value;
+  var currentWidth = chrome.app.window.get('presenter').innerBounds.width;
+  chrome.app.window.get('presenter').innerBounds.width = currentWidth + 1;
+  switch(value) {
+    case 0:
+      $('#statusAspectRatio').text('poměr stran: neurčen');
+      break;
+    case 1:
+      $('#statusAspectRatio').text('poměr stran: 16:9');
+      break;
+    case 2:
+      $('#statusAspectRatio').text('poměr stran: 4:3');
+      break;
+    case 3:
+      $('#statusAspectRatio').text('poměr stran: 1:1');
+      break;
+  }
+}
+
 function setPresenterResolution(res) {
+  setPresenterAspectRatio(0);
   resArray = res.split("x");
-  chrome.app.window.get()
   chrome.app.window.get('presenter').innerBounds.width = parseInt(resArray[0]);
   chrome.app.window.get('presenter').innerBounds.height = parseInt(resArray[1]);
 }

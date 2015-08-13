@@ -144,6 +144,12 @@ statusbar {
   z-index: 502;
 }
 
+statusbar span {
+  line-height: 30px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 content {
   width: calc(100vw - 533px);
   height: calc(100vh - 96px);
