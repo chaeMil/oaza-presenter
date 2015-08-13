@@ -19,15 +19,11 @@ window.onload = function() {
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
   
   $('#imagesButton').click(function (e) {
-    console.log('adding images layout');
-    content.load('layouts/images.html', function(e) {
-    });
+    content.load('layouts/images.html');
   });
   
   $('#bibleButton').click(function (e) {
-    console.log('adding bible layout');
-    content.load('layouts/bible.html', function(e) {
-    });
+    content.load('layouts/bible.html');
   });
   
   if (globalData.os == 'linux') {
@@ -115,8 +111,16 @@ $(document).on("click", '#closeApp', function(event) {
 
 $(document).on('keydown', function (e) {
   var key = String.fromCharCode(e.which);
-  if (key == 'F') {
-    setPresenterFullscreen();
+  switch(key){
+    case 'F':
+      setPresenterFullscreen();
+      break;
+    case 'B':
+      content.load('layouts/bible.html');
+      break;
+    case 'O':
+      content.load('layouts/images.html');
+      break;
   }
 });
 
