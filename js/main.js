@@ -74,6 +74,10 @@ $(document).on("click", '.fullscreenPresenterButton', function(event) {
   setPresenterFullscreen();
 });
 
+$(document).on("click", '.presenterSetResolution', function(event) { 
+  setPresenterResolution($(this).data('res'));
+});
+
 $(document).on("click", '#hideTextButton', function(event) { 
   if (hideText) {
     presenterToggleText(false);
@@ -114,6 +118,13 @@ $(document).on('keydown', function (e) {
 
 
 //presenter functions 
+
+function setPresenterResolution(res) {
+  resArray = res.split("x");
+  chrome.app.window.get()
+  chrome.app.window.get('presenter').innerBounds.width = parseInt(resArray[0]);
+  chrome.app.window.get('presenter').innerBounds.height = parseInt(resArray[1]);
+}
 
 function unfreezePresenter() {
   console.log('unfreezingPresenter');
