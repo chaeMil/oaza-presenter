@@ -189,6 +189,10 @@ btn.active {
   background-color: #D5D5D5;
 }
 
+#preview {
+  width: 100%;
+}
+
 .img-responsive {
   width: auto;
   height: auto;

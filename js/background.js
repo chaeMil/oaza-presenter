@@ -19,7 +19,11 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       'layouts/presenter.html',
       {
         id: 'presenter',
-        frame: 'none'
+        frame: 'none',
+        innerBounds: {
+          minHeight: 480,
+          minWidth: 640
+        },
       },
       function(win) {
         //win.fullscreen();
@@ -34,7 +38,11 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       'index.html',
       {
         id: 'mainWindow',
-        frame: 'none'
+        frame: 'none',
+        innerBounds: {
+          minHeight: 470,
+          minWidth: 500
+        },
       }, 
       function(win) {
         
