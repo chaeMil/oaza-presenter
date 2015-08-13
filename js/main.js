@@ -60,7 +60,7 @@ window.onload = function() {
 // app wide buttons clicks
 
 $(document).on("click", '.setPresenterBg', function(event) { 
-  setPresenterBackground($(this).data('file'));
+  setPresenterBackground($(this).data('file'), $(this).data('blob'));
 });
 
 $(document).on("click", '.setPresenterBibleVerse', function(event) { 
@@ -146,10 +146,10 @@ function importImages() {
 function addImage(entry) {
   entry.file(function(file) {
     var objectURL = URL.createObjectURL(file);
-    
     $('#imagesGrid')
       .append('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">' + 
-      '<div class="img-16-9 setPresenterBg" data-file="' + '" ' +
+      '<div class="img-16-9 setPresenterBg" data-file="' + objectURL + '" ' +
+      'data-blob="blob" ' +
       'style="background-image: url(\'' + objectURL + '\');"></div></div>');
   });
 }
@@ -289,10 +289,12 @@ function setPresenterText(text, verse, translation) {
   }
 }
 
-function setPresenterBackground(file) {
+function setPresenterBackground(file, blob) {
   currentBg = file;
-  file = 'chrome-extension://' + globalData.appId + '/' + file;
-  $('#currentBg').attr('src', file);
+  if (blob != 'blob') {
+    file = 'chrome-extension://' + globalData.appId + '/' + file;
+    $('#currentBg').attr('src', file);
+  }
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeBg(file);
   }

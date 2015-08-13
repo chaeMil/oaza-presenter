@@ -48,6 +48,7 @@ function setFullscreen() {
 }
 
 function changeBg(file) {
+  console.log(file);
   console.log('changeBg ' + file);
   var canvas = $('#canvas');
   var canvas1 = $('#canvas1');
