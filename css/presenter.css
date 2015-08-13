@@ -41,7 +41,7 @@
 #bibleText {
   text-align: center;
   font-size: 5vw;
-  text-shadow: 0 0 1vw rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 1vw rgba(0, 0, 0, 0.7);
   z-index: 50;
   position: absolute;
   top: 50%;

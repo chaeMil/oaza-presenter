@@ -58,7 +58,7 @@ function changeText(text, verse, translation) {
   renderPreview();
 }
 
-function setTextVisible(value) {
+function setTextHidden(value) {
   if (value) {
     $('#bible').fadeIn(500);
   } else {
@@ -68,7 +68,7 @@ function setTextVisible(value) {
   renderPreview();
 }
 
-function setBgVisible(value) {
+function setBgHidden(value) {
   if (value) {
     $('#bg').fadeIn(500);
   } else {

@@ -2,6 +2,11 @@ var presenterFreezed = false;
 var hideText = false;
 var hideBg = false;
 
+var currentText;
+var currentVerse;
+var currentTranslation;
+var currentBg;
+
 var content = $('#content');
 var globalData;
 
@@ -66,23 +71,26 @@ $(document).on("click", '.fullscreenPresenterButton', function(event) {
 $(document).on("click", '#hideTextButton', function(event) { 
   if (hideText) {
     presenterToggleText(false);
-    hideText = false;
   } else {
     presenterToggleText(true);
-    hideText = true;
   }
 });
 
 $(document).on("click", '#hideBgButton', function(event) { 
   if (hideBg) {
     presenterToggleBg(false);
-    hideBg = false;
   } else {
     presenterToggleBg(true);
-    hideBg = true;
   }
 });
 
+$(document).on("click", '#freezePresenterButton', function(event) { 
+  if (presenterFreezed) {
+    presenterToggleFreezed(false);
+  } else {
+    presenterToggleFreezed(true);
+  }
+});
 
 $(document).on("click", '#closeApp', function(event) { 
   event.preventDefault();
@@ -101,34 +109,82 @@ $(document).on('keydown', function (e) {
 
 //presenter functions 
 
+function unfreezePresenter() {
+  console.log('unfreezingPresenter');
+  if (!hideBg) {
+    chrome.app.window.get('presenter').contentWindow.setBgHidden(true);
+  } else {
+    chrome.app.window.get('presenter').contentWindow.setBgHidden(false);
+  }
+  
+  if (!hideText) {
+    chrome.app.window.get('presenter').contentWindow.setTextHidden(true);
+  } else {
+    chrome.app.window.get('presenter').contentWindow.setTextHidden(false);
+  }
+  
+  setPresenterBackground(currentBg);
+  setPresenterText(currentText, currentVerse, currentTranslation);
+}
+
+function presenterToggleFreezed(value) {
+  if (value) {
+    $('#freezePresenterButton').addClass('active');
+    presenterFreezed = true;
+  } else {
+    $('#freezePresenterButton').removeClass('active');
+    presenterFreezed = false;
+    unfreezePresenter();
+  }
+}
+
 function presenterToggleText(value) {
   if (value) {
-    chrome.app.window.get('presenter').contentWindow.setTextVisible(hideText);
+    if (!presenterFreezed) {
+      chrome.app.window.get('presenter').contentWindow.setTextHidden(hideText);
+    }
     $('#hideTextButton').addClass('active');
+    hideText = true;
   } else {
-    chrome.app.window.get('presenter').contentWindow.setTextVisible(hideText);
+    if (!presenterFreezed) {
+      chrome.app.window.get('presenter').contentWindow.setTextHidden(hideText);
+    }
     $('#hideTextButton').removeClass('active');
+    hideText = false;
   }
 }
 
 function presenterToggleBg(value) {
   if (value) {
-    chrome.app.window.get('presenter').contentWindow.setBgVisible(hideBg);
+    if (!presenterFreezed) {
+      chrome.app.window.get('presenter').contentWindow.setBgHidden(hideBg);
+    }
     $('#hideBgButton').addClass('active');
+    hideBg = true;
   } else {
-    chrome.app.window.get('presenter').contentWindow.setBgVisible(hideBg);
+    if (!presenterFreezed) {
+      chrome.app.window.get('presenter').contentWindow.setBgHidden(hideBg);
+    }
     $('#hideBgButton').removeClass('active');
+    hideBg = false;
   }
 }
 
 function setPresenterText(text, verse, translation) {
-  chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
+  currentText = text;
+  currentVerse = verse;
+  currentTranslation = translation;
+  if (!presenterFreezed) {
+    chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
+  }
 }
 
 function setPresenterBackground(file) {
+  currentBg = file;
   file = 'chrome-extension://' + globalData.appId + '/' + file;
-  chrome.app.window.get('presenter').contentWindow.changeBg(file);
-  //$('#preview').css('background-image', 'url(' + file + ')');
+  if (!presenterFreezed) {
+    chrome.app.window.get('presenter').contentWindow.changeBg(file);
+  }
 }
 
 function setPresenterFullscreen() {
