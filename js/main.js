@@ -111,11 +111,44 @@ $(document).on("click", '#closeApp', function(event) {
 //app functions
 
 function addImagesLayout() {
-  content.load('layouts/images.html');
+  content.load('layouts/images.html', function(e) {
+    document.querySelector('#importImagesFolderButton').addEventListener('click', function(evt) {
+      importImages();
+    });
+  });
 }
 
 function addBibleLayout() {
   content.load('layouts/bible.html');
+}
+
+function importImages() {
+  fileSystemPermission(function(e) {
+    console.log('acces to filesystem is granted');
+    chrome.fileSystem.chooseEntry(
+      {type: 'openDirectory'},
+      function (entry) {
+        console.log(entry);
+      });
+  });
+}
+
+function fileSystemPermission(callback) {
+  chrome.permissions.request({
+    permissions: [
+      'fileSystem',
+      'fileSystem.write',
+      'fileSystem.retainEntries',
+      'fileSystem.directory'
+    ]
+  }, function(granted) {
+    if (granted) {
+      callback(); 
+      
+    } else {
+      console.log('ERROR: acces to filesystem was not granted!');
+    }
+  });
 }
 
 // app wide keypresses 

@@ -20,6 +20,11 @@
   },
   
   "permisions": [
-    "app.window.fullscreen"
+    "app.window.fullscreen",
+    {"fileSystem": ["write"]}
+  ],
+  
+  "optional_permissions": [
+    {"fileSystem": ["write", "retainEntries", "directory"]}
   ]
 }
