@@ -289,14 +289,14 @@ function setPresenterText(text, verse, translation) {
   }
 }
 
-function setPresenterBackground(file, blob) {
+function setPresenterBackground(file, isBlob) {
   currentBg = file;
-  if (blob != 'blob') {
+  if (isBlob != 'blob') {
     file = 'chrome-extension://' + globalData.appId + '/' + file;
     $('#currentBg').attr('src', file);
   }
   if (!presenterFreezed) {
-    chrome.app.window.get('presenter').contentWindow.changeBg(file);
+    chrome.app.window.get('presenter').contentWindow.changeBg(file, isBlob);
   }
 }
 
