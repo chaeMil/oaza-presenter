@@ -19,17 +19,18 @@ window.onload = function() {
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
   
   $('#imagesButton').click(function (e) {
-    content.load('layouts/images.html');
+    addImagesLayout();
   });
   
   $('#bibleButton').click(function (e) {
-    content.load('layouts/bible.html');
+    addBibleLayout();
   });
   
   if (globalData.os == 'linux') {
     $('#closeApp').addClass('left');
     $('#toolbarMenu').addClass('linux');
   }
+
   
   //zoom preview
   $('#preview').click(function (e) {
@@ -107,6 +108,16 @@ $(document).on("click", '#closeApp', function(event) {
   closeAppDialog.showModal();
 });
 
+//app functions
+
+function addImagesLayout() {
+  content.load('layouts/images.html');
+}
+
+function addBibleLayout() {
+  content.load('layouts/bible.html');
+}
+
 // app wide keypresses 
 
 $(document).on('keydown', function (e) {
@@ -116,10 +127,10 @@ $(document).on('keydown', function (e) {
       setPresenterFullscreen();
       break;
     case 'B':
-      content.load('layouts/bible.html');
+      addBibleLayout();
       break;
     case 'O':
-      content.load('layouts/images.html');
+      addImagesLayout();
       break;
   }
 });

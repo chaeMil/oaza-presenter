@@ -20,8 +20,6 @@
   },
   
   "permisions": [
-    "app.window.fullscreen",
-    "<all_urls>",
-    "tabs"
+    "app.window.fullscreen"
   ]
 }

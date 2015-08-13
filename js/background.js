@@ -41,7 +41,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         id: 'mainWindow',
         frame: 'none',
         innerBounds: {
-          minHeight: 470,
+          minHeight: 550,
           minWidth: 850
         },
       }, 
