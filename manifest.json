@@ -20,6 +20,8 @@
   },
   
   "permisions": [
+    "tabs",
+    "<all_urls>",
     "app.window.fullscreen",
     {"fileSystem": ["write"]}
   ],
