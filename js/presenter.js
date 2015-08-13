@@ -30,8 +30,6 @@ chrome.app.window.current().onBoundsChanged.addListener(function() {
       chrome.app.window.current().innerBounds.width = width;
     }, 1000);
   }
-  
-  renderPreview();
 });
 
 $(document).ready(function(event) {
