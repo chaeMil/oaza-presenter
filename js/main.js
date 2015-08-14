@@ -64,12 +64,22 @@ function getBibleBooks(file) {
   });
 }
 
-function getBibleChapter(file, book) {
+function getBibleChapters(file, book) {
   $('#bibleChapterSelect').empty();
   $.get(file, function(xml) {
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER").each(function() {
       $('#bibleChapterSelect').append('<option value="' + $(this).attr('cnumber') + '">'
         + $(this).attr('cnumber') + '</option>');
+    });
+  });
+}
+
+function getBibleVerses(file, book, chapter) {
+  $('#bibleVerseSelect').empty();
+  $.get(file, function(xml) {
+    $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
+      $('#bibleVerseSelect').append('<option value="' + $(this).attr('vnumber') + '">'
+        + $(this).text() + '</option>');
     });
   });
 }
@@ -214,7 +224,14 @@ function addBibleLayout() {
     });
     
     $('#bibleBookSelect').on('change', function() {
-      getBibleChapter($('#bibleTranslationSelect').val(), $(this).val());
+      getBibleChapters($('#bibleTranslationSelect').val(), $(this).val());
+    });
+    
+    $('#bibleChapterSelect').on('change', function() {
+      getBibleVerses(
+        $('#bibleTranslationSelect').val(), 
+        $('#bibleBookSelect').val(),
+        $(this).val());
     });
   });
 }
