@@ -23,6 +23,28 @@ function init() {
   
   addImagesLayout();
   addBibleLayout();
+  
+  loadBibles();
+}
+
+function loadBibles() {
+  bibles = ['bibles/cze/czeb21/source.xml'];
+  
+  console.log('bible books count: ' + bibles.length);
+  
+  for(i = 0; i < bibles.length; i++) {
+    $.get( bibles[i], function(data) {
+      getBibleName(bibles[i], data);
+    });
+  }
+}
+
+function getBibleName(file, xml) {
+  $(xml).find('title').each(function() {
+    console.log($(this).text());
+    $('#bibleTranslationSelect')
+      .append('<option value="' + file + '">' + $(this).text()) + '</option>';
+  });
 }
 
 window.onload = function() {
