@@ -208,12 +208,11 @@ btn.active {
 
 #preview, #currentBg {
   width: 100%;
-  max-height: 256px;
-  transition: all .2s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 #preview.big {
-  transition: all .2s ease-in-out;
+  transition: all .5s ease-in-out;
   -webkit-transform: scale(2.0) translateX(-25%) translateY(-25%);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }

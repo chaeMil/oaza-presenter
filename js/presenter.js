@@ -33,7 +33,7 @@ chrome.app.window.current().onBoundsChanged.addListener(function() {
 });
 
 $(document).ready(function(event) {
-  renderPreview();
+  renderText();
 });
 
 $(document).on('keydown', function (e) {
@@ -45,6 +45,7 @@ $(document).on('keydown', function (e) {
 
 function setFullscreen() {
   chrome.app.window.get('presenter').fullscreen();
+  renderText();
 }
 
 function changeBg(file) {
@@ -70,6 +71,8 @@ function changeBg(file) {
     canvas1.css("background-image", "url('" + file + "')");
     canvas2.fadeOut(500);
   }
+  
+  renderText();
 }
 
 function changeText(text, verse, translation) {
@@ -96,12 +99,19 @@ function setBgHidden(value) {
   }
 }
 
+function getWindowRatio() {
+  var height = chrome.app.window.current().innerBounds.height;
+  var width = chrome.app.window.current().innerBounds.width;
+  return width / height;
+}
+
 function renderText() {
   setTimeout(function (e) {
     html2canvas(document.querySelector('#bible'), {
       onrendered: function(canvas){
         console.log('rendering preview');
         chrome.app.window.get('mainWindow').contentWindow.updatePreviewText(canvas.toDataURL());
+        chrome.app.window.get('mainWindow').contentWindow.updatePreview();
       },
       logging: true,
       background: undefined

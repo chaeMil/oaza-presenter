@@ -239,24 +239,25 @@ function setPresenterResolution(res) {
 
 function unfreezePresenter() {
   console.log('unfreezingPresenter');
+  
+  setPresenterBackground(currentBg, currentBgIsBlob);
+  setPresenterText(currentText, currentVerse, currentTranslation);
+  
   if (!hideBg) {
     chrome.app.window.get('presenter').contentWindow.setBgHidden(true);
-    $('#previewBg').show();
+    $('#preview').css({"background-image":"url('" + currentBg + "')"});
   } else {
     chrome.app.window.get('presenter').contentWindow.setBgHidden(false);
-    $('#previewBg').hide();
+    $('#preview').css({"background-image":"none"});
   }
   
   if (!hideText) {
     chrome.app.window.get('presenter').contentWindow.setTextHidden(true);
-    $('#previewText').css('opacity', 0);
+    $('#previewText').css('opacity', 1);
   } else {
     chrome.app.window.get('presenter').contentWindow.setTextHidden(false);
-    $('#previewText').css('opacity', 1);
+    $('#previewText').css('opacity', 0);
   }
-  
-  setPresenterBackground(currentBg, currentBgIsBlob);
-  setPresenterText(currentText, currentVerse, currentTranslation);
 }
 
 function presenterToggleFreezed(value) {
@@ -292,14 +293,15 @@ function presenterToggleBg(value) {
   if (value) {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setBgHidden(hideBg);
-      $('#previewBg').hide();
+      $('#preview').css("background-image", "none");
     }
     $('#hideBgButton').addClass('active');
     hideBg = true;
   } else {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setBgHidden(hideBg);
-      $('#previewBg').show();
+      console.log(currentBg);
+      $('#preview').css({"background-image":"url('" + currentBg + "')"});
     }
     $('#hideBgButton').removeClass('active');
     hideBg = false;
@@ -331,6 +333,12 @@ function setPresenterBackground(file, isBlob) {
 
 function setPresenterFullscreen() {
   chrome.app.window.get('presenter').contentWindow.setFullscreen();
+}
+
+function updatePreview() {
+  var previewWidth = $('#preview').width();
+  var ratio = chrome.app.window.get('presenter').contentWindow.getWindowRatio();
+  $('#preview').height(previewWidth / ratio);
 }
 
 function updatePreviewText(bitmap) {
