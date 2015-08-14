@@ -33,17 +33,30 @@ function loadBibles() {
   console.log('bible books count: ' + bibles.length);
   
   for(i = 0; i < bibles.length; i++) {
-    $.get( bibles[i], function(data) {
-      getBibleName(bibles[i], data);
-    });
+    getBibleName(bibles[i]);
   }
 }
 
-function getBibleName(file, xml) {
-  $(xml).find('title').each(function() {
-    console.log($(this).text());
-    $('#bibleTranslationSelect')
-      .append('<option value="' + file + '">' + $(this).text() + '</option>');
+function getBibleName(file) {
+  $.get(file, function(xml) {
+    $(xml).find('title').each(function() {
+      console.log($(this).text());
+      $('#bibleTranslationSelect')
+        .append('<option value="' + file + '">' + $(this).text() + '</option>');
+    });
+  });
+}
+
+function getBibleBooks(file) {
+  $('#bibleBookSelect').empty();
+  $.get(file, function(xml) {
+    $(xml).find('BIBLEBOOK').each(function() {
+      if (!$(this).attr('bname')) {
+        $('#bibleBookSelect').append('<option>' + $(this).attr('bsname') + '</option>');
+      } else {
+        $('#bibleBookSelect').append('<option>' + $(this).attr('bname') + '</option>');
+      }
+    });
   });
 }
 
@@ -63,7 +76,6 @@ window.onload = function() {
     $('#closeApp').addClass('left');
     $('#toolbarMenu').addClass('linux');
   }
-
   
   //zoom preview
   $('#preview').click(function (e) {
@@ -181,7 +193,11 @@ function addImagesLayout() {
 
 function addBibleLayout() {
   $.get("layouts/bible.html", function(data){
-      content.append(data);
+    content.append(data);
+    
+    $('#bibleTranslationSelect').on('change', function() {
+      getBibleBooks($(this).val());
+    });
   });
 }
 

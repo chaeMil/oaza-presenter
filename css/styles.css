@@ -200,6 +200,18 @@ btn.active {
   background-color: #D5D5D5;
 }
 
+select {
+  border: 1px solid #DDDDDD;
+  padding: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 100px;
+  max-width: 100px;
+  text-align: center;
+  background-color: #EFEFEF;
+  letter-spacing: 0em;
+}
+
 #preview, #currentBg {
   width: 100%;
   transition: all .5s ease-in-out;
@@ -281,6 +293,10 @@ dialog h2 {
   -webkit-transition-duration: 50ms;
   z-index: 5;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+#bibleTranslationSelect {
+  max-width: 100px;
 }
 
 #preview {

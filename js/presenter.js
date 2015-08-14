@@ -104,6 +104,7 @@ function toggleDraggable() {
 function setFont(font) {
   $('#canvas').removeAttr('class');
   $('#canvas').addClass(font);
+  renderText();
 }
 
 function renderText() {
