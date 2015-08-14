@@ -151,13 +151,13 @@ statusbar span {
 }
 
 content {
-  width: calc(100vw - 533px);
+  width: calc(100vw - 536px);
   height: calc(100vh - 96px);
   position: fixed;
   left: 256px;
   top: 50px;
   padding-left: 16px;
-  padding-right: 16px;
+  padding-right: 4px;
   padding-bottom: 16px;
   overflow-y: scroll;
 }

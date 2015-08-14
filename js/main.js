@@ -6,6 +6,7 @@ var currentText;
 var currentVerse;
 var currentTranslation;
 var currentBg;
+var currentBgIsBlob;
 
 var content = $('#content');
 var globalData;
@@ -250,7 +251,7 @@ function unfreezePresenter() {
     chrome.app.window.get('presenter').contentWindow.setTextHidden(false);
   }
   
-  setPresenterBackground(currentBg);
+  setPresenterBackground(currentBg, currentBgIsBlob);
   setPresenterText(currentText, currentVerse, currentTranslation);
 }
 
@@ -308,6 +309,8 @@ function setPresenterText(text, verse, translation) {
 
 function setPresenterBackground(file, isBlob) {
   currentBg = file;
+  currentBgIsBlob = isBlob;
+  console.log(currentBg);
   if (isBlob != 'blob') {
     file = 'chrome-extension://' + globalData.appId + '/' + file;
   }
