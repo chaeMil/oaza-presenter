@@ -8,6 +8,14 @@ body.presenter {
   color: white;
 }
 
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.not-draggable {
+  -webkit-app-region: no-drag;
+}
+
 .roboto-regular {
   font-family: 'Roboto Regular';
 }
