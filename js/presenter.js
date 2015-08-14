@@ -101,6 +101,11 @@ function toggleDraggable() {
   $('#draggable').toggle();
 }
 
+function setFont(font) {
+  $('#canvas').removeAttr('class');
+  $('#canvas').addClass(font);
+}
+
 function renderText() {
   setTimeout(function (e) {
     html2canvas(document.querySelector('#bible'), {

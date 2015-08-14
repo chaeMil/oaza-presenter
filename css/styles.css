@@ -1,5 +1,5 @@
 body {
-  font-family: 'RobotoRegular';
+  font-family: 'Roboto Regular';
 }
 
 .draggable {
@@ -29,16 +29,6 @@ body {
 .custom_scrollbar::-webkit-scrollbar-thumb:horizontal {
 	background-color: rgba(0,0,0,.2);
 	-webkit-border-radius: 6px;
-}
-
-body.presenter {
-  cursor: none;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  color: white;
 }
 
 toolbar {

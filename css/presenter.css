@@ -1,3 +1,21 @@
+body.presenter {
+  cursor: none;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.roboto-regular {
+  font-family: 'Roboto Regular';
+}
+
+.roboto-slab-regular {
+  font-family: 'Roboto Slab Regular';
+}
+
 #canvas, #bg {
   position: fixed;
   top: 0;

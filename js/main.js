@@ -72,6 +72,10 @@ window.onload = function() {
 
 // app wide buttons clicks
 
+$(document).on("click", '.presenterFont', function(event) { 
+  setPresenterFont($(this).data('font'), $(this).text());
+});
+
 $(document).on("click", '.draggablePresenterButton', function(event) { 
   togglePresenterDraggable();
 });
@@ -224,6 +228,11 @@ $(document).on('keydown', function (e) {
 
 //presenter functions 
 
+function setPresenterFont(font, fontName) {
+  chrome.app.window.get('presenter').contentWindow.setFont(font);
+  $('#statusPresenterFont').text('aktuální font: ' + fontName);
+}
+
 function togglePresenterDraggable() {
   chrome.app.window.get('presenter').contentWindow.toggleDraggable();
 }
@@ -353,6 +362,7 @@ function setPresenterBackground(file, isBlob) {
 }
 
 function setPresenterFullscreen() {
+  setPresenterAspectRatio(0);
   chrome.app.window.get('presenter').contentWindow.setFullscreen();
 }
 
