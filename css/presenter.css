@@ -1,4 +1,4 @@
-#canvas, #canvas1, #canvas2 {
+#canvas, #bg {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -9,16 +9,9 @@
   background-position: center center; 
 }
 
-#canvas {
-  z-index: 30;
-}
-
-#canvas1 {
-  z-index: 41;
-}
-
-#canvas2 {
+#bg {
   z-index: 40;
+  transition: all .5s ease-in-out;
 }
 
 #bible {
