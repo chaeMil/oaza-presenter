@@ -59,17 +59,20 @@ function changeBg(file) {
 
 function changeText(text, verse, translation) {
   console.log('changeBibleVerse: ' + text + ' ' + verse + ' ' + translation);
-  $('#bibleText').fadeOut('fast', function() {
-    $(this).text(text);
-  }).fadeIn('fast');
-  $('#bibleVerse').fadeOut('fast', function() {
-    $(this).text(verse);
-  }).fadeIn('fast');
-  $('#bibleTranslation').fadeOut('fast', function() {
-    $(this).text(translation);
-  }).fadeIn('fast');
   
-  renderText();
+  if (text != $('#bibleText').text()) {
+    $('#bibleText').fadeOut('fast', function() {
+      $(this).text(text);
+    }).fadeIn('fast');
+    $('#bibleVerse').fadeOut('fast', function() {
+      $(this).text(verse);
+    }).fadeIn('fast');
+    $('#bibleTranslation').fadeOut('fast', function() {
+      $(this).text(translation);
+    }).fadeIn('fast');
+  
+    renderText();
+  }
 }
 
 function setTextHidden(value) {

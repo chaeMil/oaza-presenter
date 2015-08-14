@@ -267,6 +267,10 @@ dialog h2 {
   float: right;
 }
 
+.muted {
+  opacity: 0.5;
+}
+
 .bottom {
   position: relative;
   bottom: 0px;

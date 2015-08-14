@@ -15,12 +15,19 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
 });
 
-window.onload = function() {
-  
+function init() {
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
+  $('#currentText').text('');
+  $('#currentVerse').text('');
+  $('#currentTranslation').text('');
   
   addImagesLayout();
   addBibleLayout();
+}
+
+window.onload = function() {
+  
+  init();
   
   $('#imagesButton').click(function (e) {
     hideLayouts();
@@ -326,6 +333,9 @@ function setPresenterText(text, verse, translation) {
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
   }
+  $('#currentText').text(text);
+  $('#currentVerse').text(verse);
+  $('#currentTranslation').text(translation);
 }
 
 function setPresenterBackground(file, isBlob) {
