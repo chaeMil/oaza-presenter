@@ -18,12 +18,17 @@ window.onload = function() {
   
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
   
+  addImagesLayout();
+  addBibleLayout();
+  
   $('#imagesButton').click(function (e) {
-    addImagesLayout();
+    hideLayouts();
+    showLayout('#layout-images');
   });
   
   $('#bibleButton').click(function (e) {
-    addBibleLayout();
+    hideLayouts();
+    showLayout('#layout-bible');
   });
   
   if (globalData.os == 'linux') {
@@ -111,15 +116,27 @@ $(document).on("click", '#closeApp', function(event) {
 //app functions
 
 function addImagesLayout() {
-  content.load('layouts/images.html', function(e) {
-    document.querySelector('#importImagesFolderButton').addEventListener('click', function(evt) {
+  $.get("layouts/images.html", function(data){
+      content.append(data);
+      document.querySelector('#importImagesFolderButton').addEventListener('click', function(evt) {
       importImages();
     });
   });
 }
 
 function addBibleLayout() {
-  content.load('layouts/bible.html');
+  $.get("layouts/bible.html", function(data){
+      content.append(data);
+  });
+}
+
+function showLayout(layout) {
+  $(layout).show();
+}
+
+function hideLayouts() {
+  $('#layout-images').hide();
+  $('#layout-bible').hide();
 }
 
 function importImages() {
@@ -181,10 +198,10 @@ $(document).on('keydown', function (e) {
       setPresenterFullscreen();
       break;
     case 'B':
-      addBibleLayout();
+      showLayout('layout-bible');
       break;
     case 'O':
-      addImagesLayout();
+      showLayout('layout-images');
       break;
   }
 });
