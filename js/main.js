@@ -28,7 +28,7 @@ function init() {
 }
 
 function loadBibles() {
-  bibles = ['bibles/cze/czeb21/source.xml'];
+  bibles = ['bibles/cze/czeb21/source.xml', 'bibles/cze/nbk/source.xml'];
   
   console.log('bible books count: ' + bibles.length);
   
@@ -43,7 +43,7 @@ function getBibleName(file, xml) {
   $(xml).find('title').each(function() {
     console.log($(this).text());
     $('#bibleTranslationSelect')
-      .append('<option value="' + file + '">' + $(this).text()) + '</option>';
+      .append('<option value="' + file + '">' + $(this).text() + '</option>');
   });
 }
 
@@ -52,12 +52,10 @@ window.onload = function() {
   init();
   
   $('#imagesButton').click(function (e) {
-    hideLayouts();
     showLayout('#layout-images');
   });
   
   $('#bibleButton').click(function (e) {
-    hideLayouts();
     showLayout('#layout-bible');
   });
   
@@ -87,6 +85,25 @@ window.onload = function() {
   // called when the user Cancels the dialog, for example by hitting the ESC key
   closeAppDialog.addEventListener("cancel", function(evt) {
     closeAppDialog.close("canceled");
+  });
+  
+  $(document).on('keydown', function (e) {
+    var key = String.fromCharCode(e.which);
+    console.log(key);
+    switch(key){
+      case 'F':
+        setPresenterFullscreen();
+        break;
+      case 'B':
+        showLayout('#layout-bible');
+        break;
+      case 'O':
+        showLayout('#layout-images');
+        break;
+      case 'G':
+        togglePresenterDraggable();
+        break;
+    }
   });
   
 };
@@ -169,6 +186,7 @@ function addBibleLayout() {
 }
 
 function showLayout(layout) {
+  hideLayouts();
   $(layout).show();
 }
 
@@ -226,26 +244,6 @@ function fileSystemPermission(callback) {
     }
   });
 }
-
-// app wide keypresses 
-
-$(document).on('keydown', function (e) {
-  var key = String.fromCharCode(e.which);
-  switch(key){
-    case 'F':
-      setPresenterFullscreen();
-      break;
-    case 'B':
-      showLayout('layout-bible');
-      break;
-    case 'O':
-      showLayout('layout-images');
-      break;
-    case 'G':
-      togglePresenterDraggable();
-      break;
-  }
-});
 
 
 //presenter functions 
