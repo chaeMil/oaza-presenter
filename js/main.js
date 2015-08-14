@@ -241,8 +241,10 @@ function unfreezePresenter() {
   console.log('unfreezingPresenter');
   if (!hideBg) {
     chrome.app.window.get('presenter').contentWindow.setBgHidden(true);
+    $('#previewBg').show();
   } else {
     chrome.app.window.get('presenter').contentWindow.setBgHidden(false);
+    $('#previewBg').hide();
   }
   
   if (!hideText) {
@@ -270,12 +272,14 @@ function presenterToggleText(value) {
   if (value) {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setTextHidden(hideText);
+      $('#previewBible').hide();
     }
     $('#hideTextButton').addClass('active');
     hideText = true;
   } else {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setTextHidden(hideText);
+      $('#previewBible').show();
     }
     $('#hideTextButton').removeClass('active');
     hideText = false;
@@ -286,12 +290,14 @@ function presenterToggleBg(value) {
   if (value) {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setBgHidden(hideBg);
+      $('#previewBg').hide();
     }
     $('#hideBgButton').addClass('active');
     hideBg = true;
   } else {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setBgHidden(hideBg);
+      $('#previewBg').show();
     }
     $('#hideBgButton').removeClass('active');
     hideBg = false;
@@ -304,6 +310,9 @@ function setPresenterText(text, verse, translation) {
   currentTranslation = translation;
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
+    $('#previewBibleText').text(text);
+    $('#previewBibleVerse').text(verse);
+    $('#previewBibleTranslation').text(translation);
   }
 }
 
@@ -317,6 +326,7 @@ function setPresenterBackground(file, isBlob) {
   $('#currentBg').attr('src', file);
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeBg(file, isBlob);
+    $('#previewBg').css("background-image", "url('" + file + "')");
   }
 }
 
@@ -326,7 +336,7 @@ function setPresenterFullscreen() {
 
 function updatePreview(preview) {
   console.log('updating preview');
-  $('#preview').attr("src", preview);
+  //$('#preview').attr("src", preview);
 }
 
 

@@ -6,8 +6,7 @@
   ],
   "dependencies": {
     "font-awesome": "4.4.0",
-    "jquery": "2.1.4",
-    "html2canvas": "~0.4.1"
+    "jquery": "2.1.4"
   },
   "ignore": [
     "**/.*",

@@ -71,8 +71,6 @@ function changeBg(file, blob) {
     canvas1.css("background-image", "url('" + file + "')");
     canvas2.fadeOut(500);
   }
-
-  renderPreview();
 }
 
 function changeText(text, verse, translation) {
@@ -80,8 +78,6 @@ function changeText(text, verse, translation) {
   $('#bibleText').html(text);
   $('#bibleVerse').html(verse);
   $('#bibleTranslation').html(translation);
-  
-  renderPreview();
 }
 
 function setTextHidden(value) {
@@ -90,8 +86,6 @@ function setTextHidden(value) {
   } else {
     $('#bible').fadeOut(500);
   }
-  
-  renderPreview();
 }
 
 function setBgHidden(value) {
@@ -100,19 +94,4 @@ function setBgHidden(value) {
   } else {
     $('#bg').fadeOut(500);
   }
-  
-  renderPreview();
-}
-
-function renderPreview() {
-  setTimeout(function (e) {
-    html2canvas(document.body, {
-      onrendered: function(canvas){
-        console.log('rendering preview');
-        chrome.app.window.get('mainWindow').contentWindow.updatePreview(canvas.toDataURL());
-      },
-      logging: true,
-      background: undefined
-    }); 
-  }, 500);
 }
