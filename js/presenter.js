@@ -1,4 +1,5 @@
 var globalData;
+var activeBgLayer = 1;
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
@@ -50,6 +51,27 @@ function setFullscreen() {
 
 function changeBg(file) {
   console.log('changeBg ' + file);
+  var canvas = $('#canvas');
+  var canvas1 = $('#canvas1');
+  var canvas2 = $('#canvas2');
+
+  if (activeBgLayer == 1) {
+    activeBgLayer = 2;
+    
+    canvas2.show();
+    canvas2.css("z-index", 40);
+    canvas1.css("z-index", 41);
+    canvas2.css("background-image", "url('" + file + "')");
+    canvas1.fadeOut(500);
+  } else {
+    activeBgLayer = 1;
+    
+    canvas1.show();
+    canvas1.css("z-index", 40);
+    canvas2.css("z-index", 41);
+    canvas1.css("background-image", "url('" + file + "')");
+    canvas2.fadeOut(500);
+  }
   var bg = $('#bg');
   
   bg.css("background-image", "url('" + file + "')");
@@ -85,9 +107,9 @@ function setTextHidden(value) {
 
 function setBgHidden(value) {
   if (value) {
-    $('#bg').css('opacity', 1);
+    $('#bg').fadeIn(500);
   } else {
-    $('#bg').css('opacity', 0);
+    $('#bg').fadeOut(500);
   }
 }
 

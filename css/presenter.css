@@ -24,7 +24,7 @@ body.presenter {
   font-family: 'Roboto Slab Regular';
 }
 
-#canvas, #bg {
+#canvas, #canvas1, #canvas2 {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -35,9 +35,16 @@ body.presenter {
   background-position: center center; 
 }
 
-#bg {
+-#canvas {
+-  z-index: 30;
+-}
+-
+-#canvas1 {
+-  z-index: 41;
+-}
+-
+-#canvas2 {
   z-index: 40;
-  transition: all .5s ease-in-out;
 }
 
 #bible {
