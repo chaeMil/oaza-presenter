@@ -60,3 +60,18 @@
   font-size: 2vw;
   text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
 }
+
+#draggable {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 18px;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+  color: white;
+  display: none;
+  z-index: 500;
+}

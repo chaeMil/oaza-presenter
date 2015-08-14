@@ -7,15 +7,13 @@
 
 var globalData = {};
 globalData.presenterAspectRatio = 0;
- 
-console.log(chrome.runtime.getPlatformInfo.os);
- 
-chrome.app.runtime.onLaunched.addListener(function(launchData) {
 
-  chrome.runtime.getPlatformInfo(function(info) {
-    globalData.os = info.os;
-    globalData.appId = chrome.runtime.id;
-    
+chrome.runtime.getPlatformInfo(function(info) {
+  globalData.os = info.os;
+  globalData.appId = chrome.runtime.id;
+ 
+  chrome.app.runtime.onLaunched.addListener(function(launchData) {
+      
     presenterWindow = chrome.app.window.create(
       'layouts/presenter.html',
       {
@@ -53,7 +51,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         });
       }
     );
-    
+      
   });
-
+  
 });

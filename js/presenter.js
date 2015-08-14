@@ -105,6 +105,10 @@ function getWindowRatio() {
   return width / height;
 }
 
+function toggleDraggable() {
+  $('#draggable').toggle();
+}
+
 function renderText() {
   setTimeout(function (e) {
     html2canvas(document.querySelector('#bible'), {

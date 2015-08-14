@@ -65,6 +65,10 @@ window.onload = function() {
 
 // app wide buttons clicks
 
+$(document).on("click", '.draggablePresenterButton', function(event) { 
+  togglePresenterDraggable();
+});
+
 $(document).on("click", '.setPresenterBg', function(event) { 
   setPresenterBackground($(this).data('file'), $(this).data('blob'));
 });
@@ -204,11 +208,18 @@ $(document).on('keydown', function (e) {
     case 'O':
       showLayout('layout-images');
       break;
+    case 'G':
+      togglePresenterDraggable();
+      break;
   }
 });
 
 
 //presenter functions 
+
+function togglePresenterDraggable() {
+  chrome.app.window.get('presenter').contentWindow.toggleDraggable();
+}
 
 function setPresenterAspectRatio(value) {
   globalData.presenterAspectRatio = value;
