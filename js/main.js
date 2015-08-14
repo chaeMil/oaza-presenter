@@ -27,6 +27,10 @@ function init() {
   loadBibles();
 }
 
+function escapeHTML(input) {
+  return input.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
 function loadBibles() {
   bibles = ['bibles/cze/b21/source.xml', 
             'bibles/cze/nbk/source.xml',
@@ -53,13 +57,9 @@ function getBibleBooks(file) {
   $('#bibleBookSelect').empty();
   $.get(file, function(xml) {
     $(xml).find('BIBLEBOOK').each(function() {
-      if (!$(this).attr('bname')) {
-        $('#bibleBookSelect').append('<option value="' + $(this).attr('bnumber') + '">' 
-          + $(this).attr('bsname') + '</option>');
-      } else {
-        $('#bibleBookSelect').append('<option value="' + $(this).attr('bnumber') + '">' 
-          + $(this).attr('bname') + '</option>');
-      }
+      $('#bibleBookSelect').append('<option value="' + $(this).attr('bnumber') + '" ' +
+        'data-book="' + $(this).attr('bname') + '">' 
+        + $(this).attr('bname') + '</option>');
     });
   });
 }
@@ -68,7 +68,8 @@ function getBibleChapters(file, book) {
   $('#bibleChapterSelect').empty();
   $.get(file, function(xml) {
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER").each(function() {
-      $('#bibleChapterSelect').append('<option value="' + $(this).attr('cnumber') + '">'
+      $('#bibleChapterSelect').append('<option value="' + $(this).attr('cnumber') + '" ' +
+       'data-chapter="' + $(this).attr('cnumber') + '">'
         + $(this).attr('cnumber') + '</option>');
     });
   });
@@ -77,9 +78,12 @@ function getBibleChapters(file, book) {
 function getBibleVerses(file, book, chapter) {
   $('#bibleVerseSelect').empty();
   $.get(file, function(xml) {
+    var verse = 1;
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
-      $('#bibleVerseSelect').append('<option value="' + $(this).text().replace('"', '&quot;') + '">'
-        + $(this).text() + '</option>');
+      $('#bibleVerseSelect').append('<option value="' + $(this).text().replace('"', '&quot;') 
+        + '" data-verse="' + verse + '">'
+        + verse + ". " + $(this).text() + '</option>');
+      verse++;
     });
   });
 }
@@ -235,7 +239,11 @@ function addBibleLayout() {
     });
     
     $('#bibleVerseSelect').on('change', function() {
-      setPresenterText($(this).val(), '', $('#bibleTranslationSelect').text());
+      setPresenterText($(this).val(),
+        $('#bibleBookSelect').find(':selected').data('book') + ' '
+        + $('#bibleChapterSelect').find(':selected').data('chapter') + ':' 
+        + $('#bibleVerseSelect').find(':selected').data('verse'),
+        '');
     });
   });
 }

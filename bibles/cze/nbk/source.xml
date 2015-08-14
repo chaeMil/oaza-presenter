@@ -24,7 +24,7 @@
     <coverage>provide the bible to the nations of the world</coverage>
     <rights></rights>
   </INFORMATION>
-  <BIBLEBOOK bnumber="40" bsname="Mat">
+  <BIBLEBOOK bnumber="40" bsname="Mat" bname="Matouš">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Kniha rodu Ježíše Krista, syna Davidova, syna Abrahamova:</VERS>
       <VERS vnumber="2">Abraham zplodil Izáka, Izák zplodil Jákoba, Jákob zplodil Judu a jeho bratry.</VERS>
@@ -1153,7 +1153,7 @@
       <VERS vnumber="20">a učte je zachovávat všechno, co jsem vám přikázal. A hle, já jsem s vámi po všechny dny až do skonání světa. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="41" bsname="Mar">
+  <BIBLEBOOK bnumber="41" bsname="Mar" bname="Marek">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Počátek evangelia Ježíše Krista, Božího Syna.</VERS>
       <VERS vnumber="2">Jak je napsáno v Prorocích: "Hle, já před tvou tváří posílám svého posla, který připraví tvou cestu před tebou."</VERS>
@@ -1865,7 +1865,7 @@
       <VERS vnumber="20">A oni vyšli a kázali všude a Pán[ jim] pomáhal a potvrzoval slovo znameními, která[ je] doprovázela. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="42" bsname="Luk">
+  <BIBLEBOOK bnumber="42" bsname="Luk" bname="Lukáš">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Poněvadž se mnozí pokusili po pořádku sepsat vyprávění o těch věcech, ve kterých my máme plnou jistotu</VERS>
       <VERS vnumber="2">(neboť nám[ je] předali ti, kdo byli od počátku očitými svědky a služebníky toho Slova),</VERS>
@@ -3066,7 +3066,7 @@
       <VERS vnumber="53">a byli stále v chrámu, [kde] chválili a oslavovali Boha. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="43" bsname="Joh">
+  <BIBLEBOOK bnumber="43" bsname="Jan" bnam="Jan">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Na počátku bylo Slovo a to Slovo bylo u Boha a to Slovo byl Bůh.</VERS>
       <VERS vnumber="2">To bylo na počátku u Boha.</VERS>
@@ -3989,7 +3989,7 @@
       <VERS vnumber="25">Je ovšem i mnoho jiných věcí, které Ježíš udělal, které kdyby měly být vypsány každá zvlášť, mám za to, že by ani celý svět nemohl pojmout ty knihy, které by byly napsány. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="44" bsname="Act">
+  <BIBLEBOOK bnumber="44" bsname="Skut" bname="Skutky apoštolů">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">První zprávu jsem zajisté sepsal, ó Teofile, o všech věcech, které Ježíš začal dělat i učit</VERS>
       <VERS vnumber="2">až do dne, kdy byl vzat vzhůru, když skrze Ducha Svatého dal přikázání apoštolům, které vyvolil.</VERS>
@@ -5053,7 +5053,7 @@
       <VERS vnumber="31">kázal Boží království a učil o Pánu Ježíši Kristu se vší smělostí a bez překážek.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="45" bsname="Rom">
+  <BIBLEBOOK bnumber="45" bsname="Řím" bname="Římanům">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, služebník Ježíše Krista povolaný apoštol, oddělený pro Boží evangelium,</VERS>
       <VERS vnumber="2">které[ Bůh] předem zaslíbil skrze své proroky ve svatých Písmech,</VERS>
@@ -5520,7 +5520,7 @@
       <VERS vnumber="27">jedinému moudrému Bohu[ buď] sláva skrze Ježíše Krista na věky. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="46" bsname="1Co">
+  <BIBLEBOOK bnumber="46" bsname="1.Kol" bname="1. Koloským">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, podle Boží vůle povolaný apoštol Ježíše Krista, a bratr Sostenes</VERS>
       <VERS vnumber="2">církvi Boží, která je v Korintu, posvěceným v Kristu Ježíši, povolaným svatým, se všemi, kteří vzývají jméno našeho Pána Ježíše Krista na každém místě, jejich i našem:</VERS>
@@ -5991,7 +5991,7 @@
       <VERS vnumber="24">Má láska[ je] s vámi všemi v Kristu Ježíši. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="47" bsname="2Co">
+  <BIBLEBOOK bnumber="47" bsname="2.Kol" banem="2. Koloským">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, podle Boží vůle apoštol Ježíše Krista, a bratr Timoteus církvi Boží, která je v Korintu, se všemi svatými, kteří jsou v celé Acháji:</VERS>
       <VERS vnumber="2">Milost vám a pokoj od Boha, našeho Otce, a[ od] Pána Ježíše Krista.</VERS>
@@ -6275,7 +6275,7 @@
       <VERS vnumber="13">Milost Pána Ježíše Krista, Boží láska a společenství Ducha Svatého s vámi všemi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="48" bsname="Gal">
+  <BIBLEBOOK bnumber="48" bsname="Gal" bname="Galatským">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, apoštol( [poslaný] ne od lidí, ani skrze člověka, ale skrze Ježíše Krista a Boha Otce, který ho vzkřísil z mrtvých),</VERS>
       <VERS vnumber="2">a všichni bratři, kteří jsou se mnou, církvím v Galacii:</VERS>
@@ -6438,7 +6438,7 @@
       <VERS vnumber="18">Milost našeho Pána Ježíše Krista s vaším duchem, bratři. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="49" bsname="Eph">
+  <BIBLEBOOK bnumber="49" bsname="Efe" bname="Efezským">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, podle Boží vůle apoštol Ježíše Krista, svatým, kteří jsou v Efezu, a věrným v Kristu Ježíši:</VERS>
       <VERS vnumber="2">Milost vám a pokoj od Boha, našeho Otce, a[ od] Pána Ježíše Krista.</VERS>
@@ -6607,7 +6607,7 @@
       <VERS vnumber="24">[Boží] milost se všemi, kdo milují našeho Pána Ježíše Krista v neporušitelnosti. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="50" bsname="Php">
+  <BIBLEBOOK bnumber="50" bsname="Fil" bname="Filipským">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel a Timoteus, služebníci Ježíše Krista, všem svatým v Kristu Ježíši, kteří jsou ve Filipech, s biskupy a diakony:</VERS>
       <VERS vnumber="2">Milost vám a pokoj od Boha, našeho Otce, a[ od] Pána Ježíše Krista.</VERS>
@@ -6721,7 +6721,7 @@
       <VERS vnumber="23">Milost našeho Pána Ježíše Krista s vámi všemi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="51" bsname="Col">
+  <BIBLEBOOK bnumber="51" bsname="Kol" bname="Koloským">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, podle Boží vůle apoštol Ježíše Krista, a bratr Timoteus</VERS>
       <VERS vnumber="2">těm, kteří jsou v Kolosách, svatým a věrným bratrům v Kristu: Milost vám a pokoj od Boha, našeho Otce, a[ od] Pána Ježíše Krista.</VERS>
@@ -6826,7 +6826,7 @@
       <VERS vnumber="18">Pozdrav mou, Pavlovou rukou. Pamatujte na mé vězení. Milost s vámi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="52" bsname="1Th">
+  <BIBLEBOOK bnumber="52" bsname="1.Tes" bname="1. Tesalonickým">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, Silvanus a Timoteus církvi Tesalonických v Bohu Otci a[ v] Pánu Ježíši Kristu: Milost vám a pokoj od Boha, našeho Otce, a[ od] Pána Ježíše Krista.</VERS>
       <VERS vnumber="2">Stále za vás všechny děkujeme Bohu a zmiňujeme se o vás ve svých modlitbách;</VERS>
@@ -6927,7 +6927,7 @@
       <VERS vnumber="28">Milost našeho Pána Ježíše Krista s vámi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="53" bsname="2Th">
+  <BIBLEBOOK bnumber="53" bsname="2.Tes" bname="2. Tesalonickým">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, Silvanus a Timoteus církvi Tesalonických v Bohu, našem Otci, a[ v] Pánu Ježíši Kristu:</VERS>
       <VERS vnumber="2">Milost vám a pokoj od Boha, našeho Otce, a[ od] Pána Ježíše Krista.</VERS>
@@ -6982,7 +6982,7 @@
       <VERS vnumber="18">Milost našeho Pána Ježíše Krista s vámi všemi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="54" bsname="1Ti">
+  <BIBLEBOOK bnumber="54" bsname="1.Ti" bname="1. Timoteovi">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, apoštol Ježíše Krista, podle přikázání Boha, našeho Spasitele, a Pána Ježíše Krista, naší naděje,</VERS>
       <VERS vnumber="2">Timoteovi, [svému] vlastnímu synu ve víře: Milost, milosrdenství a pokoj od Boha, našeho Otce, a[ od] Ježíše Krista, našeho Pána.</VERS>
@@ -7109,7 +7109,7 @@
       <VERS vnumber="21">k němuž se někteří začali hlásit a zbloudili ve víře. Milost s tebou. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="55" bsname="2Ti">
+  <BIBLEBOOK bnumber="55" bsname="2.Ti" bname="2. Timoteovi">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, podle Boží vůle apoštol Ježíše Krista, podle zaslíbení života, který je v Kristu Ježíši,</VERS>
       <VERS vnumber="2">Timoteovi, [svému] milovanému synu: Milost, milosrdenství a pokoj od Boha Otce a[ od] Krista Ježíše, našeho Pána.</VERS>
@@ -7202,7 +7202,7 @@
       <VERS vnumber="22">Pán Ježíš Kristus[ buď] s tvým duchem. Milost s vámi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="56" bsname="Tit">
+  <BIBLEBOOK bnumber="56" bsname="Tit" bname="Titovi">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, Boží služebník a apoštol Ježíše Krista, podle víry Božích vyvolených a poznání pravdy, jež[ vede] ke zbožnosti,</VERS>
       <VERS vnumber="2">v naději věčného života, který před věčnými časy zaslíbil Bůh, který[ nikdy] nelže</VERS>
@@ -7256,7 +7256,7 @@
       <VERS vnumber="15">Všichni, kdo jsou se mnou, tě pozdravují. Pozdrav ty, kteří nás milují ve víře. Milost s vámi všemi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="57" bsname="Phm">
+  <BIBLEBOOK bnumber="57" bsname="Fil" bname="Filemonovi">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Pavel, vězeň Ježíše Krista, a bratr Timoteus našemu milovanému[ příteli] a spolupracovníku Filemonovi,</VERS>
       <VERS vnumber="2">milované Apfii, našemu spolubojovníku Archippovi i církvi, která je ve tvém domě:</VERS>
@@ -7285,7 +7285,7 @@
       <VERS vnumber="25">Milost našeho Pána Ježíše Krista s vaším duchem. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="58" bsname="Heb">
+  <BIBLEBOOK bnumber="58" bsname="Žid" bname="Židům">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Mnohokrát a mnoha způsoby mluvil kdysi Bůh k otcům skrze proroky,</VERS>
       <VERS vnumber="2">[ale] v těchto posledních dnech mluvil k nám skrze[ svého] Syna, jehož ustanovil za dědice všeho a skrze něhož také stvořil světy.</VERS>
@@ -7616,7 +7616,7 @@
       <VERS vnumber="25">Milost s vámi všemi. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="59" bsname="Jas">
+  <BIBLEBOOK bnumber="59" bsname="Jak" bname="Jakubův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Jakub, služebník Boha a Pána Ježíše Krista, zdraví dvanáct pokolení[ rozptýlených] v diaspoře.</VERS>
       <VERS vnumber="2">Považujte[ to] jen za radost, bratři moji, když upadáte do různých zkoušek,</VERS>
@@ -7736,7 +7736,7 @@
       <VERS vnumber="20">ať ví, že ten, kdo odvrátí hříšníka od jeho bludné cesty, zachrání duši před smrtí a přikryje množství hříchů.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="60" bsname="1Pe">
+  <BIBLEBOOK bnumber="60" bsname="1.Pe" bname="1. Petrův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Petr, apoštol Ježíše Krista, přistěhovalcům rozptýleným v Pontu, Galacii, Kappadokii, Asii a Bitynii, vyvoleným</VERS>
       <VERS vnumber="2">podle předzvědění Boha Otce v posvěcení Ducha k poslušnosti a skropení krví Ježíše Krista: Kéž je vám rozmnožena milost a pokoj.</VERS>
@@ -7853,7 +7853,7 @@
       <VERS vnumber="14">Pozdravte se navzájem polibkem lásky. Pokoj vám všem, kdo jste v Kristu Ježíši. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="61" bsname="2Pe">
+  <BIBLEBOOK bnumber="61" bsname="2.Pe" bname="2. Petrův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Šimon Petr, služebník a apoštol Ježíše Krista, těm, kteří s námi dosáhli stejně drahé víry skrze spravedlnost našeho Boha a Spasitele Ježíše Krista:</VERS>
       <VERS vnumber="2">Kéž je vám v poznání Boha a Ježíše, našeho Pána, rozmnožena milost a pokoj,</VERS>
@@ -7922,7 +7922,7 @@
       <VERS vnumber="18">Rozrůstejte se pak v milosti a poznání našeho Pána a Spasitele Ježíše Krista, jemuž[ buď] sláva nyní i na věčné časy. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="62" bsname="1Jn">
+  <BIBLEBOOK bnumber="62" bsname="1.Jan" bname="1. Janův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Co bylo od počátku, co jsme slyšeli, co jsme svýma očima viděli, co jsme spatřili a[ čeho] se naše ruce dotýkaly: o Slovu života.</VERS>
       <VERS vnumber="2">Ten život byl zjeven a[ my] jsme viděli a svědčíme a oznamujeme vám ten věčný život, který byl u Otce a byl nám zjeven.</VERS>
@@ -8039,7 +8039,7 @@
       <VERS vnumber="21">Synáčkové, vyvarujte se model! Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="63" bsname="2Jn">
+  <BIBLEBOOK bnumber="63" bsname="2.Jan" bname="2. Janův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Starší v Kristu vyvolené paní i jejím synům, které já miluji v pravdě, a nejen já, ale i všichni, kteří poznali pravdu,</VERS>
       <VERS vnumber="2">pro tu pravdu, která zůstává v nás a bude s námi na věky:</VERS>
@@ -8056,7 +8056,7 @@
       <VERS vnumber="13">Pozdravují tě synové tvé vyvolené sestry. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="64" bsname="3Jn">
+  <BIBLEBOOK bnumber="64" bsname="3.Jan" bname="3.Janův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Starší milovanému Gaiovi, kterého já miluji v pravdě.</VERS>
       <VERS vnumber="2">Milovaný, především si přeji, abys ve všem prospíval a byl zdráv, tak jako prospívá tvá duše.</VERS>
@@ -8074,7 +8074,7 @@
       <VERS vnumber="14">Mám však naději, že tě brzo uvidím a budeme[ spolu] mluvit tváří v tvář. [ (III<xref fscope=" John 1:15"> John 1:15</xref>) Pokoj tobě. Pozdravují tě přátelé. Pozdravuj[ všechny] přátele jménem. ]</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="65" bsname="Jud">
+  <BIBLEBOOK bnumber="65" bsname="Jud" bname="Judův">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Juda, služebník Ježíše Krista a bratr Jakubův, těm, kdo jsou povolaní, posvěcení v Bohu Otci a zachovaní[ pro] Krista Ježíše:</VERS>
       <VERS vnumber="2">Nechť se vám rozmnoží milosrdenství a pokoj i láska.</VERS>
@@ -8103,7 +8103,7 @@
       <VERS vnumber="25">jedinému moudrému Bohu, našemu Spasiteli, [jemu buď] sláva a velebnost, vláda i moc, nyní i po všechny věky. Amen.</VERS>
     </CHAPTER>
   </BIBLEBOOK>
-  <BIBLEBOOK bnumber="66" bsname="Rev">
+  <BIBLEBOOK bnumber="66" bsname="Zjev" bname="Zjevení Janovo">
     <CHAPTER cnumber="1">
       <VERS vnumber="1">Zjevení Ježíše Krista, které mu dal Bůh, aby ukázal svým služebníkům, co se musí brzy stát. A[ on je] skrze svého anděla poslal a ukázal svému služebníku Janovi,</VERS>
       <VERS vnumber="2">který dosvědčil Boží slovo a svědectví Ježíše Krista a všechno, co viděl.</VERS>
