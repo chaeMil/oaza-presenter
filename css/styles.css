@@ -209,16 +209,13 @@ btn.active {
 #preview, #currentBg {
   width: 100%;
   max-height: 256px;
+  transition: all .2s ease-in-out;
 }
 
 #preview.big {
-  height: 70vh;
-  max-height: 70vh;
-  width: auto;
-  position: fixed;
-  right: 0;
-  bottom: 32px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(2.0) translateX(-25%) translateY(-25%);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }
 
 .preview:hover .zoom {
@@ -299,5 +296,5 @@ dialog h2 {
 #previewText {
   width: 100%;
   height: auto;
-  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.7));
 }
