@@ -47,20 +47,12 @@ function setFullscreen() {
   chrome.app.window.get('presenter').fullscreen();
 }
 
-function changeBg(file, isBlob) {
+function changeBg(file, blob) {
   console.log('changeBg ' + file);
   var canvas = $('#canvas');
   var canvas1 = $('#canvas1');
   var canvas2 = $('#canvas2');
-  if (isBlob == 'blob') {
-    var reader = new FileReader();
-    reader.onload = function(event){
-      $('#previewBackdrop').attr("src", event.target.result);
-    };
-    reader.readAsDataURL(file);
-  } else {
-    $('#previewBackdrop').attr("src", file);
-  }
+  $('#previewBackdrop').attr("src", file);
   
   if (activeBgLayer == 1) {
     activeBgLayer = 2;

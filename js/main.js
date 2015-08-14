@@ -293,8 +293,8 @@ function setPresenterBackground(file, isBlob) {
   currentBg = file;
   if (isBlob != 'blob') {
     file = 'chrome-extension://' + globalData.appId + '/' + file;
-    $('#currentBg').attr('src', file);
   }
+  $('#currentBg').attr('src', file);
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeBg(file, isBlob);
   }
