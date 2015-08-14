@@ -78,7 +78,7 @@ function getBibleVerses(file, book, chapter) {
   $('#bibleVerseSelect').empty();
   $.get(file, function(xml) {
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
-      $('#bibleVerseSelect').append('<option value="' + $(this).text() + '">'
+      $('#bibleVerseSelect').append('<option value="' + $(this).text().replace('"', '&quot;') + '">'
         + $(this).text() + '</option>');
     });
   });
