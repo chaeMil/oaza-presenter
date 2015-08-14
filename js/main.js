@@ -78,7 +78,7 @@ function getBibleVerses(file, book, chapter) {
   $('#bibleVerseSelect').empty();
   $.get(file, function(xml) {
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
-      $('#bibleVerseSelect').append('<option value="' + $(this).attr('vnumber') + '">'
+      $('#bibleVerseSelect').append('<option value="' + $(this).text() + '">'
         + $(this).text() + '</option>');
     });
   });
@@ -232,6 +232,10 @@ function addBibleLayout() {
         $('#bibleTranslationSelect').val(), 
         $('#bibleBookSelect').val(),
         $(this).val());
+    });
+    
+    $('#bibleVerseSelect').on('change', function() {
+      setPresenterText($(this).val(), '', $('#bibleTranslationSelect').text());
     });
   });
 }
