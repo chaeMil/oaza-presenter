@@ -40,7 +40,7 @@ chrome.runtime.getPlatformInfo(function(info) {
         frame: 'none',
         innerBounds: {
           minHeight: 550,
-          minWidth: 850
+          minWidth: 1110
         },
       }, 
       function(win) {

@@ -28,7 +28,7 @@ function init() {
 }
 
 function loadBibles() {
-  bibles = ['bibles/cze/czeb21/source.xml', 
+  bibles = ['bibles/cze/b21/source.xml', 
             'bibles/cze/nbk/source.xml',
             'bibles/cze/cep/source.xml'];
   
