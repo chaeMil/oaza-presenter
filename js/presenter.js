@@ -59,9 +59,16 @@ function changeBg(file) {
 
 function changeText(text, verse, translation) {
   console.log('changeBibleVerse: ' + text + ' ' + verse + ' ' + translation);
-  $('#bibleText').html(text);
-  $('#bibleVerse').html(verse);
-  $('#bibleTranslation').html(translation);
+  $('#bibleText').fadeOut('fast', function() {
+    $(this).text(text);
+  }).fadeIn('fast');
+  $('#bibleVerse').fadeOut('fast', function() {
+    $(this).text(verse);
+  }).fadeIn('fast');
+  $('#bibleTranslation').fadeOut('fast', function() {
+    $(this).text(translation);
+  }).fadeIn('fast');
+  
   renderText();
 }
 
