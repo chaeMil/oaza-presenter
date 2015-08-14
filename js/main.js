@@ -127,6 +127,18 @@ window.onload = function() {
     closeAppDialog.close("canceled");
   });
   
+  //app help keyboard dialog
+  var helpKeyboardDialog = document.querySelector('#helpKeyboardDialog');
+  
+  document.querySelector('#helpKeyboardDialogDismiss').addEventListener("click", function(evt) {
+    helpKeyboardDialog.close();
+  });
+    
+  // called when the user Cancels the dialog, for example by hitting the ESC key
+  helpKeyboardDialog.addEventListener("cancel", function(evt) {
+    helpKeyboardDialog.close("canceled");
+  });
+  
   $(document).on('keydown', function (e) {
     var key = String.fromCharCode(e.which);
     console.log(key);
@@ -143,6 +155,27 @@ window.onload = function() {
       case 'G':
         togglePresenterDraggable();
         break;
+      case 'N':
+        if (hideText) {
+          presenterToggleText(false);
+        } else {
+          presenterToggleText(true);
+        }
+        break;
+      case 'M':
+        if (hideBg) {
+          presenterToggleBg(false);
+        } else {
+          presenterToggleBg(true);
+        }
+        break;
+      case 'Z':
+        if (presenterFreezed) {
+          presenterToggleFreezed(false);
+        } else {
+          presenterToggleFreezed(true);
+        }
+        break;
     }
   });
   
@@ -150,6 +183,10 @@ window.onload = function() {
 
 
 // app wide buttons clicks
+
+$(document).on("click", '.help', function(event) { 
+  showHelpWindow($(this).data('help'));
+});
 
 $(document).on("click", '.presenterFont', function(event) { 
   setPresenterFont($(this).data('font'), $(this).text());
@@ -209,6 +246,14 @@ $(document).on("click", '#closeApp', function(event) {
 });
 
 //app functions
+
+function showHelpWindow(section) {
+  switch(section) {
+    case 'keyboard':
+      helpKeyboardDialog.showModal();
+      break;
+  }
+}
 
 function addImagesLayout() {
   $.get("layouts/images.html", function(data){
