@@ -249,8 +249,10 @@ function unfreezePresenter() {
   
   if (!hideText) {
     chrome.app.window.get('presenter').contentWindow.setTextHidden(true);
+    $('#previewText').css('opacity', 0);
   } else {
     chrome.app.window.get('presenter').contentWindow.setTextHidden(false);
+    $('#previewText').css('opacity', 1);
   }
   
   setPresenterBackground(currentBg, currentBgIsBlob);
@@ -272,14 +274,14 @@ function presenterToggleText(value) {
   if (value) {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setTextHidden(hideText);
-      $('#previewBible').hide();
+      $('#previewText').css('opacity', 0);
     }
     $('#hideTextButton').addClass('active');
     hideText = true;
   } else {
     if (!presenterFreezed) {
       chrome.app.window.get('presenter').contentWindow.setTextHidden(hideText);
-      $('#previewBible').show();
+      $('#previewText').css('opacity', 1);
     }
     $('#hideTextButton').removeClass('active');
     hideText = false;
@@ -310,9 +312,6 @@ function setPresenterText(text, verse, translation) {
   currentTranslation = translation;
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
-    $('#previewBibleText').text(text);
-    $('#previewBibleVerse').text(verse);
-    $('#previewBibleTranslation').text(translation);
   }
 }
 
@@ -325,8 +324,8 @@ function setPresenterBackground(file, isBlob) {
   }
   $('#currentBg').attr('src', file);
   if (!presenterFreezed) {
-    chrome.app.window.get('presenter').contentWindow.changeBg(file, isBlob);
-    $('#previewBg').css("background-image", "url('" + file + "')");
+    chrome.app.window.get('presenter').contentWindow.changeBg(file);
+    $('#preview').css("background-image", "url('" + file + "')");
   }
 }
 
@@ -334,9 +333,10 @@ function setPresenterFullscreen() {
   chrome.app.window.get('presenter').contentWindow.setFullscreen();
 }
 
-function updatePreview(preview) {
+function updatePreviewText(bitmap) {
   console.log('updating preview');
-  //$('#preview').attr("src", preview);
+  console.log(bitmap);
+  $('#previewText').attr('src', bitmap);
 }
 
 

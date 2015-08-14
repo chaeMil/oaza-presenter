@@ -47,13 +47,12 @@ function setFullscreen() {
   chrome.app.window.get('presenter').fullscreen();
 }
 
-function changeBg(file, blob) {
+function changeBg(file) {
   console.log('changeBg ' + file);
   var canvas = $('#canvas');
   var canvas1 = $('#canvas1');
   var canvas2 = $('#canvas2');
-  $('#previewBackdrop').attr("src", file);
-  
+
   if (activeBgLayer == 1) {
     activeBgLayer = 2;
     
@@ -78,6 +77,7 @@ function changeText(text, verse, translation) {
   $('#bibleText').html(text);
   $('#bibleVerse').html(verse);
   $('#bibleTranslation').html(translation);
+  renderText();
 }
 
 function setTextHidden(value) {
@@ -94,4 +94,17 @@ function setBgHidden(value) {
   } else {
     $('#bg').fadeOut(500);
   }
+}
+
+function renderText() {
+  setTimeout(function (e) {
+    html2canvas(document.querySelector('#bible'), {
+      onrendered: function(canvas){
+        console.log('rendering preview');
+        chrome.app.window.get('mainWindow').contentWindow.updatePreviewText(canvas.toDataURL());
+      },
+      logging: true,
+      background: undefined
+    }); 
+  }, 500);
 }
