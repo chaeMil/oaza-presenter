@@ -324,3 +324,6 @@ dialog h2 {
   min-width: 250px;
 }
 
+#currentText, #currentTranslation, #currentVerse {
+  max-width: 240px;
+}
