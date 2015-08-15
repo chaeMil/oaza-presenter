@@ -1,0 +1,13 @@
+{
+  "canvas": "Canvas",
+  "move": "Move [G]",
+  "presenterFullscreen": "Set canvas fullscreen [F]",
+  "presenter169": "Canvas ratio 16:9",
+  "presenter43": "Canvas ratio 4:3",
+  "presenter11": "Canvas ratio 1:1",
+  "presenterResolution1": "Resolution 640x480",
+  "presenterResolution2": "Resolution 800x600",
+  "presenterResolution3": "Resolution 1024x768",
+  "presenterResolution4": "Resolution 1280x720",
+  "presenterResolution5": "Resolution 1920x1080"
+}

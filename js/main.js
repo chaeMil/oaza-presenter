@@ -5,6 +5,11 @@ var hideBg = false;
 var currentText;
 var currentVerse;
 var currentTranslation;
+
+var currentBookNum;
+var currentChapterNum;
+var currentVerseNum;
+
 var currentBg;
 var currentBgIsBlob;
 
@@ -17,6 +22,8 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 });
 
 function init() {
+  getLocalFile('en');
+  
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
   var randomSplashImage = randomIntFromInterval(1, numberOfDefaultImages);
   setPresenterBackground('assets/defaults/images/' + randomSplashImage +'.jpg', '');
@@ -289,6 +296,7 @@ function addBibleLayout() {
     
     $('#bibleBookSelect').on('change', function() {
       getBibleChapters($('#bibleTranslationSelect').val(), $(this).val());
+      currentBookNum = $(this).data('book');
     });
     
     $('#bibleChapterSelect').on('change', function() {
@@ -296,6 +304,7 @@ function addBibleLayout() {
         $('#bibleTranslationSelect').val(), 
         $('#bibleBookSelect').val(),
         $(this).val());
+      currentChapterNum = $(this).val();
     });
     
     $('#bibleVerseSelect').on('change', function() {
@@ -304,6 +313,7 @@ function addBibleLayout() {
         + $('#bibleChapterSelect').find(':selected').data('chapter') + ':' 
         + $('#bibleVerseSelect').find(':selected').data('verse'),
         '');
+      currentVerseNum = $(this).val();
     });
   });
 }
@@ -525,7 +535,23 @@ function updatePreviewText(bitmap) {
 //utils
 
 function randomIntFromInterval(min,max) {
-    return Math.floor(Math.random()*(max-min+1)+min);
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+function getLocalFile(locale) {
+  $.ajax({
+    dataType: 'json',
+    url:"local/" + locale + ".json",  
+    success: function(json) {
+      applyLocal(json);
+    }
+  });
+}
+
+function applyLocal(json) {
+  $.each(json, function(index, item) {
+    $('[data-localize="' + index + '"]').text(item);
+  });
 }
 
 function loadImageFromUri(uri, imgElement) {
