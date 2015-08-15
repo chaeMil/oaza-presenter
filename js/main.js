@@ -17,6 +17,7 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 
 function init() {
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
+  setPresenterBackground('assets/defaults/images/0.jpg', '');
   $('#currentText').text('');
   $('#currentVerse').text('');
   $('#currentTranslation').text('');
@@ -258,6 +259,15 @@ function showHelpWindow(section) {
 function addImagesLayout() {
   $.get("layouts/images.html", function(data){
       content.append(data);
+      
+      var numberOfDefaultImages = 35;
+      for (i = 1; i < numberOfDefaultImages; i++) {
+        $('#imagesGrid').append('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">'
+          + '<div class="img-16-9 setPresenterBg"'
+          + ' data-file="assets/defaults/images/' + i + '.jpg"'
+          + ' style="background-image: url(\'assets/defaults/images/' + i + '.jpg\');"></div>');
+      }
+      
       document.querySelector('#importImagesFolderButton').addEventListener('click', function(evt) {
       importImages();
     });
