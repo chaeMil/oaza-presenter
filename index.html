@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
   
   <title>Oáza Presenter</title>
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
@@ -22,62 +23,60 @@
       <div class="pure-menu pure-menu-horizontal not-draggable">
         <ul class="pure-menu-list">
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-            <a class="pure-menu-link top-menu" data-localize="canvas">Plátno</a>
+            <a class="pure-menu-link top-menu" data-localize="canvas"></a>
             <ul class="pure-menu-children">
               <li class="pure-menu-item">
                 <a class="pure-menu-link draggablePresenterButton" 
-                  data-localize="move">
-                  Přesunout [G]</a>
+                  data-localize="move"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link fullscreenPresenterButton"
-                  data-localize="presenterFullscreen">
-                  Přes celou obrazovku [F]</a>
+                  data-localize="presenterFullscreen"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterAspectRatioButton"
                   data-localize="presenter169"
-                  data-ratio="1">Poměr stran 16:9</a>
+                  data-ratio="1"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterAspectRatioButton"
                   data-localize="presenter43"
-                  data-ratio="2">Poměr stran 4:3</a>
+                  data-ratio="2"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterAspectRatioButton"
                   data-localize="presenter11"
-                  data-ratio="3">Poměr stran 1:1</a>
+                  data-ratio="3"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterSetResolution"
                   data-localize="presenterResolution1"
-                  data-res="640x480">Rozlišení 640x480</a>
+                  data-res="640x480"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterSetResolution" 
                   data-localize="presenterResolution2"
-                  data-res="800x600">Rozlišení 800x600</a>
+                  data-res="800x600"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterSetResolution" 
                   data-localize="presenterResolution3"
-                  data-res="1024x768">Rozlišení 1024x768</a>
+                  data-res="1024x768"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterSetResolution" 
                   data-localize="presenterResolution4"
-                  data-res="1280x720">Rozlišení 1280x720</a>
+                  data-res="1280x720"></a>
               </li>
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterSetResolution"
                   data-localize="presenterResolution5"
-                  data-res="1920x1080">Rozlišení 1920x1080</a>
+                  data-res="1920x1080"></a>
               </li>
             </ul>
           </li>
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-            <a class="pure-menu-link top-menu" data-localize="font">Font</a>
+            <a class="pure-menu-link top-menu" data-localize="font"></a>
             <ul class="pure-menu-children">
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterFont" data-font="roboto-regular">
@@ -90,12 +89,20 @@
             </ul>
           </li>
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-            <a class="pure-menu-link top-menu" data-localize="help">Nápověda</a>
+            <a class="pure-menu-link top-menu" data-localize="help"></a>
             <ul class="pure-menu-children">
               <li class="pure-menu-item">
                 <a class="pure-menu-link help" data-help="keyboard"
-                  data-localize="keyboardShortcuts">
-                  Klávesové zkratky</a>
+                  data-localize="keyboardShortcuts"></a>
+              </li>
+            </ul>
+          </li>
+          <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+            <a class="pure-menu-link top-menu" data-localize="settings"></a>
+            <ul class="pure-menu-children">
+              <li class="pure-menu-item">
+                <a class="pure-menu-link settings" data-settings="language"
+                  data-localize="language"></a>
               </li>
             </ul>
           </li>
@@ -114,14 +121,14 @@
   
   <sidebar class="left">
     <align-bottom>
-      <row class="muted" data-localize="currentText">aktuální text:</row>
+      <row class="muted" data-localize="currentText"></row>
       <row id="currentText"></row>
-      <row class="muted" data-localize="currentVerse">aktuální verš:</row>
+      <row class="muted" data-localize="currentVerse"></row>
       <row id="currentVerse"></row>
-      <row class="muted" data-localize="currentTranslation">aktuální překlad:</row>
+      <row class="muted" data-localize="currentTranslation"></row>
       <row id="currentTranslation"></row>
       <hr>
-      <row class="muted" data-localize="currentBg">aktuální pozadí:</row>
+      <row class="muted" data-localize="currentBg"></row>
       <img id="currentBg" src="" />
     </align-bottom>
   </sidebar>
@@ -129,18 +136,18 @@
   <sidebar class="right">
     <row>
       <btn id="bibleButton"><i class="fa fa-book"></i>
-        <span data-localize="bibleButton"> <u>B</u>ible</span>
+        <span data-localize="bibleButton"></span>
       </btn>
       <btn><i class="fa fa-music"></i>
-        <span data-localize="songsButton"> Písně</span>
+        <span data-localize="songsButton"></span>
       </btn>
     </row>
     <row>
       <btn id="imagesButton"><i class="fa fa-picture-o"></i>
-        <span data-localize="imagesButton"> <u>O</u>brázky</span>
+        <span data-localize="imagesButton"></span>
       </btn>
       <btn><i class="fa fa-list-alt"></i> 
-        <span datal-localize="listsButton"> Seznamy</span>
+        <span datal-localize="listsButton"></span>
       </btn>
     </row>
     
@@ -148,20 +155,20 @@
     
     <row>
       <btn id="hideTextButton"><i class="fa fa-eye-slash"></i> 
-        <span data-localize="hideTextButton"> Skrýt text</span>
+        <span data-localize="hideTextButton"></span>
       </btn>
       <btn id="hideBgButton"><i class="fa fa-eye-slash"></i> 
-        <span data-localize="hideBgButton"> Skrýt pozadí</span>
+        <span data-localize="hideBgButton"></span>
       </btn>
     </row>
     <row>
       <btn id="freezePresenterButton"><i class="fa fa-lock"></i> 
-        <span data-localize="lockCanvasButton"> <u>Z</u>amknout</span>
+        <span data-localize="lockCanvasButton"></span>
       </btn>
     </row>
     
     <align-bottom class="preview">
-      <row class="muted" data-localize="preview">náhled:</row>
+      <row class="muted" data-localize="preview"></row>
       <div id="preview">
     
         <img id="previewText" src="" >
@@ -177,28 +184,33 @@
   </statusbar>
   
   <dialog id="closeAppDialog">
-		<h2>Ukončit Oáza Presenter?</h2>
+		<h2 data-localize="quitApp">Ukončit Oáza Presenter?</h2>
 		<div>
-			<btn id="closeAppDialogNo">Ne</btn>
-			<btn id="closeAppDialogYes">Ukončit</btn>
+			<btn data-localize="no" id="closeAppDialogNo">Ne</btn>
+			<btn data-localize="quit" id="closeAppDialogYes">Ukončit</btn>
 		</div>
 	</dialog>
 	
 	<dialog id="helpKeyboardDialog">
-		<h2>Nápověda > Klávesové zkratky</h2>
+		<h2 data-localize="helpKeyboard"</h2>
 		<div>
-		  <ul>
-		    <li>[B] - přejít na výběr verše z Bible</li>
-		    <li>[O] - přejít na výběr obrázku</li>
-		    <li>[G] - přepnout přesouvání plátna</li>
-		    <li>[F] - plátno přes celou obrazovku</li>
-		    <li>[N] - skrýt text (přepínání)</li>
-		    <li>[M] - skrýt pozadí (přepínání)</li>
-		    <li>[Z] - zamknout plátno (přepínání)</li>
+		  <ul data-localize="helpKeyboardText">
 		  </ul>
 		</div>
 		<div>
-			<btn id="helpKeyboardDialogDismiss">Zavřít</btn>
+			<btn data-localize="close" id="helpKeyboardDialogDismiss"></btn>
+		</div>
+	</dialog>
+	
+	<dialog id="chooseLanguageDialog">
+		<h2 data-localize="chooseLanguage"></h2>
+  	  <div>
+		  <ul class="languageSelect">
+		    <li><a class="language" data-language="en">English</a></li>
+		    <li><a class="language" data-language="cs">česky</a></li>
+		  </ul>
+		<div>
+			<btn data-localize="close" id="chooseLanguageDismiss"></btn>
 		</div>
 	</dialog>
 

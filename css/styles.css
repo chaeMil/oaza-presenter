@@ -327,3 +327,20 @@ dialog h2 {
 #currentText, #currentTranslation, #currentVerse {
   max-width: 240px;
 }
+
+ul.languageSelect {
+  -webkit-padding-start: 0px;
+}
+
+.languageSelect li {
+  font-size: 18px;
+  list-style: none;
+  text-decoration: underline;
+  text-align: center;
+  padding-left: 0;
+}
+
+.languageSelect li:hover {
+  color: #0088FF;
+  cursor: pointer;
+}

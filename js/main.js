@@ -40,6 +40,7 @@ function init() {
   
   switch(userLang) {
     case 'cs':
+      getLocalFile('cs');
       break;
     case 'en':
       getLocalFile('en');
@@ -48,6 +49,8 @@ function init() {
       getLocalFile('en');
       break;
   }
+  
+  //getLocalFile('en');
   
   loadBibles();
   
@@ -168,6 +171,18 @@ window.onload = function() {
     helpKeyboardDialog.close("canceled");
   });
   
+  //choose language dialog
+  var chooseLanguageDialog = document.querySelector('#chooseLanguageDialog');
+  
+  document.querySelector('#chooseLanguageDismiss').addEventListener("click", function(evt) {
+    chooseLanguageDialog.close();
+  });
+    
+  // called when the user Cancels the dialog, for example by hitting the ESC key
+  chooseLanguageDialog.addEventListener("cancel", function(evt) {
+    chooseLanguageDialog.close("canceled");
+  });
+  
   $(document).on('keydown', function (e) {
     var key = String.fromCharCode(e.which);
     console.log(key);
@@ -212,6 +227,14 @@ window.onload = function() {
 
 
 // app wide buttons clicks
+
+$(document).on("click", '.language', function(event) { 
+  getLocalFile($(this).data('language'));
+});
+
+$(document).on("click", '.settings', function(event) { 
+  showSettingsWindow($(this).data('settings'));
+});
 
 $(document).on("click", '.help', function(event) { 
   showHelpWindow($(this).data('help'));
@@ -275,6 +298,14 @@ $(document).on("click", '#closeApp', function(event) {
 });
 
 //app functions
+
+function showSettingsWindow(section) {
+  switch(section) {
+    case 'language':
+      chooseLanguageDialog.showModal();
+      break;
+  }
+}
 
 function showHelpWindow(section) {
   switch(section) {
@@ -368,7 +399,7 @@ function addImage(entry) {
   entry.file(function(file) {
     var objectURL = URL.createObjectURL(file);
     $('#imagesGrid')
-      .append('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">' + 
+      .prepend('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">' + 
       '<div class="img-16-9 setPresenterBg" data-file="' + objectURL + '" ' +
       'data-blob="blob" ' +
       'style="background-image: url(\'' + objectURL + '\');"></div></div>');

@@ -31,5 +31,14 @@
   "book": "Book",
   "chapter": "Chapter",
   "verse": "Verse",
-  "preview": "preview:"
+  "preview": "preview:",
+  "settings": "Settings",
+  "language": "Language",
+  "quitApp": "Quit Oáza presenter?",
+  "no": "No",
+  "quit": "Quit",
+  "close": "Close",
+  "helpKeyboard": "Help > Keyboard shortcuts",
+  "helpKeyboardText": "<li>[B] - display Bible verse selection</li><li>[O] - display image selection</li><li>[G] - toggle draggable canvas</li><li>[F] - set canvas to fullscreen</li><li>[N] - hide text (toggle)</li><li>[M] - hide background (toggle)</li><li>[Z] - lock canvas (toggle)</li>",
+  "chooseLanguage": "Choose language"
 }
