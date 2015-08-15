@@ -312,7 +312,7 @@ dialog h2 {
   max-height: 256px;
 }
 
-#bibleBookSelect {
+#bibleBookSelect, #bibleHistory {
   width: 100px;
 }
 

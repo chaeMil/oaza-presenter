@@ -358,8 +358,17 @@ function addBibleLayout() {
         $('#bibleBookSelect').find(':selected').data('book') + ' '
         + $('#bibleChapterSelect').find(':selected').data('chapter') + ':' 
         + $('#bibleVerseSelect').find(':selected').data('verse'),
-        '');
+        '',
+        true);
       currentVerseNum = $(this).val();
+    });
+    
+    $('#bibleHistory').on('click', function() {
+      var text = $(this).find(':selected').data('text');
+      var verse = $(this).find(':selected').data('verse');
+      var translation = $(this).find(':selected').data('translation');
+      
+      setPresenterText(text, verse, translation, false);
     });
   });
 }
@@ -534,7 +543,7 @@ function presenterToggleBg(value) {
   }
 }
 
-function setPresenterText(text, verse, translation) {
+function setPresenterText(text, verse, translation, saveHistory) {
   currentText = text;
   currentVerse = verse;
   currentTranslation = translation;
@@ -544,6 +553,12 @@ function setPresenterText(text, verse, translation) {
   $('#currentText').text(text);
   $('#currentVerse').text(verse);
   $('#currentTranslation').text(translation);
+  
+  if (saveHistory) {
+    $('#bibleHistory').prepend('<option data-text="' + text + 
+      '" data-verse="' + verse + '" data-translation="' + translation + '">' + 
+      verse + '</option>');
+  }
 }
 
 function setPresenterBackground(file, isBlob) {
