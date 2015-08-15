@@ -112,7 +112,7 @@ function getBibleVerses(file, book, chapter) {
   $.get(file, function(xml) {
     var verse = 1;
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
-      $('#bibleVerseSelect').append('<option value="' + $(this).text().replace('"', '&quot;') 
+      $('#bibleVerseSelect').append('<option value="' + $(this).text().replace('"', '&#34;') 
         + '" data-verse="' + verse + '">'
         + verse + ". " + $(this).text() + '</option>');
       verse++;
