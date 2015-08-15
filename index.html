@@ -77,7 +77,7 @@
             </ul>
           </li>
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-            <a class="pure-menu-link top-menu">Font</a>
+            <a class="pure-menu-link top-menu" data-localize="font">Font</a>
             <ul class="pure-menu-children">
               <li class="pure-menu-item">
                 <a class="pure-menu-link presenterFont" data-font="roboto-regular">
@@ -90,10 +90,11 @@
             </ul>
           </li>
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-            <a class="pure-menu-link top-menu">Nápověda</a>
+            <a class="pure-menu-link top-menu" data-localize="help">Nápověda</a>
             <ul class="pure-menu-children">
               <li class="pure-menu-item">
-                <a class="pure-menu-link help" data-help="keyboard">
+                <a class="pure-menu-link help" data-help="keyboard"
+                  data-localize="keyboardShortcuts">
                   Klávesové zkratky</a>
               </li>
             </ul>
@@ -113,40 +114,54 @@
   
   <sidebar class="left">
     <align-bottom>
-      <row class="muted">aktuální text:</row>
+      <row class="muted" data-localize="currentText">aktuální text:</row>
       <row id="currentText"></row>
-      <row class="muted">aktuální verš:</row>
+      <row class="muted" data-localize="currentVerse">aktuální verš:</row>
       <row id="currentVerse"></row>
-      <row class="muted">aktuální překlad:</row>
+      <row class="muted" data-localize="currentTranslation">aktuální překlad:</row>
       <row id="currentTranslation"></row>
       <hr>
-      <row class="muted">aktuální pozadí:</row>
+      <row class="muted" data-localize="currentBg">aktuální pozadí:</row>
       <img id="currentBg" src="" />
     </align-bottom>
   </sidebar>
   
   <sidebar class="right">
     <row>
-      <btn id="bibleButton"><i class="fa fa-book"></i> <u>B</u>ible</btn>
-      <btn><i class="fa fa-music"></i> Písně</btn>
+      <btn id="bibleButton"><i class="fa fa-book"></i>
+        <span data-localize="bibleButton"> <u>B</u>ible</span>
+      </btn>
+      <btn><i class="fa fa-music"></i>
+        <span data-localize="songsButton"> Písně</span>
+      </btn>
     </row>
     <row>
-      <btn id="imagesButton"><i class="fa fa-picture-o"></i> <u>O</u>brázky</btn>
-      <btn><i class="fa fa-list-alt"></i> Seznamy</btn>
+      <btn id="imagesButton"><i class="fa fa-picture-o"></i>
+        <span data-localize="imagesButton"> <u>O</u>brázky</span>
+      </btn>
+      <btn><i class="fa fa-list-alt"></i> 
+        <span datal-localize="listsButton"> Seznamy</span>
+      </btn>
     </row>
     
     <hr>
     
     <row>
-      <btn id="hideTextButton"><i class="fa fa-eye-slash"></i> Skrýt text</btn>
-      <btn id="hideBgButton"><i class="fa fa-eye-slash"></i> Skrýt pozadí</btn>
+      <btn id="hideTextButton"><i class="fa fa-eye-slash"></i> 
+        <span data-localize="hideTextButton"> Skrýt text</span>
+      </btn>
+      <btn id="hideBgButton"><i class="fa fa-eye-slash"></i> 
+        <span data-localize="hideBgButton"> Skrýt pozadí</span>
+      </btn>
     </row>
     <row>
-      <btn id="freezePresenterButton"><i class="fa fa-lock"></i> <u>Z</u>amknout</btn>
+      <btn id="freezePresenterButton"><i class="fa fa-lock"></i> 
+        <span data-localize="lockCanvasButton"> <u>Z</u>amknout</span>
+      </btn>
     </row>
     
     <align-bottom class="preview">
-      <row class="muted">náhled:</row>
+      <row class="muted" data-localize="preview">náhled:</row>
       <div id="preview">
     
         <img id="previewText" src="" >

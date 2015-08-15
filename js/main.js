@@ -1,3 +1,5 @@
+var userLang;
+
 var presenterFreezed = false;
 var hideText = false;
 var hideBg = false;
@@ -22,7 +24,9 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 });
 
 function init() {
-  getLocalFile('en');
+  
+  userLang = navigator.language || navigator.userLanguage;
+  console.log('userLang: ' + userLang);
   
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
   var randomSplashImage = randomIntFromInterval(1, numberOfDefaultImages);
@@ -33,6 +37,17 @@ function init() {
   
   addImagesLayout();
   addBibleLayout();
+  
+  switch(userLang) {
+    case 'cs':
+      break;
+    case 'en':
+      getLocalFile('en');
+      break;
+    default:
+      getLocalFile('en');
+      break;
+  }
   
   loadBibles();
   
@@ -550,7 +565,7 @@ function getLocalFile(locale) {
 
 function applyLocal(json) {
   $.each(json, function(index, item) {
-    $('[data-localize="' + index + '"]').text(item);
+    $('[data-localize="' + index + '"]').html(item);
   });
 }
 
