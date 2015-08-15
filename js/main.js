@@ -9,6 +9,7 @@ var currentBg;
 var currentBgIsBlob;
 
 var content = $('#content');
+var numberOfDefaultImages = 35;
 var globalData;
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
@@ -17,7 +18,8 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 
 function init() {
   setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
-  setPresenterBackground('assets/defaults/images/0.jpg', '');
+  var randomSplashImage = randomIntFromInterval(1, numberOfDefaultImages);
+  setPresenterBackground('assets/defaults/images/' + randomSplashImage +'.jpg', '');
   $('#currentText').text('');
   $('#currentVerse').text('');
   $('#currentTranslation').text('');
@@ -26,6 +28,10 @@ function init() {
   addBibleLayout();
   
   loadBibles();
+  
+  setTimeout(function() {
+    showLayout('#layout-images');
+  }, 750);
 }
 
 function escapeHTML(input) {
@@ -260,7 +266,6 @@ function addImagesLayout() {
   $.get("layouts/images.html", function(data){
       content.append(data);
       
-      var numberOfDefaultImages = 35;
       for (i = 1; i < numberOfDefaultImages; i++) {
         $('#imagesGrid').append('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">'
           + '<div class="img-16-9 setPresenterBg"'
@@ -518,6 +523,10 @@ function updatePreviewText(bitmap) {
 
 
 //utils
+
+function randomIntFromInterval(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
 
 function loadImageFromUri(uri, imgElement) {
   var xhr = new XMLHttpRequest();
