@@ -91,7 +91,9 @@ function loadBibles() {
   bibles = ['bibles/cze/b21/source.xml', 
             'bibles/cze/nbk/source.xml',
             'bibles/cze/cep/source.xml',
-            'bibles/cze/bkr/source.xml'];
+            'bibles/cze/bkr/source.xml',
+            'bibles/eng/kjv/source.xml',
+            'bibles/eng/rsv/source.xml'];
   
   console.log('bible books count: ' + bibles.length);
   
