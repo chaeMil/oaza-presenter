@@ -59,7 +59,7 @@ function init() {
   $('#currentVerse').text('');
   $('#currentTranslation').text('');
   
-  getOption('presenterFont');
+  //getOption('presenterFont');
   
   addImagesLayout();
   addBibleLayout();
