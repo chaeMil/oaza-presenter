@@ -43,7 +43,7 @@ function init() {
       innerBounds: {
         minHeight: 480,
         minWidth: 480
-      },
+      }
     },
     function(win) {
       win.onClosed.addListener(function() {
