@@ -265,6 +265,7 @@ $(document).on("click", '.help', function(event) {
 
 $(document).on("click", '.presenterFont', function(event) { 
   setPresenterFont($(this).data('font'), $(this).text());
+  saveOption('presenterFont', $(this).data('font'));
 });
 
 $(document).on("click", '.draggablePresenterButton', function(event) { 
@@ -617,6 +618,12 @@ function updatePreviewText(bitmap) {
 
 
 //utils
+
+function saveOption(key, value) {
+  chrome.storage.local.set({key: value}, function() {
+    console.log('saving: ' + key + ':' + value);
+  });
+}
 
 function randomIntFromInterval(min,max) {
   return Math.floor(Math.random()*(max-min+1)+min);

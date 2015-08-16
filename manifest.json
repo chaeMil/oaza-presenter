@@ -22,7 +22,8 @@
   },
   
   "permisions": [
-    "app.window.fullscreen"
+    "app.window.fullscreen",
+    "storage"
   ],
   
   "optional_permissions": [
