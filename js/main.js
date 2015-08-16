@@ -25,12 +25,36 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 
 function init() {
   
+  chrome.runtime.getPlatformInfo(function(info) {
+    globalData.os = info.os;
+    globalData.appId = chrome.runtime.id;
+    
+    if (globalData.os == 'linux') {
+      $('#closeApp').addClass('left');
+      $('#toolbarMenu').addClass('linux');
+    }
+  });
+  
+  chrome.app.window.create(
+    'layouts/presenter.html',
+    {
+      id: 'presenter',
+      frame: 'none',
+      innerBounds: {
+        minHeight: 480,
+        minWidth: 480
+      },
+    },
+    function(win) {
+      win.onClosed.addListener(function() {
+        console.log('closed presenter window');
+      });
+    }
+  );
+  
   userLang = navigator.language || navigator.userLanguage;
   console.log('userLang: ' + userLang);
   
-  setPresenterText('Oáza Presenter','version 0.1 alpha', 'github.com/chaeMil/oaza-presenter');
-  var randomSplashImage = randomIntFromInterval(1, numberOfDefaultImages);
-  setPresenterBackground('assets/defaults/images/' + randomSplashImage +'.jpg', '');
   $('#currentText').text('');
   $('#currentVerse').text('');
   $('#currentTranslation').text('');
@@ -131,11 +155,6 @@ window.onload = function() {
   $('#bibleButton').click(function (e) {
     showLayout('#layout-bible');
   });
-  
-  if (globalData.os == 'linux') {
-    $('#closeApp').addClass('left');
-    $('#toolbarMenu').addClass('linux');
-  }
   
   //zoom preview
   $('#preview').click(function (e) {
