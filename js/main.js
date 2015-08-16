@@ -90,7 +90,8 @@ function escapeHTML(input) {
 function loadBibles() {
   bibles = ['bibles/cze/b21/source.xml', 
             'bibles/cze/nbk/source.xml',
-            'bibles/cze/cep/source.xml'];
+            'bibles/cze/cep/source.xml',
+            'bibles/cze/bkr/source.xml'];
   
   console.log('bible books count: ' + bibles.length);
   
@@ -104,7 +105,8 @@ function getBibleName(file) {
     $(xml).find('title').each(function() {
       console.log($(this).text());
       $('#bibleTranslationSelect')
-        .append('<option value="' + file + '">' + $(this).text() + '</option>');
+        .append('<option value="' + file + '" data-translation="' + $(this).text()
+          + '">' + $(this).text() + '</option>');
     });
   });
 }
@@ -377,7 +379,7 @@ function addBibleLayout() {
         $('#bibleBookSelect').find(':selected').data('book') + ' '
         + $('#bibleChapterSelect').find(':selected').data('chapter') + ':' 
         + $('#bibleVerseSelect').find(':selected').data('verse'),
-        '',
+        $('#bibleTranslationSelect').find(':selected').data('translation'), 
         true);
       currentVerseNum = $(this).val();
     });
