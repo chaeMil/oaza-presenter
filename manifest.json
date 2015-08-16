@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "OazaPresenter",
-  "short_name": "OazaPresenter",
+  "name": "Oáza Presenter",
+  "short_name": "Oáza Presenter",
   "description": "",
   "version": "0.0.1",
   "minimum_chrome_version": "38",
@@ -20,10 +20,7 @@
   },
   
   "permisions": [
-    "tabs",
-    "<all_urls>",
-    "app.window.fullscreen",
-    {"fileSystem": ["write"]}
+    "app.window.fullscreen"
   ],
   
   "optional_permissions": [
