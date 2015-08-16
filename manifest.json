@@ -4,6 +4,7 @@
   "short_name": "Oáza Presenter",
   "description": "",
   "version": "0.0.1",
+  "offline_enabled": true,
   "minimum_chrome_version": "38",
 
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
@@ -22,11 +23,11 @@
   },
   
   "permisions": [
-    "app.window.fullscreen",
-    "storage"
+    "app.window.fullscreen"
   ],
   
   "optional_permissions": [
+    "storage",
     {"fileSystem": ["write", "retainEntries", "directory"]}
   ]
 }

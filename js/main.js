@@ -59,6 +59,8 @@ function init() {
   $('#currentVerse').text('');
   $('#currentTranslation').text('');
   
+  getOption('presenterFont');
+  
   addImagesLayout();
   addBibleLayout();
   
@@ -620,8 +622,17 @@ function updatePreviewText(bitmap) {
 //utils
 
 function saveOption(key, value) {
+  var sKey = key;
+  var sValue = value;
   chrome.storage.local.set({key: value}, function() {
-    console.log('saving: ' + key + ':' + value);
+    console.log('saved: ' + sKey + ":" + sValue);
+  });
+}
+
+function getOption(key) {
+  chrome.storage.local.get(key, function(items) {
+		console.debug(key + ' = ' + items[key]);
+		console.debug(items);
   });
 }
 
