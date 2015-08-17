@@ -294,7 +294,7 @@ $(document).on("click", '#addNewImagesFolderButton', function(event) {
 });
 
 $(document).on("click", '.imagesFolderButton', function(event) {
-  showImagesFolder($(this), $(this).data('folder'));
+  showImagesFolder($(this).data('folder'));
 });
 
 $(document).on("click", '.presenterFontBigger', function(event) {
@@ -409,9 +409,9 @@ function createImageFolder(folderName) {
   showImagesFolder(folderName);
 }
 
-function showImagesFolder(element, folder) {
+function showImagesFolder(folder) {
   $('#imageFoldersBar').children().removeClass('active');
-  $(element).addClass('active');
+  $('[data-folder=' + folder + ']').addClass('active');
   $('#imageFolders').children().hide();
   $('#imageFolders').children().removeClass('active');
   $('#imagesFolder_' + folder).show();
