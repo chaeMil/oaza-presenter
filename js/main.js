@@ -265,10 +265,6 @@ $(document).on("click", '.presenterOpen', function(event) {
   openPresenterWindow();
 });
 
-$(document).on("click", '.presenterClose', function(event) {
-  closePresenterWindow();
-});
-
 $(document).on("contextmenu", '.importedImage', function(event) {
   event.preventDefault();
   $(this).children('remove').addClass('visible');
