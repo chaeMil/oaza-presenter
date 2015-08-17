@@ -45,5 +45,7 @@
   "presenterOpen": "Open",
   "fontBigger": "Enlarge [Q]",
   "fontSmaller": "Shrink [E]",
-  "fontSizeReset": "Reset size [W]"
+  "fontSizeReset": "Reset size [W]",
+  "statusPresenterAspectRation": "current aspect ratio: ",
+  "statusPresenterFont": "current font:"
 }

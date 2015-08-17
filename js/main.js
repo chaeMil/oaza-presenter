@@ -319,7 +319,6 @@ $(document).on("click", '.presenterFont', function(event) {
     $(this).removeClass('active');
   });
   $(this).parent().addClass('active');
-  saveOption('presenterFont', $(this).data('font'));
 });
 
 $(document).on("click", '.draggablePresenterButton', function(event) { 
@@ -533,12 +532,14 @@ function setPresenterFontSize(value) {
     }
   }
   
+  $('#statusFontSize').text(presenterFontSize + "%");
+  
   chrome.app.window.get('presenter').contentWindow.setFontSize(presenterFontSize);
 }
 
 function setPresenterFont(font, fontName) {
   chrome.app.window.get('presenter').contentWindow.setFont(font);
-  $('#statusPresenterFont').text('aktuální font: ' + fontName);
+  $('#statusPresenterFont').html(fontName);
 }
 
 function togglePresenterDraggable() {
@@ -551,16 +552,16 @@ function setPresenterAspectRatio(value) {
   chrome.app.window.get('presenter').innerBounds.width = currentWidth + 1;
   switch(value) {
     case 0:
-      $('#statusAspectRatio').text('poměr stran: neurčen');
+      $('#statusAspectRatio').text('');
       break;
     case 1:
-      $('#statusAspectRatio').text('poměr stran: 16:9');
+      $('#statusAspectRatio').text('16:9');
       break;
     case 2:
-      $('#statusAspectRatio').text('poměr stran: 4:3');
+      $('#statusAspectRatio').text('4:3');
       break;
     case 3:
-      $('#statusAspectRatio').text('poměr stran: 1:1');
+      $('#statusAspectRatio').text('1:1');
       break;
   }
 }

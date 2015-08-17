@@ -149,6 +149,10 @@ statusbar span {
   padding-right: 8px;
 }
 
+statusbar span.statusValue {
+  margin-left: -12px;
+}
+
 content {
   width: calc(100vw - 536px);
   height: calc(100vh - 96px);

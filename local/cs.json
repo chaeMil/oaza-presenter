@@ -45,5 +45,7 @@
   "presenterOpen": "Otevřít",
   "fontBigger": "Zvětšit [Q]",
   "fontSmaller": "Zmenšit [E]",
-  "fontSizeReset": "Obnovit velikost [W]"
+  "fontSizeReset": "Obnovit velikost [W]",
+  "statusPresenterAspectRation": "aktuální poměr stran: ",
+  "statusPresenterFont": "aktuální font:" 
 }
