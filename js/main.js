@@ -402,14 +402,17 @@ $(document).on("click", '#closeApp', function(event) {
 //app functions
 
 function createImageFolder(folderName) {
-  $('#imageFoldersBar').append('<span class="imagesFolderButton" data-folder="'
+  $('#imageFoldersBar').append('<span class="imagesFolderButton active" data-folder="'
     + folderName + '">' + folderName + '</span>');
+  $('#imageFolders').append('<div class="pure-g folder active" id="imagesFolder_' 
+    + folderName + '"></div>');
+  showImagesFolder(folderName);
 }
 
 function showImagesFolder(element, folder) {
   $('#imageFoldersBar').children().removeClass('active');
-  $(element).addClass('active');
   $('#imageFolders').children().hide();
+  $('#imageFolders').children().removeClass('active');
   $('#imagesFolder_' + folder).show();
 }
 
@@ -527,7 +530,7 @@ function importImages() {
 function addImage(entry) {
   entry.file(function(file) {
     var objectURL = URL.createObjectURL(file);
-    $('#imagesFolder_default')
+    $('#imageFolders').find('.active')
       .prepend('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2 importedImage">' + 
       '<div class="img-16-9 setPresenterBg" data-file="' + objectURL + '" ' +
       'data-blob="blob" style="background-image: url(\'' + objectURL + '\');"></div>' +
