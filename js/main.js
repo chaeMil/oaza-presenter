@@ -532,7 +532,7 @@ function setPresenterFontSize(value) {
     }
   }
   
-  $('#statusFontSize').text(presenterFontSize + "%");
+  $('#statusPresenterFontSize').html(presenterFontSize + "%");
   
   chrome.app.window.get('presenter').contentWindow.setFontSize(presenterFontSize);
 }

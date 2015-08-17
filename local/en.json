@@ -46,6 +46,7 @@
   "fontBigger": "Enlarge [Q]",
   "fontSmaller": "Shrink [E]",
   "fontSizeReset": "Reset size [W]",
-  "statusPresenterAspectRation": "current aspect ratio: ",
-  "statusPresenterFont": "current font:"
+  "statusPresenterAspectRation": "aspect ratio: ",
+  "statusPresenterFont": "font:",
+  "statusPresenterFontSize": "font size: "
 }

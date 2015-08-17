@@ -114,6 +114,7 @@ body.presenter {
   margin-right: -50%;
   transform: translate(-50%, -60%);
   padding: 7%;
+  -webkit-transition: font-size 200ms;
 }
 
 #bibleSource {
@@ -128,12 +129,14 @@ body.presenter {
   font-size: 2vw;
   padding-bottom: 0.5%;
   text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
+  -webkit-transition: font-size 200ms;
 }
 
 #bibleTranslation {
   z-index: 50;
   font-size: 2vw;
   text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
+  -webkit-transition: font-size 200ms;
 }
 
 #draggable {

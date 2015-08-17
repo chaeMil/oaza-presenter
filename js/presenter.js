@@ -139,6 +139,8 @@ function setFont(font) {
 
 function setFontSize(size) {
   $('#bibleText').css('font-size', 'calc(5vw * ' + (size / 100) + ')');
+  $('#bibleVerse').css('font-size', 'calc(2vw * ' + (size / 100) + ')');
+  $('#bibleTranslation').css('font-size', 'calc(2vw * ' + (size / 100) + ')');
 }
 
 function renderText() {
