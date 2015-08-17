@@ -404,7 +404,7 @@ $(document).on("click", '#closeApp', function(event) {
 function createImageFolder(folderName) {
   $('#imageFoldersBar').append('<span class="imagesFolderButton active" data-folder="'
     + folderName + '">' + folderName + '</span>');
-  $('#imageFolders').append('<div class="pure-g folder active" id="imagesFolder_' 
+  $('#imageFolders').append('<div class="pure-g folder" id="imagesFolder_' 
     + folderName + '"></div>');
   showImagesFolder(folderName);
 }
@@ -414,6 +414,7 @@ function showImagesFolder(element, folder) {
   $('#imageFolders').children().hide();
   $('#imageFolders').children().removeClass('active');
   $('#imagesFolder_' + folder).show();
+  $('#imagesFolder_' + folder).addClass('active');
 }
 
 function showSettingsWindow(section) {
