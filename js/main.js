@@ -5,10 +5,10 @@ var hideText = false;
 var hideBg = false;
 
 var presenterFontSize = 100;
-
 var currentText;
 var currentVerse;
 var currentTranslation;
+var currentFont = 'roboto-slab-regular';
 
 var currentBookNum;
 var currentChapterNum;
@@ -534,11 +534,16 @@ function setPresenterFontSize(value) {
   
   $('#statusPresenterFontSize').html(presenterFontSize + "%");
   
-  chrome.app.window.get('presenter').contentWindow.setFontSize(presenterFontSize);
+  if (!presenterFreezed) {
+    chrome.app.window.get('presenter').contentWindow.setFontSize(presenterFontSize);
+  }
 }
 
 function setPresenterFont(font, fontName) {
-  chrome.app.window.get('presenter').contentWindow.setFont(font);
+  if (!presenterFreezed) {
+    chrome.app.window.get('presenter').contentWindow.setFont(font);
+  }
+  currentFont = font;
   $('#statusPresenterFont').html(fontName);
 }
 
@@ -578,6 +583,8 @@ function unfreezePresenter() {
   
   setPresenterBackground(currentBg, currentBgIsBlob);
   setPresenterText(currentText, currentVerse, currentTranslation);
+  chrome.app.window.get('presenter').contentWindow.setFontSize(presenterFontSize);
+  chrome.app.window.get('presenter').contentWindow.setFont(currentFont);
   
   if (!hideBg) {
     chrome.app.window.get('presenter').contentWindow.setBgHidden(true);
