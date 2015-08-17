@@ -364,10 +364,15 @@ function addBibleLayout() {
     
     $('#bibleTranslationSelect').on('change', function() {
       getBibleBooks($(this).val());
+      $('#bibleBookSelect').empty();
+      $('#bibleChapterSelect').empty();
+      $('#bibleVerseSelect').empty();
     });
     
     $('#bibleBookSelect').on('change', function() {
       getBibleChapters($('#bibleTranslationSelect').val(), $(this).val());
+      $('#bibleChapterSelect').empty();
+      $('#bibleVerseSelect').empty();
       currentBookNum = $(this).data('book');
     });
     
@@ -377,6 +382,7 @@ function addBibleLayout() {
         $('#bibleBookSelect').val(),
         $(this).val());
       currentChapterNum = $(this).val();
+      $('#bibleVerseSelect').empty();
     });
     
     $('#bibleVerseSelect').on('change', function() {
