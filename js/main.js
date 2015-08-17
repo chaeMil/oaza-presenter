@@ -267,6 +267,10 @@ $(document).on("click", '.help', function(event) {
 
 $(document).on("click", '.presenterFont', function(event) { 
   setPresenterFont($(this).data('font'), $(this).text());
+  $('.fonts-menu').children('li').each(function () {
+    $(this).removeClass('active');
+  });
+  $(this).parent().addClass('active');
   saveOption('presenterFont', $(this).data('font'));
 });
 

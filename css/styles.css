@@ -99,6 +99,11 @@ toolbar .pure-menu .pure-menu-children {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+toolbar .pure-menu .pure-menu-item.active {
+  font-weight: bold;
+  background-color: #DDDDDD;
+}
+
 sidebar.right {
   width: 256px;
   height: calc(100vh - 80px);
