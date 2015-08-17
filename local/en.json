@@ -41,5 +41,7 @@
   "helpKeyboard": "Help > Keyboard shortcuts",
   "helpKeyboardText": "<li>[B] - display Bible verse selection</li><li>[O] - display image selection</li><li>[G] - toggle draggable canvas</li><li>[F] - set canvas to fullscreen</li><li>[N] - hide text (toggle)</li><li>[M] - hide background (toggle)</li><li>[Z] - lock canvas (toggle)</li>",
   "chooseLanguage": "Choose language",
-  "history": "History"
+  "history": "History",
+  "presenterOpen": "Open",
+  "presenterClose": "Close"
 }

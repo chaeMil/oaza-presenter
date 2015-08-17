@@ -23,18 +23,7 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
 });
 
-function init() {
-  
-  chrome.runtime.getPlatformInfo(function(info) {
-    globalData.os = info.os;
-    globalData.appId = chrome.runtime.id;
-    
-    if (globalData.os == 'linux') {
-      $('#closeApp').addClass('left');
-      $('#toolbarMenu').addClass('linux');
-    }
-  });
-  
+function openPresenterWindow() {
   chrome.app.window.create(
     'layouts/presenter.html',
     {
@@ -51,6 +40,25 @@ function init() {
       });
     }
   );
+}
+
+function closePresenterWindow() {
+  chrome.app.window.get('presenter').close();
+}
+
+function init() {
+  
+  chrome.runtime.getPlatformInfo(function(info) {
+    globalData.os = info.os;
+    globalData.appId = chrome.runtime.id;
+    
+    if (globalData.os == 'linux') {
+      $('#closeApp').addClass('left');
+      $('#toolbarMenu').addClass('linux');
+    }
+  });
+  
+  openPresenterWindow();
   
   userLang = navigator.language || navigator.userLanguage;
   console.log('userLang: ' + userLang);
@@ -252,6 +260,14 @@ window.onload = function() {
 
 
 // app wide buttons clicks
+
+$(document).on("click", '.presenterOpen', function(event) {
+  openPresenterWindow();
+});
+
+$(document).on("click", '.presenterClose', function(event) {
+  closePresenterWindow();
+});
 
 $(document).on("contextmenu", '.importedImage', function(event) {
   event.preventDefault();
