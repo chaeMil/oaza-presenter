@@ -124,7 +124,7 @@ sidebar.left {
   z-index: 501;
 }
 
-sidebar hr {
+sidebar hr, .pure-menu-item hr {
   width: 90%;
   border: 0;
   height: 0;

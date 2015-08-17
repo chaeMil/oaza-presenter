@@ -137,6 +137,10 @@ function setFont(font) {
   renderText();
 }
 
+function setFontSize(size) {
+  $('#bibleText').css('font-size', 'calc(5vw * ' + (size / 100) + ')');
+}
+
 function renderText() {
   setTimeout(function (e) {
     html2canvas(document.querySelector('#bible'), {

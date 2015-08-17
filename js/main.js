@@ -4,6 +4,8 @@ var presenterFreezed = false;
 var hideText = false;
 var hideBg = false;
 
+var presenterFontSize = 100;
+
 var currentText;
 var currentVerse;
 var currentTranslation;
@@ -253,6 +255,15 @@ window.onload = function() {
           presenterToggleFreezed(true);
         }
         break;
+      case 'Q':
+        setPresenterFontSize(-10);
+        break;
+      case 'W':
+        setPresenterFontSize(0);
+        break;
+      case 'E':
+        setPresenterFontSize(10);
+        break;
     }
   });
   
@@ -260,6 +271,18 @@ window.onload = function() {
 
 
 // app wide buttons clicks
+
+$(document).on("click", '.presenterFontBigger', function(event) {
+  setPresenterFontSize(10);
+});
+
+$(document).on("click", '.presenterFontSizeReset', function(event) {
+  setPresenterFontSize(0);
+});
+
+$(document).on("click", '.presenterFontSmaller', function(event) {
+  setPresenterFontSize(-10);
+});
 
 $(document).on("click", '.presenterOpen', function(event) {
   openPresenterWindow();
@@ -496,6 +519,22 @@ function fileSystemPermission(callback) {
 
 
 //presenter functions 
+
+function setPresenterFontSize(value) {
+  if (value === 0) {
+    presenterFontSize = 100;
+  } else if (value > 0) {
+    if (presenterFontSize + value <= 200) {
+      presenterFontSize += value;
+    }
+  } else {
+    if (presenterFontSize - Math.abs(value) >= 10) {
+      presenterFontSize = presenterFontSize - Math.abs(value);
+    }
+  }
+  
+  chrome.app.window.get('presenter').contentWindow.setFontSize(presenterFontSize);
+}
 
 function setPresenterFont(font, fontName) {
   chrome.app.window.get('presenter').contentWindow.setFont(font);
