@@ -253,6 +253,19 @@ window.onload = function() {
 
 // app wide buttons clicks
 
+$(document).on("contextmenu", '.importedImage', function(event) {
+  event.preventDefault();
+  $(this).children('remove').addClass('visible');
+});
+
+$(document).on('click', '.importedImage remove i', function(event) {
+  $(this).parent().parent().remove();
+});
+
+$(document).on('click', '.importedImage remove', function(event) {
+  $(this).removeClass('visible');
+});
+
 $(document).on("click", '.language', function(event) { 
   getLocalFile($(this).data('language'));
 });
@@ -444,10 +457,10 @@ function addImage(entry) {
   entry.file(function(file) {
     var objectURL = URL.createObjectURL(file);
     $('#imagesGrid')
-      .prepend('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">' + 
+      .prepend('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2 importedImage">' + 
       '<div class="img-16-9 setPresenterBg" data-file="' + objectURL + '" ' +
-      'data-blob="blob" ' +
-      'style="background-image: url(\'' + objectURL + '\');"></div></div>');
+      'data-blob="blob" style="background-image: url(\'' + objectURL + '\');"></div>' +
+      '<remove><i class="fa fa-times-circle"></i></remove></div>');
   });
 }
 
