@@ -411,6 +411,7 @@ function createImageFolder(folderName) {
 
 function showImagesFolder(element, folder) {
   $('#imageFoldersBar').children().removeClass('active');
+  $(element).addClass('active');
   $('#imageFolders').children().hide();
   $('#imageFolders').children().removeClass('active');
   $('#imagesFolder_' + folder).show();
