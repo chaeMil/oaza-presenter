@@ -48,5 +48,9 @@
   "fontSizeReset": "Reset size [W]",
   "statusPresenterAspectRation": "aspect ratio: ",
   "statusPresenterFont": "font:",
-  "statusPresenterFontSize": "font size: "
+  "statusPresenterFontSize": "font size: ",
+  "defaultImagesFolder": "default images",
+  "folders": "folders: ",
+  "add": "add",
+  "addImageFolder": "Create folder"
 }

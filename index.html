@@ -287,13 +287,22 @@
 	
 	<dialog id="chooseLanguageDialog">
 		<h2 data-localize="chooseLanguage"></h2>
-  	  <div>
 		  <ul class="languageSelect">
 		    <li><a class="language" data-language="en">English</a></li>
 		    <li><a class="language" data-language="cs">česky</a></li>
 		  </ul>
 		<div>
 			<btn data-localize="close" id="chooseLanguageDismiss"></btn>
+		</div>
+	</dialog>
+	
+	<dialog id="addImageFolderDialog">
+		<h2 data-localize="addImageFolder"></h2>
+		  <input id="addImageFolderName" class="addImageFolderName" type="text">
+		  <br><br>
+		<div>
+			<btn data-localize="close" id="addImageFolderDismiss"></btn>
+			<btn data-localize="add" id="addImageFolderAdd"></btn>
 		</div>
 	</dialog>
 

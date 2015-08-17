@@ -189,7 +189,6 @@ window.onload = function() {
     closeAppDialog.close();
   });
     
-  // called when the user Cancels the dialog, for example by hitting the ESC key
   closeAppDialog.addEventListener("cancel", function(evt) {
     closeAppDialog.close("canceled");
   });
@@ -201,7 +200,6 @@ window.onload = function() {
     helpKeyboardDialog.close();
   });
     
-  // called when the user Cancels the dialog, for example by hitting the ESC key
   helpKeyboardDialog.addEventListener("cancel", function(evt) {
     helpKeyboardDialog.close("canceled");
   });
@@ -213,57 +211,75 @@ window.onload = function() {
     chooseLanguageDialog.close();
   });
     
-  // called when the user Cancels the dialog, for example by hitting the ESC key
   chooseLanguageDialog.addEventListener("cancel", function(evt) {
     chooseLanguageDialog.close("canceled");
   });
   
+  //add image folder dialog
+  var addImageFolderDialog = document.querySelector('#addImageFolderDialog');
+  
+  document.querySelector('#addImageFolderDismiss').addEventListener("click", function(evt) {
+    addImageFolderDialog.close();
+  });
+  
+  document.querySelector('#addImageFolderAdd').addEventListener("click", function(evt) {
+    createImageFolder($('#addImageFolderName').val());
+    $('#addImageFolderName').val();
+    addImageFolderDialog.close();
+  });
+    
+  addImageFolderDialog.addEventListener("cancel", function(evt) {
+    addImageFolderDialog.close("canceled");
+  });
+  
   $(document).on('keydown', function (e) {
     var key = String.fromCharCode(e.which);
-    console.log(key);
-    switch(key){
-      case 'F':
-        setPresenterFullscreen();
-        break;
-      case 'B':
-        showLayout('#layout-bible');
-        break;
-      case 'O':
-        showLayout('#layout-images');
-        break;
-      case 'G':
-        togglePresenterDraggable();
-        break;
-      case 'N':
-        if (hideText) {
-          presenterToggleText(false);
-        } else {
-          presenterToggleText(true);
-        }
-        break;
-      case 'M':
-        if (hideBg) {
-          presenterToggleBg(false);
-        } else {
-          presenterToggleBg(true);
-        }
-        break;
-      case 'Z':
-        if (presenterFreezed) {
-          presenterToggleFreezed(false);
-        } else {
-          presenterToggleFreezed(true);
-        }
-        break;
-      case 'Q':
-        setPresenterFontSize(-10);
-        break;
-      case 'W':
-        setPresenterFontSize(0);
-        break;
-      case 'E':
-        setPresenterFontSize(10);
-        break;
+    
+    if (!$("input").is(":focus")) {
+      switch(key){
+        case 'F':
+          setPresenterFullscreen();
+          break;
+        case 'B':
+          showLayout('#layout-bible');
+          break;
+        case 'O':
+          showLayout('#layout-images');
+          break;
+        case 'G':
+          togglePresenterDraggable();
+          break;
+        case 'N':
+          if (hideText) {
+            presenterToggleText(false);
+          } else {
+            presenterToggleText(true);
+          }
+          break;
+        case 'M':
+          if (hideBg) {
+            presenterToggleBg(false);
+          } else {
+            presenterToggleBg(true);
+          }
+          break;
+        case 'Z':
+          if (presenterFreezed) {
+            presenterToggleFreezed(false);
+          } else {
+            presenterToggleFreezed(true);
+          }
+          break;
+        case 'Q':
+          setPresenterFontSize(-10);
+          break;
+        case 'W':
+          setPresenterFontSize(0);
+          break;
+        case 'E':
+          setPresenterFontSize(10);
+          break;
+      }
     }
   });
   
@@ -271,6 +287,15 @@ window.onload = function() {
 
 
 // app wide buttons clicks
+
+$(document).on("click", '#addNewImagesFolderButton', function(event) {
+  addImageFolderDialog.showModal();
+  $('#addImageFolderName').val("");
+});
+
+$(document).on("click", '.imagesFolderButton', function(event) {
+  showImagesFolder($(this), $(this).data('folder'));
+});
 
 $(document).on("click", '.presenterFontBigger', function(event) {
   setPresenterFontSize(10);
@@ -376,6 +401,18 @@ $(document).on("click", '#closeApp', function(event) {
 
 //app functions
 
+function createImageFolder(folderName) {
+  $('#imageFoldersBar').append('<span class="imagesFolderButton" data-folder="'
+    + folderName + '">' + folderName + '</span>');
+}
+
+function showImagesFolder(element, folder) {
+  $('#imageFoldersBar').children().removeClass('active');
+  $(element).addClass('active');
+  $('#imageFolders').children().hide();
+  $('#imagesFolder_' + folder).show();
+}
+
 function showSettingsWindow(section) {
   switch(section) {
     case 'language':
@@ -397,7 +434,7 @@ function addImagesLayout() {
       content.append(data);
       
       for (i = 1; i < numberOfDefaultImages; i++) {
-        $('#imagesGrid').append('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">'
+        $('#imagesFolder_default').append('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2">'
           + '<div class="img-16-9 setPresenterBg"'
           + ' data-file="assets/defaults/images/' + i + '.jpg"'
           + ' style="background-image: url(\'assets/defaults/images/' + i + '.jpg\');"></div>');
@@ -490,7 +527,7 @@ function importImages() {
 function addImage(entry) {
   entry.file(function(file) {
     var objectURL = URL.createObjectURL(file);
-    $('#imagesGrid')
+    $('#imagesFolder_default')
       .prepend('<div class="pure-u-1 pure-u-xl-1-4 pure-u-lg-1-3 pure-u-md-1-2 importedImage">' + 
       '<div class="img-16-9 setPresenterBg" data-file="' + objectURL + '" ' +
       'data-blob="blob" style="background-image: url(\'' + objectURL + '\');"></div>' +

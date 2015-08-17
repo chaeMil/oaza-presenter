@@ -48,5 +48,9 @@
   "fontSizeReset": "Obnovit velikost [W]",
   "statusPresenterAspectRation": "poměr stran: ",
   "statusPresenterFont": "font:",
-  "statusPresenterFontSize": "velikost písma: "
+  "statusPresenterFontSize": "velikost písma: ",
+  "defaultImagesFolder": "výchozí obrázky",
+  "folders": "složky: ",
+  "add": "přidat",
+  "addImageFolder": "Vytvořit složku"
 }
