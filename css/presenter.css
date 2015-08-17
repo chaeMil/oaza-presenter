@@ -24,6 +24,54 @@ body.presenter {
   font-family: 'Roboto Slab Regular';
 }
 
+.montserrat-regular {
+  font-family: 'montserratregular';
+}
+
+.montserrat-light {
+  font-family: 'montserratlight';
+}
+
+.montserrat-semibold {
+  font-family: 'montserratsemi_bold';
+}
+
+.montserrat-hairline {
+  font-family: 'montserrathairline';
+}
+
+.titilliumregular {
+  font-family: 'titilliumregular';
+}
+
+.titillium_bdbold {
+  font-family: 'titillium_bdbold';
+}
+
+.titilliumthin {
+  font-family: 'titilliumthin';
+}
+
+.lobster {
+  font-family: 'lobster_1.3regular';
+}
+
+.josefin_slabregular {
+  font-family: 'josefin_slabregular';
+}
+
+.josefin_slablight {
+  font-family: 'josefin_slablight';
+}
+
+.josefin_slabitalic {
+  font-family: 'josefin_slabitalic';
+}
+
+.josefin_slabbold {
+  font-family: 'josefin_slabbold';
+}
+
 #canvas, #canvas1, #canvas2 {
   position: fixed;
   top: 0;
