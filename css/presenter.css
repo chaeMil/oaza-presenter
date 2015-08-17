@@ -90,14 +90,15 @@ body.presenter {
 
 #draggable {
   position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 18px;
+  top: 1%;
+  left: 2%;
+  font-size: 8vw;
   text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
-    1px 1px 0 #000;  
+    1px 1px 0 #000,
+    0 0 30px rgba(0, 0, 0, 0.8);
   color: white;
   display: none;
   z-index: 500;

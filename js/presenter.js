@@ -128,6 +128,7 @@ function getWindowRatio() {
 
 function toggleDraggable() {
   $('#draggable').toggle();
+  $('#canvas').toggleClass('draggable');
 }
 
 function setFont(font) {
