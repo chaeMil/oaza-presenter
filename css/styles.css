@@ -302,8 +302,29 @@ dialog h2 {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+.bibleTranslationCol {
+  width: 15%;
+  letter-spacing: 0.05em;
+}
+
+.bibleBookCol {
+  width: 15%;
+  letter-spacing: 0.05em;
+}
+
+.bibleChapterCol {
+  width: 10%;
+  letter-spacing: 0.05em;
+}
+
+.bibleVerseCol {
+  width: 60%;
+  letter-spacing: 0.05em;
+}
+
 #bibleTranslationSelect {
-  max-width: 100px;
+  width: calc(100% - 12px);
+  max-width: inherit;
 }
 
 #preview {
@@ -322,15 +343,28 @@ dialog h2 {
 }
 
 #bibleBookSelect, #bibleHistory {
-  width: 100px;
+  width: calc(100% - 12px);
+  max-width: inherit;
+}
+
+#bibleHistory {
+  height: calc(100vh - 232px);
+}
+
+#bibleBookSelect {
+  height: calc(100vh - 170px);
 }
 
 #bibleChapterSelect {
-  width: 55px;
+  width: calc(100% - 12px);
+  max-width: inherit;
+  height: calc(100vh - 170px);
 }
 
 #bibleVerseSelect {
-  min-width: 250px;
+  width: calc(100% - 12px);
+  max-width: inherit;
+  height: calc(100vh - 170px);
 }
 
 #currentText, #currentTranslation, #currentVerse {
@@ -415,7 +449,7 @@ remove i {
   bottom: 30px;
   z-index: 50;
   padding: 8px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .addImageFolderName {
