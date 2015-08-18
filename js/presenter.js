@@ -9,7 +9,7 @@ var activeBgLayer = 1;
 
 function init() {
   chrome.app.window.get('mainWindow').contentWindow
-    .setPresenterText('Oáza Presenter','version 0.2 alpha', 'github.com/chaeMil/oaza-presenter');
+    .setPresenterText('Oáza Presenter','version 0.3 alpha', 'github.com/chaeMil/oaza-presenter');
   
   var numberOfDefaultImages = chrome.app.window.get('mainWindow').contentWindow.numberOfDefaultImages;
   var randomSplashImage = chrome.app.window.get('mainWindow').contentWindow
