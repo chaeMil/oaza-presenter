@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--http://zefania.blogspot.de/2012/03/zefania-xml-modul-validator.html-->
 <!--http://zefania.blogspot.de-->
 <!--Nice Viewer for this file are found here-->
@@ -7,9 +7,9 @@
 <!--http://www.mybible.de-->
 <!--Visit the online documentation for Zefania XML Markup-->
 <!--http://bgfdb.de/zefaniaxml/bml/-->
-<XMLBIBLE version="3.0.0.9.1" p1:noNamespaceSchemaLocation="zef2005.xsd" biblename="Czech NKB" type="x-bible" status="v" revision="0" xmlns:p1="http://www.w3.org/2001/XMLSchema-instance">
+<XMLBIBLE version="3.0.0.9.1" p1:noNamespaceSchemaLocation="zef2005.xsd" biblename="CZ NKB" type="x-bible" status="v" revision="0" xmlns:p1="http://www.w3.org/2001/XMLSchema-instance">
   <INFORMATION>
-    <title>Czech NKB</title>
+    <title>CZ NKB</title>
     <creator>UnboundBibleExtension.ps1</creator>
     <subject>bible</subject>
     <description>Czech Nova karlica Bible (NBK) Nova Bible Kralicka - Novy Zakon naseho Pana a Spasitele Jezise Krista Z reckeho textu se stalym ohledem na kralicke zneni prelozili A.</description>

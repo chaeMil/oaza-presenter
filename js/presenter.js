@@ -91,7 +91,7 @@ function changeText(text, verse, translation) {
   
   if (text != $('#bibleText').text()) {
     $('#bibleText').fadeOut('fast', function() {
-      $(this).text(text);
+      $(this).text(text.replace(/&&&/g, '"'));
     }).fadeIn('fast');
     $('#bibleVerse').fadeOut('fast', function() {
       $(this).text(verse);

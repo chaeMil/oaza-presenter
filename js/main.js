@@ -130,8 +130,8 @@ function getBibleBooks(file) {
   $.get(file, function(xml) {
     $(xml).find('BIBLEBOOK').each(function() {
       $('#bibleBookSelect').append('<option value="' + $(this).attr('bnumber') + '" ' +
-        'data-book="' + $(this).attr('bname') + '">' 
-        + $(this).attr('bname') + '</option>');
+        'data-book="' + $(this).attr('bsname') + '">' 
+        + $(this).attr('bsname') + '</option>');
     });
   });
 }
@@ -152,7 +152,8 @@ function getBibleVerses(file, book, chapter) {
   $.get(file, function(xml) {
     var verse = 1;
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
-      $('#bibleVerseSelect').append('<option value="' + $(this).text().replace('"', '&#34;') 
+      var text = $(this).text().replace(/"/g, '&&&');
+      $('#bibleVerseSelect').append('<option value="' + text
         + '" data-verse="' + verse + '">'
         + verse + ". " + $(this).text() + '</option>');
       verse++;
@@ -712,6 +713,7 @@ function setPresenterText(text, verse, translation, saveHistory) {
 }
 
 function setPresenterBackground(file, isBlob) {
+  currentBg = null;
   currentBg = file;
   currentBgIsBlob = isBlob;
   console.log(currentBg);
