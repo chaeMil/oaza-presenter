@@ -10,9 +10,9 @@ var currentVerse;
 var currentTranslation;
 var currentFont = 'roboto-slab-regular';
 
-var currentBookNum;
-var currentChapterNum;
-var currentVerseNum;
+var currentBookNum = 0;
+var currentChapterNum = 0;
+var currentVerseNum = 0;
 
 var currentBg;
 var currentBgIsBlob;
@@ -153,8 +153,11 @@ function getBibleVerses(file, book, chapter) {
     var verse = 1;
     $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS").each(function() {
       var text = $(this).text().replace(/"/g, '&&&');
-      $('#bibleVerseSelect').append('<option value="' + text
-        + '" data-verse="' + verse + '">'
+      $('#bibleVerseSelect').append('<option value="' + verse
+        + '" data-text="' + text
+        + '" data-vnumber="' + verse
+        + '" data-bnumber="' + book
+        + '" data-cnumber="' + chapter + '">'
         + verse + ". " + $(this).text() + '</option>');
       verse++;
     });
@@ -458,9 +461,24 @@ function addBibleLayout() {
     
     $('#bibleTranslationSelect').on('change', function() {
       getBibleBooks($(this).val());
+      
       $('#bibleBookSelect').empty();
       $('#bibleChapterSelect').empty();
       $('#bibleVerseSelect').empty();
+      
+      getBibleChapters($(this).val(), currentBookNum);
+      getBibleVerses($(this).val(), currentBookNum, currentChapterNum);
+      
+      if(currentVerseNum !== 0) {
+        var text = null;
+        var select = $('#bibleVerseSelect').toArray()[0];
+
+        $('#bibleVerseSelect option[value="' + currentVerseNum + '"]').css('background-color', 'red');
+        setPresenterText('TODO!',
+          currentBook + ' ' + currentChapter + ':' + currentVerseNum,
+          $('#bibleTranslationSelect').find(':selected').data('translation'), 
+          true);
+      }
     });
     
     $('#bibleBookSelect').on('change', function() {
@@ -468,6 +486,7 @@ function addBibleLayout() {
       $('#bibleChapterSelect').empty();
       $('#bibleVerseSelect').empty();
       currentBookNum = $(this).data('book');
+      currentBook = $(this).find(':selected').text();
     });
     
     $('#bibleChapterSelect').on('change', function() {
@@ -476,17 +495,19 @@ function addBibleLayout() {
         $('#bibleBookSelect').val(),
         $(this).val());
       currentChapterNum = $(this).val();
+      currentChapter = $(this).find(':selected').text();
       $('#bibleVerseSelect').empty();
     });
     
     $('#bibleVerseSelect').on('change', function() {
-      setPresenterText($(this).val(),
-        $('#bibleBookSelect').find(':selected').data('book') + ' '
-        + $('#bibleChapterSelect').find(':selected').data('chapter') + ':' 
-        + $('#bibleVerseSelect').find(':selected').data('verse'),
+      setPresenterText($(this).find(':selected').data('text'),
+        currentBook + ' ' + currentChapter + ':' + $(this).find(':selected').val(),
         $('#bibleTranslationSelect').find(':selected').data('translation'), 
         true);
-      currentVerseNum = $(this).val();
+        
+      currentVerseNum = $(this).find(':selected').data('vnumber');
+      currentBookNum = $(this).find(':selected').data('bnumber');
+      currentChapterNum = $(this).find(':selected').data('cnumber');
     });
     
     $('#bibleHistory').on('click', function() {
@@ -701,7 +722,7 @@ function setPresenterText(text, verse, translation, saveHistory) {
   if (!presenterFreezed) {
     chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
   }
-  $('#currentText').text(text);
+  $('#currentText').text(text.replace(/&&&/g, '"'));
   $('#currentVerse').text(verse);
   $('#currentTranslation').text(translation);
   
