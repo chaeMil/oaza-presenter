@@ -174,7 +174,7 @@ window.onload = function() {
         case 'B':
           showLayout('#layout-bible');
           break;
-        case 'O':
+        case 'P':
           showLayout('#layout-images');
           break;
         case 'G':
