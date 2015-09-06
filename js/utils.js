@@ -17,18 +17,31 @@ function fileSystemPermission(callback) {
 }
 
 function saveOption(key, value) {
-  var sKey = key;
+  /*var sKey = key;
   var sValue = value;
   chrome.storage.local.set({key: value}, function() {
     console.log('saved: ' + sKey + ":" + sValue);
   });
+  
+  chrome.storage.sync.set({ sKey : sValue }, function() {
+		if (chrome.runtime.error) {
+			console.log("Runtime error.");
+		}
+	});*/
 }
 
 function getOption(key) {
-  chrome.storage.local.get(key, function(items) {
+  /*chrome.storage.local.get(key, function(items) {
 		console.debug(key + ' = ' + items[key]);
 		console.debug(items);
   });
+  
+  chrome.storage.sync.get(key, function(items) {
+		if (!chrome.runtime.error) {
+			console.log(items);
+			document.getElementById("data").innerText = items.data;
+		}
+	});*/
 }
 
 function randomIntFromInterval(min,max) {
