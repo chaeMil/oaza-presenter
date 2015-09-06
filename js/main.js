@@ -14,6 +14,8 @@ var currentBookNum = 0;
 var currentChapterNum = 0;
 var currentVerseNum = 0;
 
+var xmlGetVerse = null;
+
 var currentBg;
 var currentBgIsBlob;
 
@@ -160,6 +162,20 @@ function getBibleVerses(file, book, chapter) {
         + '" data-cnumber="' + chapter + '">'
         + verse + ". " + $(this).text() + '</option>');
       verse++;
+    });
+  });
+}
+
+function getBibleVerseAndDisplay(file, book, chapter, verse) {
+  console.log('file:'+file+' book:'+book+' chapter:'+chapter+' verse:'+verse);
+  $('#bibleVerseSelect').empty();
+  $.get(file, function(xml) {
+    $(xml).find("BIBLEBOOK[bnumber="+book+"] CHAPTER[cnumber="+chapter+"] VERS[vnumber="+verse+"]").each(function() {
+      var verseText = $(this).text().replace(/"/g, '&&&');
+      setPresenterText(verseText,
+        currentBook + ' ' + currentChapter + ':' + currentVerseNum,
+        $('#bibleTranslationSelect').find(':selected').data('translation'), 
+        true);
     });
   });
 }
@@ -470,14 +486,12 @@ function addBibleLayout() {
       getBibleVerses($(this).val(), currentBookNum, currentChapterNum);
       
       if(currentVerseNum !== 0) {
-        var text = null;
         var select = $('#bibleVerseSelect').toArray()[0];
 
-        $('#bibleVerseSelect option[value="' + currentVerseNum + '"]').css('background-color', 'red');
-        setPresenterText('TODO!',
-          currentBook + ' ' + currentChapter + ':' + currentVerseNum,
-          $('#bibleTranslationSelect').find(':selected').data('translation'), 
-          true);
+        getBibleVerseAndDisplay($('#bibleTranslationSelect').val(),
+          currentBookNum,
+          currentChapterNum,
+          currentVerseNum);
       }
     });
     
