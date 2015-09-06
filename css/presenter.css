@@ -126,7 +126,7 @@ body.presenter {
 
 #bibleVerse {
   z-index: 50;
-  font-size: 3vw;
+  font-size: 3.5vw;
   padding-bottom: 0.5%;
   text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
   -webkit-transition: font-size 200ms;
@@ -134,7 +134,7 @@ body.presenter {
 
 #bibleTranslation {
   z-index: 50;
-  font-size: 3vw;
+  font-size: 3.5vw;
   text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.6);
   -webkit-transition: font-size 200ms;
 }
