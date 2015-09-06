@@ -1,18 +1,18 @@
-function createImageFolder(folderName) {
-  $('#imageFoldersBar').append('<span class="imagesFolderButton active" data-folder="'
+function createBgFolder(folderName) {
+  $('#bgFoldersBar').append('<span class="bgsFolderButton active" data-folder="'
     + folderName + '">' + folderName + '</span>');
-  $('#imageFolders').append('<div class="pure-g folder" id="imagesFolder_' 
+  $('#bgFolders').append('<div class="pure-g folder" id="bgsFolder_' 
     + folderName + '"></div>');
-  showImagesFolder(folderName);
+  showBgsFolder(folderName);
 }
 
-function showImagesFolder(folder) {
-  $('#imageFoldersBar').children().removeClass('active');
+function showBgsFolder(folder) {
+  $('#bgFoldersBar').children().removeClass('active');
   $('[data-folder=' + folder + ']').addClass('active');
-  $('#imageFolders').children().hide();
-  $('#imageFolders').children().removeClass('active');
-  $('#imagesFolder_' + folder).show();
-  $('#imagesFolder_' + folder).addClass('active');
+  $('#bgFolders').children().hide();
+  $('#bgFolders').children().removeClass('active');
+  $('#bgsFolder_' + folder).show();
+  $('#bgsFolder_' + folder).addClass('active');
 }
 
 function showSettingsWindow(section) {
@@ -37,6 +37,6 @@ function showLayout(layout) {
 }
 
 function hideLayouts() {
-  $('#layout-images').hide();
+  $('#layout-backgrounds').hide();
   $('#layout-bible').hide();
 }

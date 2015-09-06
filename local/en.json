@@ -19,7 +19,7 @@
   "currentBg": "current background:",
   "bibleButton": " <u>B</u>ible",
   "songsButton": " Songs",
-  "imagesButton": " Background",
+  "bgsButtons": " Background",
   "listsButton": " Lists",
   "chooseImage": "Choose background",
   "importImages": "Import",
@@ -49,7 +49,7 @@
   "statusPresenterAspectRation": "aspect ratio: ",
   "statusPresenterFont": "font:",
   "statusPresenterFontSize": "font size: ",
-  "defaultImagesFolder": "default images",
+  "defaultBgsFolder": "default backgrounds",
   "folders": "folders: ",
   "add": "add",
   "addImageFolder": "Create folder"

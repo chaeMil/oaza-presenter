@@ -415,26 +415,26 @@ remove i {
   color: white;
 }
 
-#imageFolders {
+#bgFolders {
   padding-bottom: 30px;
 }
 
-.imagesFolderButton, .addImagesFolderButton {
+.bgsFolderButton, .addBgsFolderButton {
   padding: 4px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   margin-left: 3px;
 }
 
-.imagesFolderButton.active {
+.bgsFolderButton.active {
   font-weight: bold;
 }
 
-.imagesFolderButton:hover, .addImagesFolderButton:hover {
+.bgsFolderButton:hover, .addBgsFolderButton:hover {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.imagesFolderButton:active, .addImagesFolderButton:active {
+.bgsFolderButton:active, .addBgsFolderButton:active {
   color: #0088FF;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -443,7 +443,7 @@ remove i {
   margin-right: -2px;
 }
 
-#imageFoldersBar {
+#bgFoldersBar {
   position: fixed;
   width: calc(100% - 560px);
   bottom: 30px;
@@ -452,7 +452,7 @@ remove i {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-.addImageFolderName {
+.addBgFolderName {
   border: 1px solid #DDDDDD;
   padding: 8px;
   border-radius: 2px;
@@ -463,7 +463,7 @@ remove i {
   width: calc(100% - 18px);
 }
 
-#addNewImagesFolderButton {
+#addNewBgsFolderButton {
   position: absolute;
   right: 6px;
   top: 3px;

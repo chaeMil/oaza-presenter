@@ -18,7 +18,7 @@ var currentBg;
 var currentBgIsBlob;
 
 var content = $('#content');
-var numberOfDefaultImages = 35;
+var numberOfDefaultBgs = 35;
 var globalData;
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
@@ -69,7 +69,7 @@ function init() {
   $('#currentVerse').text('');
   $('#currentTranslation').text('');
   
-  addImagesLayout();
+  addBgsLayout();
   addBibleLayout();
   
   switch(userLang) {
@@ -87,7 +87,7 @@ function init() {
   loadBibles();
   
   setTimeout(function() {
-    showLayout('#layout-images');
+    showLayout('#layout-backgrounds');
   }, 750);
 }
 
@@ -95,8 +95,8 @@ window.onload = function() {
   
   init();
   
-  $('#imagesButton').click(function (e) {
-    showLayout('#layout-images');
+  $('#bgsButton').click(function (e) {
+    showLayout('#layout-backgrounds');
   });
   
   $('#bibleButton').click(function (e) {
@@ -147,20 +147,20 @@ window.onload = function() {
   });
   
   //add image folder dialog
-  var addImageFolderDialog = document.querySelector('#addImageFolderDialog');
+  var addBgFolderDialog = document.querySelector('#addBgFolderDialog');
   
-  document.querySelector('#addImageFolderDismiss').addEventListener("click", function(evt) {
-    addImageFolderDialog.close();
+  document.querySelector('#addBgFolderDismiss').addEventListener("click", function(evt) {
+    addBgFolderDialog.close();
   });
   
-  document.querySelector('#addImageFolderAdd').addEventListener("click", function(evt) {
-    createImageFolder($('#addImageFolderName').val());
-    $('#addImageFolderName').val();
-    addImageFolderDialog.close();
+  document.querySelector('#addBgFolderAdd').addEventListener("click", function(evt) {
+    createBgFolder($('#addBgFolderName').val());
+    $('#addBgFolderName').val();
+    addBgFolderDialog.close();
   });
     
-  addImageFolderDialog.addEventListener("cancel", function(evt) {
-    addImageFolderDialog.close("canceled");
+  addBgFolderDialog.addEventListener("cancel", function(evt) {
+    addBgFolderDialog.close("canceled");
   });
   
   $(document).on('keydown', function (e) {
@@ -175,7 +175,7 @@ window.onload = function() {
           showLayout('#layout-bible');
           break;
         case 'P':
-          showLayout('#layout-images');
+          showLayout('#layout-backgrounds');
           break;
         case 'G':
           togglePresenterDraggable();

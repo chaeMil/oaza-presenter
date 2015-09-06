@@ -1,12 +1,12 @@
 // app wide buttons clicks
 
-$(document).on("click", '#addNewImagesFolderButton', function(event) {
-  addImageFolderDialog.showModal();
-  $('#addImageFolderName').val("");
+$(document).on("click", '#addNewBgsFolderButton', function(event) {
+  addBgFolderDialog.showModal();
+  $('#addBgFolderName').val("");
 });
 
-$(document).on("click", '.imagesFolderButton', function(event) {
-  showImagesFolder($(this).data('folder'));
+$(document).on("click", '.bgsFolderButton', function(event) {
+  showBgsFolder($(this).data('folder'));
 });
 
 $(document).on("click", '.presenterFontBigger', function(event) {
@@ -25,16 +25,16 @@ $(document).on("click", '.presenterOpen', function(event) {
   openPresenterWindow();
 });
 
-$(document).on("contextmenu", '.importedImage', function(event) {
+$(document).on("contextmenu", '.importedBg', function(event) {
   event.preventDefault();
   $(this).children('remove').addClass('visible');
 });
 
-$(document).on('click', '.importedImage remove i', function(event) {
+$(document).on('click', '.importedBg remove i', function(event) {
   $(this).parent().parent().remove();
 });
 
-$(document).on('click', '.importedImage remove', function(event) {
+$(document).on('click', '.importedBg remove', function(event) {
   $(this).removeClass('visible');
 });
 

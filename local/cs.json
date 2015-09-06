@@ -19,7 +19,7 @@
   "currentBg": "aktuální pozadí:",
   "bibleButton": " <u>B</u>ible",
   "songsButton": " Písně",
-  "imagesButton": " <u>P</u>ozadí",
+  "bgsButton": " <u>P</u>ozadí",
   "listsButton": " Seznamy",
   "chooseImage": "Vybrat pozadí",
   "importImages": "Import",
@@ -49,7 +49,7 @@
   "statusPresenterAspectRation": "poměr stran: ",
   "statusPresenterFont": "font:",
   "statusPresenterFontSize": "velikost písma: ",
-  "defaultImagesFolder": "výchozí obrázky",
+  "defaultBgsFolder": "výchozí pozadí",
   "folders": "složky: ",
   "add": "přidat",
   "addImageFolder": "Vytvořit složku"
