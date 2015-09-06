@@ -10,13 +10,6 @@ var activeBgLayer = 1;
 function init() {
   chrome.app.window.get('mainWindow').contentWindow
     .setPresenterText('Oáza Presenter','version 0.4 alpha', 'github.com/chaeMil/oaza-presenter');
-  
-  var numberOfDefaultImages = chrome.app.window.get('mainWindow').contentWindow.numberOfDefaultImages;
-  var randomSplashImage = chrome.app.window.get('mainWindow').contentWindow
-    .randomIntFromInterval(1, numberOfDefaultImages);
-    
-  chrome.app.window.get('mainWindow').contentWindow
-    .setPresenterBackground('assets/defaults/images/' + randomSplashImage +'.jpg', '');
 }
 
 chrome.app.window.current().onBoundsChanged.addListener(function() {
