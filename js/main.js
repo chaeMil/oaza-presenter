@@ -24,6 +24,7 @@ var globalData;
 var fileSystem = null;
 var settingsFile = null;
 var settings = {};
+settings["bgFolders"] = [];
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
