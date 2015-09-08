@@ -9,7 +9,7 @@ var activeBgLayer = 1;
 
 function init() {
   chrome.app.window.get('mainWindow').contentWindow
-    .setPresenterText('Oáza Presenter','version 0.4 alpha', 'github.com/chaeMil/oaza-presenter');
+    .setPresenterText('Oáza Presenter','version 0.4.1 alpha', 'github.com/chaeMil/oaza-presenter');
 }
 
 chrome.app.window.current().onBoundsChanged.addListener(function() {
