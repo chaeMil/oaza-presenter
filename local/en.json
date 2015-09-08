@@ -19,7 +19,7 @@
   "currentBg": "current background:",
   "bibleButton": " <u>B</u>ible",
   "songsButton": " Songs",
-  "bgsButtons": " Background",
+  "bgsButton": " Background",
   "listsButton": " Lists",
   "chooseImage": "Choose background",
   "importImages": "Import",
@@ -52,5 +52,7 @@
   "defaultBgsFolder": "default backgrounds",
   "folders": "folders: ",
   "add": "add",
-  "addImageFolder": "Create folder"
+  "addFolder": "Create folder",
+  "removeFolder": "Remove folder",
+  "remove": "Remove"
 }

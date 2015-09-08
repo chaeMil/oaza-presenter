@@ -52,5 +52,7 @@
   "defaultBgsFolder": "výchozí pozadí",
   "folders": "složky: ",
   "add": "přidat",
-  "addImageFolder": "Vytvořit složku"
+  "addFolder": "Vytvořit složku",
+  "removeFolder": "Odstranit složku",
+  "remove": "Odstranit"
 }

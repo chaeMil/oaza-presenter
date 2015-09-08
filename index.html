@@ -266,45 +266,58 @@
        | version 0.4 alpha</span>
   </statusbar>
   
-  <dialog id="closeAppDialog">
-		<h2 data-localize="quitApp">Ukončit Oáza Presenter?</h2>
-		<div>
-			<btn data-localize="no" id="closeAppDialogNo">Ne</btn>
-			<btn data-localize="quit" id="closeAppDialogYes">Ukončit</btn>
-		</div>
-	</dialog>
-	
-	<dialog id="helpKeyboardDialog">
-		<h2 data-localize="helpKeyboard"></h2>
-		<div>
-		  <ul data-localize="helpKeyboardText">
-		  </ul>
-		</div>
-		<div>
-			<btn data-localize="close" id="helpKeyboardDialogDismiss"></btn>
-		</div>
-	</dialog>
-	
-	<dialog id="chooseLanguageDialog">
-		<h2 data-localize="chooseLanguage"></h2>
-		  <ul class="languageSelect">
-		    <li><a class="language" data-language="en">English</a></li>
-		    <li><a class="language" data-language="cs">česky</a></li>
-		  </ul>
-		<div>
-			<btn data-localize="close" id="chooseLanguageDismiss"></btn>
-		</div>
-	</dialog>
-	
-	<dialog id="addBgFolderDialog">
-		<h2 data-localize="addBgFolder"></h2>
-		  <input id="addBgFolderName" class="addBgFolderName" type="text">
-		  <br><br>
-		<div>
-			<btn data-localize="close" id="addBgFolderDismiss"></btn>
-			<btn data-localize="add" id="addBgFolderAdd"></btn>
-		</div>
-	</dialog>
+  
+  <dialogs>
+    <dialog id="closeAppDialog">
+  		<h2 data-localize="quitApp">Ukončit Oáza Presenter?</h2>
+  		<div>
+  			<btn data-localize="no" id="closeAppDialogNo">Ne</btn>
+  			<btn data-localize="quit" id="closeAppDialogYes">Ukončit</btn>
+  		</div>
+  	</dialog>
+  	
+  	<dialog id="helpKeyboardDialog">
+  		<h2 data-localize="helpKeyboard"></h2>
+  		<div>
+  		  <ul data-localize="helpKeyboardText">
+  		  </ul>
+  		</div>
+  		<div>
+  			<btn data-localize="close" id="helpKeyboardDialogDismiss"></btn>
+  		</div>
+  	</dialog>
+  	
+  	<dialog id="chooseLanguageDialog">
+  		<h2 data-localize="chooseLanguage"></h2>
+  		  <ul class="languageSelect">
+  		    <li><a class="language" data-language="en">English</a></li>
+  		    <li><a class="language" data-language="cs">česky</a></li>
+  		  </ul>
+  		<div>
+  			<btn data-localize="close" id="chooseLanguageDismiss"></btn>
+  		</div>
+  	</dialog>
+  	
+  	<dialog id="addBgFolderDialog">
+  		<h2 data-localize="addFolder"></h2>
+  		  <input id="addBgFolderName" class="addBgFolderName" type="text">
+  		  <br><br>
+  		<div>
+  			<btn data-localize="close" id="addBgFolderDismiss"></btn>
+  			<btn data-localize="add" id="addBgFolderAdd"></btn>
+  		</div>
+  	</dialog>
+  	
+  	<dialog id="removeBgFolderDialog">
+  		<h2 data-localize="removeFolder"></h2>
+  		  <span id="removeBgFolderName"></span>
+  		  <br><br>
+  		<div>
+  			<btn data-localize="close" id="removeBgFolderDismiss"></btn>
+  			<btn data-localize="remove" id="removeBgFolderRemove"></btn>
+  		</div>
+  	</dialog>
+  </dialogs>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="js/xml-functions.js"></script>
@@ -317,6 +330,7 @@
   <script src="js/utils.js"></script>
   <script src="js/file-utils.js"></script>
   <script src="js/settings-utils.js"></script>
+  <script src="js/dialogs.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
