@@ -22,6 +22,8 @@ var numberOfDefaultBgs = 35;
 var globalData;
 
 var fileSystem = null;
+var settingsFile = null;
+var settings = {};
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
@@ -31,12 +33,17 @@ function init() {
   
   chrome.syncFileSystem.requestFileSystem(function(fs) {
     fileSystem = fs;
+    fs.root.getFile("settings.conf", {create: true}, function(fileEntry) {
+      settingsFile = fileEntry;
+      readSettings(fileEntry);
+    });
   });
   
   chrome.runtime.getPlatformInfo(function(info) {
     var os = info.os;
     chrome.runtime.getBackgroundPage(function(bgpage) {
       bgpage.globalData.appId = chrome.runtime.id;
+      console.log("appId: " + bgpage.globalData.appId);
     });
     
     if (os == 'linux') {
