@@ -16,32 +16,27 @@ function fileSystemPermission(callback) {
   });
 }
 
-function saveOption(key, value) {
-  /*var sKey = key;
-  var sValue = value;
-  chrome.storage.local.set({key: value}, function() {
-    console.log('saved: ' + sKey + ":" + sValue);
-  });
-  
-  chrome.storage.sync.set({ sKey : sValue }, function() {
-		if (chrome.runtime.error) {
-			console.log("Runtime error.");
-		}
-	});*/
+function openPresenterWindow() {
+  chrome.app.window.create(
+    'layouts/presenter.html',
+    {
+      id: 'presenter',
+      frame: 'none',
+      innerBounds: {
+        minHeight: 480,
+        minWidth: 480
+      }
+    },
+    function(win) {
+      win.onClosed.addListener(function() {
+        console.log('closed presenter window');
+      });
+    }
+  );
 }
 
-function getOption(key) {
-  /*chrome.storage.local.get(key, function(items) {
-		console.debug(key + ' = ' + items[key]);
-		console.debug(items);
-  });
-  
-  chrome.storage.sync.get(key, function(items) {
-		if (!chrome.runtime.error) {
-			console.log(items);
-			document.getElementById("data").innerText = items.data;
-		}
-	});*/
+function closePresenterWindow() {
+  chrome.app.window.get('presenter').close();
 }
 
 function randomIntFromInterval(min,max) {
@@ -56,4 +51,43 @@ function loadImageFromUri(uri, imgElement) {
   };
   xhr.open('GET', uri, true);
   xhr.send();
+}
+
+function log(msg) {
+  console.log(msg, arguments);
+}
+
+function error(msg) {
+  console.log('ERROR: ', arguments);
+  var message = '';
+  for (var i = 0; i < arguments.length; i++) {
+    var description = '';
+    if (arguments[i] instanceof FileError) {
+      switch (arguments[i].code) {
+        case FileError.QUOTA_EXCEEDED_ERR:
+          description = 'QUOTA_EXCEEDED_ERR';
+          break;
+        case FileError.NOT_FOUND_ERR:
+          description = 'NOT_FOUND_ERR';
+          break;
+        case FileError.SECURITY_ERR:
+          description = 'SECURITY_ERR';
+          break;
+        case FileError.INVALID_MODIFICATION_ERR:
+          description = 'INVALID_MODIFICATION_ERR';
+          break;
+        case FileError.INVALID_STATE_ERR:
+          description = 'INVALID_STATE_ERR';
+          break;
+        default:
+          description = 'Unknown Error';
+          break;
+      }
+      message += ': ' + description;
+    } else if (arguments[i].fullPath) {
+      message += arguments[i].fullPath + ' ';
+    } else {
+      message += arguments[i] + ' ';
+    }
+  }
 }

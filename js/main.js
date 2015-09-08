@@ -21,40 +21,25 @@ var content = $('#content');
 var numberOfDefaultBgs = 35;
 var globalData;
 
+var fileSystem = null;
+
 chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
 });
 
-function openPresenterWindow() {
-  chrome.app.window.create(
-    'layouts/presenter.html',
-    {
-      id: 'presenter',
-      frame: 'none',
-      innerBounds: {
-        minHeight: 480,
-        minWidth: 480
-      }
-    },
-    function(win) {
-      win.onClosed.addListener(function() {
-        console.log('closed presenter window');
-      });
-    }
-  );
-}
-
-function closePresenterWindow() {
-  chrome.app.window.get('presenter').close();
-}
-
 function init() {
   
+  chrome.syncFileSystem.requestFileSystem(function(fs) {
+    fileSystem = fs;
+  });
+  
   chrome.runtime.getPlatformInfo(function(info) {
-    globalData.os = info.os;
-    globalData.appId = chrome.runtime.id;
+    var os = info.os;
+    chrome.runtime.getBackgroundPage(function(bgpage) {
+      bgpage.globalData.appId = chrome.runtime.id;
+    });
     
-    if (globalData.os == 'linux') {
+    if (os == 'linux') {
       $('#closeApp').addClass('left');
       $('#toolbarMenu').addClass('linux');
     }
@@ -91,7 +76,7 @@ function init() {
   }, 750);
 }
 
-window.onload = function() {
+window.addEventListener('load', function() {
   
   init();
   
@@ -214,4 +199,4 @@ window.onload = function() {
     }
   });
   
-};
+});

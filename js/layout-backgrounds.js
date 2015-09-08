@@ -16,24 +16,21 @@ function addBgsLayout() {
 }
 
 function importBgs() {
-  fileSystemPermission(function(e) {
-    console.log('acces to filesystem is granted');
-    chrome.fileSystem.chooseEntry(
-      {
-        type: 'openFile',
-        accepts: [
-          {
-            extensions: ['jpg']
-          }
-        ],
-        acceptsMultiple: true 
-      },
-      function (fileEntries) {
-        for(i = 0; i < fileEntries.length; i++) {
-          addBg(fileEntries[i]);
+  chrome.fileSystem.chooseEntry(
+    {
+      type: 'openFile',
+      accepts: [
+        {
+          extensions: ['jpg']
         }
-      });
-  });
+      ],
+      acceptsMultiple: true 
+    },
+    function (fileEntries) {
+      for(i = 0; i < fileEntries.length; i++) {
+        addBg(fileEntries[i]);
+      }
+    });
 }
 
 function addBg(entry) {
