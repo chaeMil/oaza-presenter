@@ -50,13 +50,14 @@ function addBg(entry) {
   });
 }
 
-function createBgFolder(folderName) {
+function createBgFolder(folder) {
   $('#bgFoldersBar').append('<span class="bgsFolderButton active" data-folder="'
-    + folderName + '">' + folderName + '</span>');
+    + folder + '">' + folder + '</span>');
   $('#bgFolders').append('<div class="pure-g folder" id="bgsFolder_' 
-    + folderName + '"></div>');
-  showBgsFolder(folderName);
-  setSettings('addBgFolder', folderName, null);
+    + folder + '"></div>');
+  
+  showBgsFolder(folder);
+  setSettings('addBgFolder', folder, null);
 }
 
 $(document).on("click", '.bgsFolderButton', function(event) {
@@ -78,6 +79,8 @@ function removeBgsFolder(folder) {
   $('[data-folder="default"]').addClass('active');
   $('#bgsFolder_default').show();
   $('#bgsFolder_default').addClass('active');
+  
+  setSettings('removeBgFolder', folder, null);
 }
 
 $(document).on("click", '#addNewBgsFolderButton', function(event) {
