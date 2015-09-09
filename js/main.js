@@ -23,8 +23,6 @@ var globalData;
 
 var fileSystem = null;
 var settingsFile = null;
-var settings = {};
-settings["bgFolders"] = [];
 
 chrome.runtime.getBackgroundPage(function(bgpage) {
   globalData = bgpage.globalData;
@@ -34,10 +32,25 @@ function init() {
   
   chrome.syncFileSystem.requestFileSystem(function(fs) {
     fileSystem = fs;
-    fs.root.getFile("settings.conf", {create: true}, function(fileEntry) {
+    /*fs.root.getFile("settings.conf", {create: true}, function(fileEntry) {
       settingsFile = fileEntry;
       readSettings(fileEntry);
-    });
+    });*/
+  });
+  
+  chrome.runtime.sendMessage({
+    type: 'setSettings',
+    name: 'addBgFolder',
+    value: 'test'
+  }, function(value) {
+      console.dir(value);
+  });
+  
+  chrome.runtime.sendMessage({
+      type: 'getSettings',
+      name: 'all'
+  }, function(value) {
+      console.dir(value);
   });
   
   chrome.runtime.getPlatformInfo(function(info) {
