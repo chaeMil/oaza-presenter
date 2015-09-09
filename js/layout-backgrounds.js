@@ -13,6 +13,12 @@ function addBgsLayout() {
       importBgs();
     });
   });
+  
+  //scrolling the content to precache all default images
+  $("#content").animate({scrollTop: $('#content')[0].scrollHeight}, 1000);
+  setTimeout(function(e) {
+    $('#content').scrollTop(0);
+  }, 1100);
 }
 
 function importBgs() {
