@@ -38,21 +38,6 @@ function init() {
     });*/
   });
   
-  chrome.runtime.sendMessage({
-    type: 'setSettings',
-    name: 'addBgFolder',
-    value: 'test'
-  }, function(value) {
-      console.dir(value);
-  });
-  
-  chrome.runtime.sendMessage({
-      type: 'getSettings',
-      name: 'all'
-  }, function(value) {
-      console.dir(value);
-  });
-  
   chrome.runtime.getPlatformInfo(function(info) {
     var os = info.os;
     chrome.runtime.getBackgroundPage(function(bgpage) {
@@ -180,6 +165,11 @@ window.addEventListener('load', function() {
           break;
         case 'E':
           setPresenterFontSize(10);
+          break;
+        case 'X':
+          getSettings('all', function(e) {
+            console.log(e);
+          });
           break;
       }
     }

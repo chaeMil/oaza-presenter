@@ -56,7 +56,7 @@ function createBgFolder(folderName) {
   $('#bgFolders').append('<div class="pure-g folder" id="bgsFolder_' 
     + folderName + '"></div>');
   showBgsFolder(folderName);
-  console.log(settings);
+  setSettings('addBgFolder', folderName, null);
 }
 
 $(document).on("click", '.bgsFolderButton', function(event) {

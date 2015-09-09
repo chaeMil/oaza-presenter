@@ -39,9 +39,8 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
     if (request.type == 'setSettings') {
       if (request.name === 'addBgFolder') {
         settings['bgFolders'].push({'folderName': request.value});
-        callback(function() {
-          return 'addedFolder: ' + request.value;
-        });
+        console.log(settings);
+        callback(returnSettings());
       }
     }
     

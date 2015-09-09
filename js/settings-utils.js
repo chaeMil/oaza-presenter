@@ -1,40 +1,25 @@
-function writeSettings(file) {
-  var data = "pokusák";
-  
-  file.createWriter(function(writer) {
-    writer.onwriteend = function(e) {
-      console.log(e);
-    };
-    
-    writer.onerror = function(e) {
-      console.log(e);
-    };
-    
-    var blob = new Blob([data]);
-    
-    writer.write(blob);
-  });
-}
-
-function readSettings(file) {
-  file.file(function(fileObject) {
-    var reader = new FileReader();
-    
-    reader.onloadend = function(e) {
-      settings = this.result;
-    };
-    
-    reader.readAsText(fileObject);
-  });
-}
-
-function clearSettings(file) {
-  console.log(file);
-  file.remove(
+function setSettings(key, val, callback) {
+  chrome.runtime.sendMessage(
+    {
+      type: 'setSettings',
+      name: key, 
+      value: val
+    }, 
     function(e) {
-      console.log("file deleted");
-    }, function(e) {
-      console.log(e);
+      if (callback !== null) {
+        callback(e);
+      }
+    });
+}
+
+function getSettings(key, callback) {
+  chrome.runtime.sendMessage( {
+    type: 'getSettings',
+    name: key
+  },
+  function (e) {
+    if (callback !== null) {
+      callback(e);
     }
-  );
+  });
 }
