@@ -8,6 +8,18 @@ body.presenter {
   color: white;
 }
 
+#initAnimation {
+  max-width: 80%;
+  height: auto;
+  position: absolute;
+  left: calc(50% - 250px);
+  top: calc(50% - 178px);
+}
+
+.invert {
+  -webkit-filter: invert(100%);
+}
+
 .draggable {
   -webkit-app-region: drag;
 }
