@@ -111,7 +111,7 @@ function showUI() {
       updatePreview();
       
     }, 500);
-  }, 2000);
+  }, 3000);
 }
 
 function initSidebarButtons() {

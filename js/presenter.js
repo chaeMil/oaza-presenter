@@ -43,7 +43,7 @@ $(document).ready(function(event) {
        init();
       renderText();
     }, 500);
-  }, 1500);
+  }, 3000);
 });
 
 $(document).on('keydown', function (e) {
