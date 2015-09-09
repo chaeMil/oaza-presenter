@@ -52,17 +52,20 @@ function init() {
   addBgsLayout();
   addBibleLayout();
   
-  switch(userLang) {
-    case 'cs':
-      getLocalFile('cs');
-      break;
-    case 'en':
-      getLocalFile('en');
-      break;
-    default:
-      getLocalFile('en');
-      break;
-  }
+  getSettings('all', function(settings) {
+    console.log(settings);
+    switch(settings['language']) {
+      case 'cs':
+        getLocalFile('cs');
+        break;
+      case 'en':
+        getLocalFile('en');
+        break;
+      default:
+        getLocalFile('en');
+        break;
+    }
+  });
   
   loadBibles();
 }
@@ -154,11 +157,6 @@ window.addEventListener('load', function() {
           break;
         case 'E':
           setPresenterFontSize(10);
-          break;
-        case 'X':
-          getSettings('all', function(e) {
-            console.log(e);
-          });
           break;
       }
     }

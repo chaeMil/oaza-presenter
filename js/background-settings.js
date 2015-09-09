@@ -9,9 +9,27 @@ function returnSettings() {
   return settings;
 }
 
+function loadSettingsFromFile(file, callback) {
+  file.file(function(fileObject) {
+    
+    var settings = null;
+    var reader = new FileReader();
+    
+    reader.onloadend = function(e) {
+      json = this.result;
+      callback(json);
+    };
+    
+    reader.readAsText(fileObject);
+    
+  });
+  
+}
+
 function writeSettingsFile() {
   var data = JSON.stringify(settings);
   
+  console.log('writting settings file');
   console.log(data);
   
   settingsFile.createWriter(function(writer) {
@@ -24,7 +42,7 @@ function writeSettingsFile() {
     };
     
     var blob = new Blob([data]);
-    
+
     writer.write(blob);
   });
 }
@@ -35,6 +53,9 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
     fileSystem = fs;
     fs.root.getFile("settings.conf", {create: true}, function(fileEntry) {
       settingsFile = fileEntry;
+      loadSettingsFromFile(settingsFile, function(json) {
+        settings = JSON.parse(json);
+      });
     });
   });
   
@@ -44,10 +65,6 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       //addBgFolder
       if (request.name === 'addBgFolder') {
         settings['bgFolders'].push(request.value);
-        console.log(settings);
-        console.log(settingsFile);
-        writeSettingsFile();
-        callback(returnSettings());
       }
       
       //removeBgFolder
@@ -56,7 +73,17 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         if (index >= 0) {
           settings['bgFolders'].splice(index, 1);
         }
-        console.log(settings);
+      }
+      
+      //set language
+      if (request.name === 'language') {
+        settings['language'] = request.value;
+      }
+      
+      console.log(settings);
+      console.log(settingsFile);
+      writeSettingsFile();
+      if (callback !== null) {
         callback(returnSettings());
       }
     }

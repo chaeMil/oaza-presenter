@@ -18,6 +18,7 @@ $(document).on("click", '.presenterOpen', function(event) {
 
 $(document).on("click", '.language', function(event) { 
   getLocalFile($(this).data('language'));
+  setSettings('language', $(this).data('language'), null);
 });
 
 $(document).on("click", '.settings', function(event) { 
