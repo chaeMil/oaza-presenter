@@ -1,3 +1,26 @@
+function openPresenterWindow() {
+  chrome.app.window.create(
+    'layouts/presenter.html',
+    {
+      id: 'presenter',
+      frame: 'none',
+      innerBounds: {
+        minHeight: 480,
+        minWidth: 480
+      }
+    },
+    function(win) {
+      win.onClosed.addListener(function() {
+        console.log('closed presenter window');
+      });
+    }
+  );
+}
+
+function closePresenterWindow() {
+  chrome.app.window.get('presenter').close();
+}
+
 function setPresenterFontSize(value) {
   if (value === 0) {
     presenterFontSize = 100;

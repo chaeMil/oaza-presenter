@@ -7,6 +7,10 @@ chrome.runtime.getBackgroundPage(function(bgpage) {
 
 var activeBgLayer = 1;
 
+function hideInitAnimation() {
+  $('#initAnimation').fadeOut(500);
+}
+
 function init() {
   chrome.app.window.get('mainWindow').contentWindow
     .setPresenterText('Oáza Presenter','version 0.4.1 alpha', 'github.com/chaeMil/oaza-presenter');
@@ -33,8 +37,13 @@ chrome.app.window.current().onBoundsChanged.addListener(function() {
 });
 
 $(document).ready(function(event) {
-  init();
-  renderText();
+  setTimeout(function(e) {
+    hideInitAnimation();
+    setTimeout(function(e) {
+       init();
+      renderText();
+    }, 500);
+  }, 1500);
 });
 
 $(document).on('keydown', function (e) {

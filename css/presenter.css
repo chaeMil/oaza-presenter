@@ -4,12 +4,11 @@ body.presenter {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: #050505;
   color: white;
 }
 
 #initAnimation {
-  max-width: 80%;
   height: auto;
   position: absolute;
   left: calc(50% - 250px);

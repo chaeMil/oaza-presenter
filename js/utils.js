@@ -16,29 +16,6 @@ function fileSystemPermission(callback) {
   });
 }
 
-function openPresenterWindow() {
-  chrome.app.window.create(
-    'layouts/presenter.html',
-    {
-      id: 'presenter',
-      frame: 'none',
-      innerBounds: {
-        minHeight: 480,
-        minWidth: 480
-      }
-    },
-    function(win) {
-      win.onClosed.addListener(function() {
-        console.log('closed presenter window');
-      });
-    }
-  );
-}
-
-function closePresenterWindow() {
-  chrome.app.window.get('presenter').close();
-}
-
 function randomIntFromInterval(min,max) {
   return Math.floor(Math.random()*(max-min+1)+min);
 }
