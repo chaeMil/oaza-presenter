@@ -52,6 +52,10 @@ function createBgFolder(folderName) {
   showBgsFolder(folderName);
 }
 
+$(document).on("click", '.bgsFolderButton', function(event) {
+  showBgsFolder($(this).data('folder'));
+});
+
 function showBgsFolder(folder) {
   $('#bgFoldersBar').children().removeClass('active');
   $('[data-folder=' + folder + ']').addClass('active');

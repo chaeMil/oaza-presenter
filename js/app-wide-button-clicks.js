@@ -1,9 +1,5 @@
 // app wide buttons clicks
 
-$(document).on("click", '.bgsFolderButton', function(event) {
-  showBgsFolder($(this).data('folder'));
-});
-
 $(document).on("click", '.presenterFontBigger', function(event) {
   setPresenterFontSize(10);
 });

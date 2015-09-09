@@ -1,3 +1,4 @@
+
   //app close dialog
   var closeAppDialog = document.querySelector('#closeAppDialog');
 

@@ -20,7 +20,7 @@
         Oáza Presenter
       </menu-item>
       
-      <div class="pure-menu pure-menu-horizontal not-draggable">
+      <div id="menubar" class="pure-menu pure-menu-horizontal not-draggable hidden">
         <ul class="pure-menu-list">
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
             <a class="pure-menu-link top-menu" data-localize="canvas"></a>
@@ -188,11 +188,13 @@
     </close-button>
   </toolbar>
   
-  <content id="content" class="custom_scrollbar">
+  <img id="initAnimation" src="assets/defaults/animations/init.gif" width="500" height="auto">
+  
+  <content id="content" class="custom_scrollbar hidden">
     
   </content>
   
-  <sidebar class="left">
+  <sidebar class="left hidden">
     <align-bottom>
       <row class="muted" data-localize="currentText"></row>
       <row id="currentText"></row>
@@ -206,7 +208,7 @@
     </align-bottom>
   </sidebar>
   
-  <sidebar class="right">
+  <sidebar class="right hidden">
     <row>
       <btn id="bibleButton"><i class="fa fa-book"></i>
         <span data-localize="bibleButton"></span>

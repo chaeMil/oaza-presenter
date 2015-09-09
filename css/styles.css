@@ -1,5 +1,12 @@
 body {
   font-family: 'Roboto Regular';
+  background-color: #FAFAFA;
+}
+
+#initAnimation {
+  position: fixed;
+  left: calc(50% - 200px);
+  top: calc(50% - 187px);
 }
 
 .draggable {

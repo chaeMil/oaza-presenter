@@ -78,32 +78,48 @@ function init() {
   }
   
   loadBibles();
-  
+}
+
+function showUI() {
   setTimeout(function() {
+    
+    $('#initAnimation').fadeOut();
+    
+    setTimeout(function() {
+      
+      content.removeClass('hidden');
+      $('sidebar.left').removeClass('hidden').show();
+      $('sidebar.right').removeClass('hidden');
+      $('#menubar').removeClass('hidden');
+      showLayout('#layout-backgrounds');
+      
+      initSidebarButtons();
+      
+      updatePreview();
+      
+    }, 500);
+  }, 2000);
+}
+
+function initSidebarButtons() {
+  $(document).on('click', '#bgsButton', function(e) {
     showLayout('#layout-backgrounds');
-  }, 750);
+  });
+  
+  $(document).on('click', '#bibleButton', function(e) {
+    showLayout('#layout-bible');
+  });
+  
+  $(document).on('click', '#preview', function(e) {
+    console.log('toggle preview zoom');
+    $(this).toggleClass('big', 1000, "easeOutSine");
+  });
 }
 
 window.addEventListener('load', function() {
   
   init();
-  
-  $('#bgsButton').click(function (e) {
-    showLayout('#layout-backgrounds');
-  });
-  
-  $('#bibleButton').click(function (e) {
-    showLayout('#layout-bible');
-  });
-  
-  //zoom preview
-  $('#preview').click(function (e) {
-    console.log('toggle preview zoom');
-    $(this).toggleClass('big', 1000, "easeOutSine");
-  });
-  
-
-  
+  showUI();
   
   $(document).on('keydown', function (e) {
     var key = String.fromCharCode(e.which);
