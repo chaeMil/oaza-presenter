@@ -3,6 +3,7 @@ var settingsFile = null;
 
 var settings = {};
 settings['bgFolders'] = [];
+settings['language'] = '';
 
 function returnSettings() {
   return settings;

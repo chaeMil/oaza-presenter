@@ -34,7 +34,7 @@ function init() {
       console.log("appId: " + bgpage.globalData.appId);
     });
     
-    if (os == 'linux') {
+    if (os == 'linux' || os == 'mac') {
       $('#closeApp').addClass('left');
       $('#toolbarMenu').addClass('linux');
     }
