@@ -54,5 +54,6 @@
   "add": "přidat",
   "addFolder": "Vytvořit složku",
   "removeFolder": "Odstranit složku",
-  "remove": "Odstranit"
+  "remove": "Odstranit",
+  "statusFileSync": "synchronizace: "
 }

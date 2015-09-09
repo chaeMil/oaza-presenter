@@ -106,6 +106,10 @@ function initSidebarButtons() {
   });
 }
 
+function displaySyncStatus(status) {
+  $('#syncStatus').text(status);
+}
+
 window.addEventListener('load', function() {
   
   init();

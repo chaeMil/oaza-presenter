@@ -54,5 +54,6 @@
   "add": "add",
   "addFolder": "Create folder",
   "removeFolder": "Remove folder",
-  "remove": "Remove"
+  "remove": "Remove",
+  "statusFileSync": "sync: "
 }

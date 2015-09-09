@@ -47,6 +47,10 @@ function writeSettingsFile() {
   });
 }
 
+function displaySyncStatus(status) {
+  chrome.app.window.get('mainWindow').contentWindow.displaySyncStatus(status);
+}
+
 chrome.app.runtime.onLaunched.addListener(function(launchData) {
   
   chrome.syncFileSystem.requestFileSystem(function(fs) {
@@ -57,6 +61,17 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         settings = JSON.parse(json);
       });
     });
+  });
+  
+  chrome.syncFileSystem.getServiceStatus(function(status) {
+    setTimeout(function(e) {
+      displaySyncStatus(status);
+    }, 1000);
+  });
+  
+  chrome.syncFileSystem.onServiceStatusChanged.addListener(function(status) {
+    console.log(status);
+    displaySyncStatus(status['description']);
   });
   
   chrome.runtime.onMessage.addListener(function(request, sender, callback) {
