@@ -5,18 +5,23 @@ function keyControls() {
     if (!$("input").is(":focus")) {
       switch(key){
         case 'F':
+          e.preventDefault();
           setPresenterFullscreen();
           break;
         case 'B':
+          e.preventDefault();
           showLayout('#layout-bible');
           break;
         case 'P':
+          e.preventDefault();
           showLayout('#layout-backgrounds');
           break;
         case 'G':
+          e.preventDefault();
           togglePresenterDraggable();
           break;
         case 'N':
+          e.preventDefault();
           if (hideText) {
             presenterToggleText(false);
           } else {
@@ -24,6 +29,7 @@ function keyControls() {
           }
           break;
         case 'M':
+          e.preventDefault();
           if (hideBg) {
             presenterToggleBg(false);
           } else {
@@ -31,6 +37,7 @@ function keyControls() {
           }
           break;
         case 'Z':
+          e.preventDefault();
           if (presenterFreezed) {
             presenterToggleFreezed(false);
           } else {
@@ -38,12 +45,15 @@ function keyControls() {
           }
           break;
         case 'Q':
+          e.preventDefault();
           setPresenterFontSize(-10);
           break;
         case 'W':
+          e.preventDefault();
           setPresenterFontSize(0);
           break;
         case 'E':
+          e.preventDefault();
           setPresenterFontSize(10);
           break;
         case '%': // left
@@ -61,10 +71,20 @@ function keyControls() {
             $('#bibleHistory').focus();
             break;
           }
+          
+          if($('#bibleHistory').is(':focus')) {
+            $('#bibleTranslationSelect').focus();
+            break;
+          }
           break;
         case '&': // up
           break;
         case "'": // right
+          if($('#bibleTranslationSelect').is(':focus')) {
+            $('#bibleHistory').focus();
+            break;
+          }
+        
           if($('#bibleHistory').is(':focus')) {
             $('#bibleBookSelect').focus();
             break;
