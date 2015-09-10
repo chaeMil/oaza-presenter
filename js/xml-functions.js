@@ -51,7 +51,7 @@ function getBibleBooks(file) {
 
 function getBibleChapters(count) {
   $('#bibleChapterSelect').empty();
-  for (var n = 1; n < count; ++ n) {
+  for (var n = 1; n <= count; ++ n) {
     $('#bibleChapterSelect').append('<option value="' + n + '" ' +
       'data-chapter="' + n + '">'
       + n + '</option>');

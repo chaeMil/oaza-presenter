@@ -46,20 +46,35 @@ function keyControls() {
         case 'E':
           setPresenterFontSize(10);
           break;
-        case 37: // left
+        case '%': // left
           break;
   
-        case 38: // up
+        case '&': // up
           break;
   
-        case 39: // right
+        case "'": // right
           break;
   
-        case 40: // down
+        case '(': // down
           if($('#bibleVerseSelect').is(':focus')) {
             
             var maxVerse = $('#bibleVerseSelect option:last').val();
-            var currentVerse = currentVerseNum;
+            
+            console.log('maxVerse: ' + maxVerse + ' currentVerse: ' + currentVerseNum);
+            
+            if(maxVerse == currentVerseNum) {
+              currentVerseNum = 1;
+              currentChapterNum += 1;
+              getBibleVerseAndDisplay($('#bibleTranslationSelect').val(), 
+                currentBookNum, 
+                currentChapterNum, 
+                currentVerseNum);
+                
+              getBibleVerses($('#bibleTranslationSelect').val(),
+                currentBookNum,
+                currentChapterNum);
+            }
+            
           }
           break;
       }
