@@ -47,14 +47,39 @@ function keyControls() {
           setPresenterFontSize(10);
           break;
         case '%': // left
+          if($('#bibleVerseSelect').is(':focus')) {
+            $('#bibleChapterSelect').focus();
+            break;
+          }
+          
+          if($('#bibleChapterSelect').is(':focus')) {
+            $('#bibleBookSelect').focus();
+            break;
+          }
+          
+          if($('#bibleBookSelect').is(':focus')) {
+            $('#bibleHistory').focus();
+            break;
+          }
           break;
-  
         case '&': // up
           break;
-  
         case "'": // right
+          if($('#bibleHistory').is(':focus')) {
+            $('#bibleBookSelect').focus();
+            break;
+          }
+          
+          if($('#bibleBookSelect').is(':focus')) {
+            $('#bibleChapterSelect').focus();
+            break;
+          }
+          
+          if($('#bibleChapterSelect').is(':focus')) {
+            $('#bibleVerseSelect').focus();
+            break;
+          }
           break;
-  
         case '(': // down
           if($('#bibleVerseSelect').is(':focus')) {
             
