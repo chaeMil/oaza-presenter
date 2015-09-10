@@ -3,13 +3,8 @@ function addBibleLayout() {
     content.append(data);
     
     $('#bibleTranslationSelect').on('change', function() {
-      getBibleBooks($(this).val());
-      
-      $('#bibleBookSelect').empty();
-      $('#bibleChapterSelect').empty();
       $('#bibleVerseSelect').empty();
       
-      getBibleChapters($(this).val(), currentBookNum);
       getBibleVerses($(this).val(), currentBookNum, currentChapterNum);
       
       if(currentVerseNum !== 0) {
@@ -23,8 +18,7 @@ function addBibleLayout() {
     });
     
     $('#bibleBookSelect').on('change', function() {
-      getBibleChapters($('#bibleTranslationSelect').val(), $(this).val());
-      $('#bibleChapterSelect').empty();
+      getBibleChapters($('#bibleBookSelect').find(':selected').data('chapters'));
       $('#bibleVerseSelect').empty();
       currentBookNum = $(this).data('book');
       currentBook = $(this).find(':selected').text();

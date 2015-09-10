@@ -114,56 +114,6 @@ window.addEventListener('load', function() {
   
   init();
   showUI();
-  
-  $(document).on('keydown', function (e) {
-    var key = String.fromCharCode(e.which);
-    
-    if (!$("input").is(":focus")) {
-      switch(key){
-        case 'F':
-          setPresenterFullscreen();
-          break;
-        case 'B':
-          showLayout('#layout-bible');
-          break;
-        case 'P':
-          showLayout('#layout-backgrounds');
-          break;
-        case 'G':
-          togglePresenterDraggable();
-          break;
-        case 'N':
-          if (hideText) {
-            presenterToggleText(false);
-          } else {
-            presenterToggleText(true);
-          }
-          break;
-        case 'M':
-          if (hideBg) {
-            presenterToggleBg(false);
-          } else {
-            presenterToggleBg(true);
-          }
-          break;
-        case 'Z':
-          if (presenterFreezed) {
-            presenterToggleFreezed(false);
-          } else {
-            presenterToggleFreezed(true);
-          }
-          break;
-        case 'Q':
-          setPresenterFontSize(-10);
-          break;
-        case 'W':
-          setPresenterFontSize(0);
-          break;
-        case 'E':
-          setPresenterFontSize(10);
-          break;
-      }
-    }
-  });
+  keyControls();
   
 });
