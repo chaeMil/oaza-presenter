@@ -17,6 +17,11 @@ function showHelpWindow(section) {
 function showLayout(layout) {
   hideLayouts();
   $(layout).show();
+  
+  switch(layout) {
+    case '#layout-bible':
+      $('#bibleVerseSelect').focus();
+  }
 }
 
 function hideLayouts() {
