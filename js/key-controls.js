@@ -56,6 +56,10 @@ function keyControls() {
           e.preventDefault();
           setPresenterFontSize(10);
           break;
+        case 'S':
+          e.preventDefault();
+          showLayout('#layout-songs');
+          break;
         case '%': // left
           if($('#bibleVerseSelect').is(':focus')) {
             $('#bibleChapterSelect').focus();

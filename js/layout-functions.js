@@ -27,4 +27,5 @@ function showLayout(layout) {
 function hideLayouts() {
   $('#layout-backgrounds').hide();
   $('#layout-bible').hide();
+  $('#layout-songs').hide();
 }

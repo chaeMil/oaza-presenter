@@ -51,6 +51,7 @@ function init() {
   
   addBgsLayout();
   addBibleLayout();
+  addSongsLayout();
   
   getSettings('all', function(settings) {
     console.log(settings);
@@ -98,6 +99,10 @@ function initSidebarButtons() {
   
   $(document).on('click', '#bibleButton', function(e) {
     showLayout('#layout-bible');
+  });
+  
+  $(document).on('click', '#songsButton', function(e) {
+    showLayout('#layout-songs');
   });
   
   $(document).on('click', '#preview', function(e) {
