@@ -56,5 +56,6 @@
   "addFolder": "Vytvořit složku",
   "removeFolder": "Odstranit složku",
   "remove": "Odstranit",
-  "statusFileSync": "synchronizace: "
+  "statusFileSync": "synchronizace: ",
+  "addSong": "přidat píseň"
 }

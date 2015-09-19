@@ -464,7 +464,7 @@ remove i {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-.addBgFolderName {
+.addBgFolderName, .addSongName {
   border: 1px solid #DDDDDD;
   padding: 8px;
   border-radius: 2px;

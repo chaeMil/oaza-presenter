@@ -83,3 +83,21 @@
   });
   
   
+  
+  //add song dialog
+  var addSongDialog = document.querySelector('#addSongDialog');
+  
+  document.querySelector('#addSongDismiss').addEventListener("click", function(evt) {
+    addSongDialog.close();
+  });
+  
+  document.querySelector('#addSongAdd').addEventListener("click", function(evt) {
+    
+    addSongDialog.close();
+  });
+    
+  addSongDialog.addEventListener("cancel", function(evt) {
+    addSongDialog.close("canceled");
+  });
+  
+  

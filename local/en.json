@@ -56,5 +56,6 @@
   "addFolder": "Create folder",
   "removeFolder": "Remove folder",
   "remove": "Remove",
-  "statusFileSync": "sync: "
+  "statusFileSync": "sync: ",
+  "addSong": "add song"
 }
