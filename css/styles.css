@@ -203,6 +203,11 @@ btn {
   letter-spacing: 0em;
 }
 
+btn.square {
+  min-width: inherit;
+  width: 14px;
+}
+
 btn:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
@@ -474,4 +479,18 @@ remove i {
   position: absolute;
   right: 6px;
   top: 3px;
+}
+
+#songSelection {
+  width: calc(100% - 16px);
+  max-width: inherit;
+}
+
+#songText {
+  width: 100%;
+  max-width: inherit;
+}
+
+#addSong {
+  
 }

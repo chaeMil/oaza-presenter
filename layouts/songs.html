@@ -1,11 +1,28 @@
 <layout id="layout-songs" style="display: none;">
-  <h2 data-localize="chooseSong"></h2>
+  <div class="pure-g">
+    <div class="pure-u-1-2">
+      <h2 data-localize="chooseSong"></h2>
+    </div>
+    <div class="pure-u-1-2">
+      <row>
+        <btn id="addSong" class="square pull-right" style="margin-right: 8px">
+          <i class="fa fa-plus"></i> 
+        </btn>
+        <btn id="editSong" class="square pull-right" style="margin-right: 8px">
+          <i class="fa fa-pencil-square-o"></i> 
+        </btn>
+      </row>
+    </div>
+  </div>
   
   <div class="pure-g">
-    <div class="pure-u-1-5">
-      <div id="songsFolders">
-        
-      </div>
+    <div class="pure-u-1-4">
+      <select class="custom_scrollbar" id="songSelection" size="25">
+      </select>
+    </div>
+    <div class="pure-u-3-4">
+      <select class="custom_scrollbar" id="songText" size="25">
+      </select>
     </div>
   </div>
   
