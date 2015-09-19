@@ -92,7 +92,8 @@
   });
   
   document.querySelector('#addSongAdd').addEventListener("click", function(evt) {
-    
+    addSong($('#addSongName').val().replace(/"/g, '&&&'));
+    $('#addSongName').val('');
     addSongDialog.close();
   });
     
