@@ -483,11 +483,13 @@ remove i {
 
 #songSelection {
   width: calc(100% - 16px);
+  height: calc(100vh - 150px);
   max-width: inherit;
 }
 
 #songText {
   width: 100%;
+  height: calc(100vh - 150px);
   max-width: inherit;
 }
 
