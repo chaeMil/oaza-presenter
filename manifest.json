@@ -16,7 +16,7 @@
 
   "app": {
     "background": {
-      "scripts": ["js/background.js", "js/background-settings.js"]
+      "scripts": ["js/background.js"]
     }
   },
   
