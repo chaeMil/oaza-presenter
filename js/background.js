@@ -37,7 +37,7 @@ function loadDataFromJSONFile(file, callback) {
 
 function writeDataToJSONFile(input, file) {
   var data = JSON.stringify(input);
-  
+
   console.log('writting json file');
   console.log(data);
   
@@ -51,7 +51,7 @@ function writeDataToJSONFile(input, file) {
     };
     
     var blob = new Blob([data]);
-
+    
     writer.write(blob);
   });
 }
@@ -148,6 +148,21 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       //add song
       if (request.name == 'add') {
         songsDB.push(request.value);
+      }
+      
+      //remove song
+      if (request.name == 'delete') {
+        
+        console.log(songsDB);
+        
+        for(var i = 0; i < songsDB.length; i++) {
+          if(songsDB[i].name == request.value.name) {
+            songsDB.splice(i, 1);
+            break;
+          }
+        }
+        
+        console.log(songsDB);
       }
       
       writeDataToJSONFile(songsDB, songsFile);
