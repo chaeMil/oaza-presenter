@@ -94,8 +94,8 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
     });
     
     fs.root.getFile("songs.json", {create: true}, function(fileEntry) {
-      songsFile = fileEntry;
-      loadDataFromJSONFile(songsFile, function(json) {
+      songsDBFile = fileEntry;
+      loadDataFromJSONFile(songsDBFile, function(json) {
         songsDB = JSON.parse(json);
       });
     });
@@ -165,7 +165,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         console.log(songsDB);
       }
       
-      writeDataToJSONFile(songsDB, songsFile);
+      writeDataToJSONFile(songsDB, songsDBFile);
       if (callback !== null) {
         callback(returnSongs());
       }
