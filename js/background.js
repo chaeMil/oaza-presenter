@@ -8,14 +8,19 @@ var settings = {};
 settings['bgFolders'] = [];
 settings['language'] = '';
 
+var songs = {};
+
 function returnSettings() {
   return settings;
 }
 
-function loadSettingsFromFile(file, callback) {
+function returnSongs() {
+  return songs;
+}
+
+function loadDataFromJSONFile(file, callback) {
   file.file(function(fileObject) {
     
-    var settings = null;
     var reader = new FileReader();
     
     reader.onloadend = function(e) {
@@ -29,10 +34,10 @@ function loadSettingsFromFile(file, callback) {
   
 }
 
-function writeSettingsFile() {
-  var data = JSON.stringify(settings);
+function writeDataToJSONFile(input) {
+  var data = JSON.stringify(input);
   
-  console.log('writting settings file');
+  console.log('writting json file');
   console.log(data);
   
   settingsFile.createWriter(function(writer) {
@@ -81,7 +86,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
     fileSystem = fs;
     fs.root.getFile("settings.conf", {create: true}, function(fileEntry) {
       settingsFile = fileEntry;
-      loadSettingsFromFile(settingsFile, function(json) {
+      loadDataFromJSONFile(settingsFile, function(json) {
         settings = JSON.parse(json);
       });
       createWindows();
@@ -122,7 +127,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       
       console.log(settings);
       console.log(settingsFile);
-      writeSettingsFile();
+      writeDataToJSONFile(settings);
       if (callback !== null) {
         callback(returnSettings());
       }
