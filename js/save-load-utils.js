@@ -37,3 +37,15 @@ function songs(key, val, callback) {
       }
     });
 }
+
+function getSongs(callback) {
+  chrome.runtime.sendMessage( {
+    type: 'getSongs',
+    name: 'all'
+  },
+  function (e) {
+    if (callback !== null) {
+      callback(e);
+    }
+  });
+}

@@ -96,7 +96,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
     fs.root.getFile("songs.json", {create: true}, function(fileEntry) {
       songsFile = fileEntry;
       loadDataFromJSONFile(songsFile, function(json) {
-        songs = JSON.parse(json);
+        songsDB = JSON.parse(json);
       });
     });
     
