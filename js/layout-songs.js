@@ -12,4 +12,6 @@ function addSongsLayout() {
 function addSong(name) {
   $('#songSelection').append('<option data-name="'
       + name.replace(/&&&/g, '"') + '">' + name.replace(/&&&/g, '"') + '</option>');
+      
+  songs('add', {'name': name, 'content': ''}, null);
 }

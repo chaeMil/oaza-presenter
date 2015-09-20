@@ -23,3 +23,17 @@ function getSettings(key, callback) {
     }
   });
 }
+
+function songs(key, val, callback) {
+  chrome.runtime.sendMessage(
+    {
+      type: 'songs',
+      name: key, 
+      value: val
+    }, 
+    function(e) {
+      if (callback !== null) {
+        callback(e);
+      }
+    });
+}

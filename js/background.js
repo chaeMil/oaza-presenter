@@ -2,20 +2,21 @@ var globalData = {};
 globalData.presenterAspectRatio = 0;
 
 var fileSystem = null;
-var settingsFile = null;
 
+var settingsFile = null;
 var settings = {};
 settings['bgFolders'] = [];
 settings['language'] = '';
 
-var songs = {};
+var songsDBFile = null;
+var songsDB = [];
 
 function returnSettings() {
   return settings;
 }
 
 function returnSongs() {
-  return songs;
+  return songsDB;
 }
 
 function loadDataFromJSONFile(file, callback) {
@@ -34,13 +35,13 @@ function loadDataFromJSONFile(file, callback) {
   
 }
 
-function writeDataToJSONFile(input) {
+function writeDataToJSONFile(input, file) {
   var data = JSON.stringify(input);
   
   console.log('writting json file');
   console.log(data);
   
-  settingsFile.createWriter(function(writer) {
+  file.createWriter(function(writer) {
     writer.onwriteend = function(e) {
       console.log(e);
     };
@@ -84,13 +85,22 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
   
   chrome.syncFileSystem.requestFileSystem(function(fs) {
     fileSystem = fs;
-    fs.root.getFile("settings.conf", {create: true}, function(fileEntry) {
+    
+    fs.root.getFile("settings.json", {create: true}, function(fileEntry) {
       settingsFile = fileEntry;
       loadDataFromJSONFile(settingsFile, function(json) {
         settings = JSON.parse(json);
       });
-      createWindows();
     });
+    
+    fs.root.getFile("songs.json", {create: true}, function(fileEntry) {
+      songsFile = fileEntry;
+      loadDataFromJSONFile(songsFile, function(json) {
+        songs = JSON.parse(json);
+      });
+    });
+    
+    createWindows();
   });
   
   chrome.syncFileSystem.getServiceStatus(function(status) {
@@ -127,9 +137,29 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
       
       console.log(settings);
       console.log(settingsFile);
-      writeDataToJSONFile(settings);
+      writeDataToJSONFile(settings, settingsFile);
       if (callback !== null) {
         callback(returnSettings());
+      }
+    }
+    
+    if (request.type == 'songs') {
+      
+      //add song
+      if (request.name == 'add') {
+        songsDB.push(request.value);
+      }
+      
+      writeDataToJSONFile(songsDB, songsFile);
+      if (callback !== null) {
+        callback(returnSongs());
+      }
+      
+    }
+    
+    if (request.type == 'getSongs') {
+      if (request.name == 'all') {
+        callback(returnSongs());
       }
     }
     
