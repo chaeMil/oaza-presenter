@@ -10,6 +10,10 @@ function init() {
   });
 }
 
+function loadSong(name) {
+  console.log(name);
+}
+
 window.addEventListener('load', function() {
   
   init();

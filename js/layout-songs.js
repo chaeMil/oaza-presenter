@@ -51,8 +51,15 @@ function editSong() {
         minHeight: 550,
         minWidth: 600
       }
+    },
+    function() {
+      
+      var songName = $('#songSelection').val();
+      chrome.app.window.get('songEditor').contentWindow.loadSong(songName);
+      
     }
   );
+  
 }
 
 function parseSongs(callback) {

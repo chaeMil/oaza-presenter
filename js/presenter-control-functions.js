@@ -158,7 +158,8 @@ function setPresenterText(text, verse, translation, saveHistory) {
   currentVerse = verse;
   currentTranslation = translation;
   if (!presenterFreezed) {
-    chrome.app.window.get('presenter').contentWindow.changeText(text, verse, translation);
+    chrome.app.window.get('presenter').contentWindow.changeText(text, verse, 
+      translation);
   }
   $('#currentText').text(text.replace(/&&&/g, '"'));
   $('#currentVerse').text(verse);
