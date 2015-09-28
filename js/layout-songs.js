@@ -10,6 +10,10 @@ function addSongsLayout() {
       deleteSong();
     });
     
+    $('#editSong').on('click', function() {
+      editSong();
+    });
+    
     parseSongs(function(songs) {
       $.each(songs, function(index, value) {
         console.dir(value);
@@ -35,6 +39,20 @@ function deleteSong() {
   songs('delete', {'name': name, 'content': content}, null);
   
   $('#songSelection').find(':selected').remove();
+}
+
+function editSong() {
+  chrome.app.window.create(
+    'layouts/song-editor.html',
+    {
+      id: 'songEditor',
+      frame: 'none',
+      innerBounds: {
+        minHeight: 550,
+        minWidth: 600
+      }
+    }
+  );
 }
 
 function parseSongs(callback) {
