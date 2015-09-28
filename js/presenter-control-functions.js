@@ -164,10 +164,12 @@ function setPresenterText(text, verse, translation, saveHistory) {
   $('#currentVerse').text(verse);
   $('#currentTranslation').text(translation);
   
-  if (saveHistory) {
-    $('#bibleHistory').prepend('<option data-text="' + text + 
-      '" data-verse="' + verse + '" data-translation="' + translation + '">' + 
-      verse + '</option>');
+  if(!presenterFreezed) {
+    if (saveHistory) {
+      $('#bibleHistory').prepend('<option data-text="' + text + 
+        '" data-verse="' + verse + '" data-translation="' + translation + '">' + 
+        verse + '</option>');
+    }
   }
 }
 
